@@ -1,0 +1,416 @@
+[
+  {
+    "formatted_address": "Ahornstraße 8, 12163 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.46149,
+        "lng": 13.32195
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule Berlin - Hundestunde Berlin - Einzeltraining",
+    "photos": [
+      {
+        "height": 1236,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/109997790966969930143\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwJak3gMCQgzVasSu3oYlT-lQgcdSIZnBoiHMkUf9ejKwWh1h5qyDXL6c9w1MWwLu2m0r4H1rSuQEjocp1bw02WtubyFwf9DQcjBOHmoBoMMRr3pWvhNvWe-sa6SBogi_Mj25hdkKIPG0TO0lsbMxSLCjc1zb7w2KuxPahw1p9iDu-gS",
+        "width": 2000
+      }
+    ],
+    "rating": 5,
+    "user_ratings_total": 4
+  },
+  {
+    "formatted_address": "Bessemerstraße 2-14, 12103 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.466229,
+        "lng": 13.366807
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule Berlin Martin Rütter DOGS Carola Schulze",
+    "opening_hours": {
+      "open_now": true
+    },
+    "photos": [
+      {
+        "height": 1536,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/111644512248918190084\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwIDpX37AMh_ZpjUTqOzUMtdexrCRXcEJMu1B0iPYacox9kZIfunCWKGdtQ3E_Nz9FTQ5CW95mRV8QkY8sbAmep_6mTrvhTKabU8kFytZ75QMi_4xZPpKIAMIq0AZ6CX1jJZRGWgoPzIlbGWsiZgaUzBFAj9ne-IGh8yAIwz_yraFHPF",
+        "width": 2048
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 17
+  },
+  {
+    "formatted_address": "General-Pape-Straße 48, 12101 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4788576,
+        "lng": 13.369183
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule GREH",
+    "photos": [
+      {
+        "height": 3000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/113888655775459886065\">Anselm Ballschmiter</a>"
+        ],
+        "photo_reference": "ATtYBwLYVOYN_zo7loUCM06kB7hvq_DP3tdmvglqn6WJ6zTUHB-pFOxXfqOYVl1MQl1QUMq3C1CgAX-XpNlYvoi2p9_Neg85yADL3PSemhy6wT5Z2Rs19MW49f4dllI3DIlM-ETbahFHRdsLznTh_wjhR7z-RpNIAOjC9nDBgL5Eh1o-SBFi",
+        "width": 5333
+      }
+    ],
+    "rating": 4.5,
+    "user_ratings_total": 60
+  },
+  {
+    "formatted_address": "Gäßnerweg 35, 12103 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4641402,
+        "lng": 13.3755098
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Teach your dog - Hundetraining in Berlin - Sabine Kerner",
+    "photos": [
+      {
+        "height": 299,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/100072452765952724424\">Teach your dog - Hundetraining in Berlin</a>"
+        ],
+        "photo_reference": "ATtYBwJlURas3ekPSKTzGnzTvX2gqgcKJ7awciRI7AHpkSDaVE8jgYw-f3H28PBr0PdclD41GGFwGk4biQ7ramJaV2e2rHc1yxEEu20DB0fjQETMe_pwkufl8F_cg8Y1QbDibpuao_DfTGWMGjDIZ_4valRXa5dNmzWm6EPtaLlrv59ry3Cs",
+        "width": 1100
+      }
+    ],
+    "rating": 5,
+    "user_ratings_total": 2
+  },
+  {
+    "formatted_address": "Ahornstraße 8, 12163 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.46149,
+        "lng": 13.32195
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Petra Winand",
+    "rating": 5,
+    "user_ratings_total": 3
+  },
+  {
+    "formatted_address": "Eresburgstraße 24-29, 12103 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.46691999999999,
+        "lng": 13.36801
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "DogCoach Hundeschule",
+    "photos": [
+      {
+        "height": 644,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/110984475077707523930\">DogCoach Hundeschule</a>"
+        ],
+        "photo_reference": "ATtYBwI_hAlHKkDsPtjcmR1xk5HvwaPFfroLct0_SAowmL3a8OdEEJk4JNg3STJATQusMulVyKVginFfgLi3z__OZHuE4FpypF_rMz0CWmx62cC0fszR8o_9DbapKXMTQ4p2Q8nA1e7WF9-f96kMXu1Cr2KgOAS4Y_wucpMLQllYNaPtIJxB",
+        "width": 960
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 50
+  },
+  {
+    "formatted_address": "Monumentenstraße, 10965 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4877448,
+        "lng": 13.3757233
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "teamdogs Berlin - Die Hundeschule mit Herz und Verstand",
+    "photos": [
+      {
+        "height": 537,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/108098923391764759034\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwLH1sQ_zbTNQTSoDvlrgdKle8UQtZPVDAkgaqiH82FJ6uFJbv0TjAU_K1G-WcQaF9ODsrkzXEeen9Q2VBFDa-p793yjRGDlEs47Mermsgx2apnb8Dpo9Ew_FjtdWU5DbpdXeg3DXdnDukMC9UatAEfWkCp2RKR3AM5baqfvBKIb16ou",
+        "width": 720
+      }
+    ],
+    "rating": 4.5,
+    "user_ratings_total": 8
+  },
+  {
+    "formatted_address": "Heimstraße 15, 10965 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.48717,
+        "lng": 13.39709
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule - DOG's life Berlin",
+    "photos": [
+      {
+        "height": 2798,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/106689627827123406937\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwJtczLiep8tsKNyh0I6Sx_lO68CLpctK2J5q0RTEQhTV4he3u0xQ0HoCLJbFdvHUrwbFkW8t7oKjrh5urqCBFtMXixswejpfrB7JirK4IPqouurtwrCZpcDq9zN6DzP5RKHLbuAWKd_Xpznu7ozAbIgNAcWJSddWxdd9yc9ZjR0sjHs",
+        "width": 4192
+      }
+    ],
+    "rating": 4.9,
+    "user_ratings_total": 49
+  },
+  {
+    "formatted_address": "Pestalozzistraße 54A, 10627 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5077465,
+        "lng": 13.2964123
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Good dog Berlin",
+    "photos": [
+      {
+        "height": 2288,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/118152998977200321941\">Braver Hund Berlin</a>"
+        ],
+        "photo_reference": "ATtYBwLZnn7Y4M9X-nH-m0-9Z9c58zJc8Qjm5MIvKohAzqeAlhHMFk06yUrQ6EXYH2LthOIkFidThZbIn7AkvOD2mr8Q4dgjLs4a7pnLIOaT8yASDYYkSRHI4A-oEIbFd6_0mjlPdVBL6hIu2Mb7PufijamWS3nq-plUptfAAruEdy_UX1pS",
+        "width": 3358
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 17
+  },
+  {
+    "formatted_address": "Großbeerenstraße 169, 12277 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.42805,
+        "lng": 13.37741
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dogmenti Hundeschule Berlin",
+    "photos": [
+      {
+        "height": 1000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/104822926510300278673\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwLwl1NC2ItBFoYMGydTlEn0y_z7kQ9RFfo4A8F3gbZttT4WWjnOzKg677L2duM7hkz2-5BN93OV9eyO0lt25MXzT7WPS9tdMSnf2huvegu1ZmMoh7cVDQc2jCpImZOBfvT5kQX2AadGaZOZsP6OGvJKa_8KnbP0_5vxN3Fs-mZeseOc",
+        "width": 1500
+      }
+    ],
+    "rating": 5,
+    "user_ratings_total": 19
+  },
+  {
+    "formatted_address": "Kurt-Schumacher-Damm 212, 13405 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5509816,
+        "lng": 13.3021873
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule DOGS IN BERLIN",
+    "photos": [
+      {
+        "height": 1334,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/112687321466699133808\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwI53F0MzmnJFI1QUfEIr8TOHCJgfq5hRl5Q96f5zaceT5xBAQ2fb2MjsBKhB7nlDMBHmA7SR6ha99VQ3jxyaef3AGToAXT1Q5apyfo_rbVT7nxbL3hzY4xjymKpJkR8akzLrqKSxd_UwUpYGLmv1zEzCihn6neNTu6pkLbBmUCf0PPO",
+        "width": 2000
+      }
+    ],
+    "rating": 4.8,
+    "user_ratings_total": 25
+  },
+  {
+    "formatted_address": "Waldmeisterstraße 3, 14193 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4753735,
+        "lng": 13.2752023
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "HBB dog school Berlin-Brandenburg",
+    "rating": 5,
+    "reference": "ChIJASQBsnEjZUER-F25zV5Z6Ao",
+    "user_ratings_total": 27
+  },
+  {
+    "formatted_address": "Pariser Str. 6, 10719 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.496412,
+        "lng": 13.327933
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundetrainer | Stefan Thal",
+    "photos": [
+      {
+        "height": 600,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/106210282732801822741\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwIv9WNNYyKhCElg5rBCL3EQJdtcf3VI3aY6eKu1_Ups2IuhZi7NmvHrOIuxtzBgyfPBnntr04XFiKgJ_ROzlPT89OKSxs7_tNHHYZXJIoEFMc-raGJjfnn_TBGJjfdqtArXpSIaKYemtFJRBwoCDUoPiQZUGeEMES5RwMlLj3jzV9fJ",
+        "width": 800
+      }
+    ],
+    "rating": 5,
+    "user_ratings_total": 70
+  },
+  {
+    "formatted_address": "Lohrbergweg 8, 14169 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.45405,
+        "lng": 13.26683
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule-Bliss Berlin",
+    "rating": 0,
+    "user_ratings_total": 0
+  },
+  {
+    "formatted_address": "Mehlitzstraße 8, 10715 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4860901,
+        "lng": 13.3263907
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule Verhaltensberatung & Erziehung",
+    "rating": 0,
+    "user_ratings_total": 0
+  },
+  {
+    "formatted_address": "Kronprinzessinnenweg 1, 14109 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4614313,
+        "lng": 13.2281521
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule Martin Rütter DOGS Berlin",
+    "photos": [
+      {
+        "height": 2160,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/109506784580650307554\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwL8qT1VzuNi3MRrLNzdW_BA-cSbjj84l1G_LN3j2AYTgLJYGnMLQAiU4jRxRRLNSnBxoztSnzooh-2oHdimv-DEkK3HCGZWeanwCdHzwf7IsKjH308reAcUwbWnRIBKIAw_BTvK5iF4fakkmIdgyGeerJWBwrAR5MrYL4aR9L5bPzg",
+        "width": 3840
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 60
+  },
+  {
+    "formatted_address": "Englerallee 2c, 14195 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.46550999999999,
+        "lng": 13.30621
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dahlem-Dogs",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/107902604438364440935\">Jasmin Talay</a>"
+        ],
+        "photo_reference": "ATtYBwKF9T_o5I5GxVgq_Y5_GGfvlfbwrmUus3yDMGKzDPgphmurc0_m22rcryOYKZXDkb-n0eGxtFAFZF3zWiopwlPURbrq0hl5Mxqe42eYVHVmAJaFxR0U0MrsiJcS1vXpSlJdor9Oa1yci7ZyQFuX1rEIXWZ5Of5BLBMn9jbJWaJ88vxv",
+        "width": 3024
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 31
+  },
+  {
+    "formatted_address": "Treskowallee 159, 12459 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4748916,
+        "lng": 13.5243549
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule Berlin- Fellnase im Training",
+    "photos": [
+      {
+        "height": 1669,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/110905276033820146655\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwIythR8U9Bp7kvk6X3V6l2icYw0JvXgJe0eDuzsJmDo3uJV_e9TD33ZQJP16OaaYks5dinXzxqvXWGITwmuMCfAUNtKrsn-JCZtbvi_XhrCriLoMNNoW32NwmzU9sQb0dr0cqHrr77toc_fc5fRDqwaCwhtHl3NBRygR1GFgG5dMnE9",
+        "width": 1668
+      }
+    ],
+    "rating": 4.5,
+    "user_ratings_total": 30
+  },
+  {
+    "formatted_address": "Luchsweg 11 A, 14195 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4714162,
+        "lng": 13.2772357
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundeschule Lars Thiemann",
+    "photos": [
+      {
+        "height": 1371,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/114736786109693723651\">Hundeschule Lars Thiemann Berlin</a>"
+        ],
+        "photo_reference": "ATtYBwJr9cwOuthtjxap5trfEfY6pAR3qhwgY6eRWNkn_SKtFTHNuopZIQf5Q_0B9fNxsCOhW23EAa2LQyy377Y0iOdSYFNo8ouUudgP2yc-CF_SKlsDhd_nY55qEswRsBfPu_D2s2seDqSEgGKzYQzZw1mtUaTp8_axLicLsASdkHnIzePt",
+        "width": 2048
+      }
+    ],
+    "rating": 4.8,
+    "user_ratings_total": 4
+  },
+  {
+    "formatted_address": "Bamberger Str. 4, 10777 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4969068,
+        "lng": 13.3372477
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundekolleg | Petra Maus",
+    "rating": 0,
+    "user_ratings_total": 0
+  }
+]

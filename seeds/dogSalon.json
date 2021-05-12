@@ -1,0 +1,452 @@
+[
+  {
+    "formatted_address": "Vinetapl. 7, 13355 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5412749,
+        "lng": 13.3982921
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Maja&Dogs",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/108921618842956652653\">Hundesalon Maja&amp;Dogs</a>"
+        ],
+        "photo_reference": "ATtYBwJtUPQyt7WPdI0SIR0kKXvyWwEhDBy3GCqxeVOooT6oI5RXRGRAY90SV4Pv8VyjhJp-KSKw5DsLmxEzWlotEx3XlBKSJCOUZAZmtWYdcj77DtdGO75YnRXXFDJMKFtUCxIX6Ti-zTSNdK954IDv2moFd6xlGHmiDK06-OlxRySppWV5",
+        "width": 3024
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 75
+  },
+  {
+    "formatted_address": "Kochhannstraße 28, 10249 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5249157,
+        "lng": 13.4509476
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "City-Dogs-Berlin",
+    "photos": [
+      {
+        "height": 280,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/101636646262404722314\">City-Dogs-Berlin</a>"
+        ],
+        "photo_reference": "ATtYBwIe6OdRZQPhDrEOMhbBNPshMoe9VhqxMMuj-yximU1sYBkU7Sg8VgXMWryfH4NGttFHlf4POJoOC8LegWUN0wPXugQlEA5D9OOwZD69EtIsFgdr_yYtjL2kP1rBCHlJe5aYaSkz4M5EvYRm-kZHju_HtJai1P9YojusbboSC6q9r44Y",
+        "width": 512
+      }
+    ],
+    "rating": 4.2,
+    "user_ratings_total": 42
+  },
+  {
+    "formatted_address": "Sophie-Charlotten-Straße 36, 14059 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5145227,
+        "lng": 13.2876778
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Evelyn´s Hundesalon",
+    "photos": [
+      {
+        "height": 283,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/118016429787045599153\">Evelyn´s Hundesalon</a>"
+        ],
+        "photo_reference": "ATtYBwIlOaG1CBA1kIVMCl5mSmFgpYl3aGHNBcxs20CxkeXTqOFSHnb-TdfCw3L1_emClL8uCN5Ew8kyMBRyhtfVG8p6si5i6jULlLwQlG5lVBp80VNT-GW0TXa9VJo7BwjYmB1B1N9HqDXnJQKbzjOIDfMz3Z_enjCigALb61HW8F6i5vjk",
+        "width": 283
+      }
+    ],
+    "rating": 4.2,
+    "user_ratings_total": 60
+  },
+  {
+    "formatted_address": "Kufsteiner Str. 1, 10825 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.48800869999999,
+        "lng": 13.3373415
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Best Friends Store",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/112311217819175458919\">Best Friends Shop</a>"
+        ],
+        "photo_reference": "ATtYBwJYiatMj6Y2P6ux-nL4tAJtqOrrZBZdWhXLywlzbcwbiBviosGwmFFrlFDAM-sJrCtaWf4UN2j9imb244egCaaYF01EdkghkgyayQkV4aXm-94rgx7RG5_rjnvQDzJ9zadEMqNz6gE3iJfuFn3Y_pWpmxVW5iOMp8xg5_vmpvBi0cDx",
+        "width": 3024
+      }
+    ],
+    "rating": 4.9,
+    "user_ratings_total": 76
+  },
+  {
+    "formatted_address": "Hohenzollerndamm 3, 10717 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.49539799999999,
+        "lng": 13.3290429
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Wolf Berlin \"Salon des Hundes\"",
+    "photos": [
+      {
+        "height": 280,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/100508900516955318908\">Hundesalon Wolf Berlin - Salon des Hundes</a>"
+        ],
+        "photo_reference": "ATtYBwLzRXDlV4QDOo6tAR4JpBJhop4j7lByvTu11eWpnSjKF4jiaL87miafQfuE11Mi3JryG8_Oc7eGYS0CvrN2ZQtyDlpqjT9GnJ9Qu20VsXWat06MsyT22CfKMc9R3htOLMAQTXSRinvRNjI5qCMKUubf8WXRqrsQrNCJM2gLP34tJkom",
+        "width": 880
+      }
+    ],
+    "rating": 4.1,
+    "user_ratings_total": 39
+  },
+  {
+    "formatted_address": "Kurfürstendamm 90, 10709 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4993674,
+        "lng": 13.3016458
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "DOG & CAT animal care",
+    "photos": [
+      {
+        "height": 1167,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/109238600532713573074\">Danijela Galic</a>"
+        ],
+        "photo_reference": "ATtYBwIlcfFzXK2b8NWOiyh0r0f_SIjAjzcrSMP0Sl8dhD_52zYsiq2oa7AQFiGV5QQAQKEBBC2stUJNecaGW29GZFUNAA2DaYODov-fmGUANsjo8qUvwX6RTVval9tspJp9Cl009C6vGSryZmuPZ93K3LKr3vXUaZNS21Rh4ImccmoFCTSL",
+        "width": 870
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 21
+  },
+  {
+    "formatted_address": "Weserstr. 120, 12059 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.47749470000001,
+        "lng": 13.4527984
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Fellpflegerei Berlin - Hundefriseur",
+    "photos": [
+      {
+        "height": 2268,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/112414248488089065482\">Frank Lettau</a>"
+        ],
+        "photo_reference": "ATtYBwINqtlRqEWaE8eAHrWk3u_xk0KQ8rYBs0ISWRUU7m-WDgPiOYhezGR3vYNhB0pP8ICX8Rn5ZsL7vHpa2YKIu59Jax387ZQdKWvK04jN1MXw3YENWFeOl4kboVB9OSOratU4k8FSVp4g9rIQkCn9FrHX_diwUuqwJiO3jqwpahbvQYTX",
+        "width": 4032
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 34
+  },
+  {
+    "formatted_address": "Cunostraße 7, 14199 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.47547849999999,
+        "lng": 13.2954001
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Die Terrier Boutique",
+    "photos": [
+      {
+        "height": 640,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/109376996778605268465\">Die Terrier Boutique</a>"
+        ],
+        "photo_reference": "ATtYBwIlB0ogn1_tvXut25YbtF4FdaPSuGPBDzG88O8E6xNsg4Wu2IDvFYOXuJveLOPWHp_J-q3hPcLhLGmfE71ftT_F7Avmf1A8Yk-sF-deSs1jneYYkQH69OCowljscXhSDVf11GRGE-GNmmpx3iUhf-5oEFisxo2_5slOpoRf6xGQzzt-",
+        "width": 640
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 43
+  },
+  {
+    "formatted_address": "Bahnhofstraße 2, 12555 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4531752,
+        "lng": 13.5751183
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hunde & Katzensalon Black & White Dogs Coiffeur and More",
+    "photos": [
+      {
+        "height": 1536,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/108718799416413676457\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwK7HE5qoRaMOQvC1um9olMir1Kus2-iyd3gJKEQnEEPY_MiZ-TrJx9IkOcqteZJRuwBrEdmteyJAZ4T9YrtnppkDcPC-BZso0pawNXXcQSs88KqbHn9oP07Q_l5GHyLz35-5xN49MSQDbpTuI31weP_yrlNTdnTZ2crtZHrySIvb1kA",
+        "width": 2048
+      }
+    ],
+    "rating": 4.9,
+    "user_ratings_total": 95
+  },
+  {
+    "formatted_address": "Dunckerstraße 86, 10437 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.54136399999999,
+        "lng": 13.4193483
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "NINAS FREUNDE HUNDESALON",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/117062182021185725162\">Orli Baruch</a>"
+        ],
+        "photo_reference": "ATtYBwIH8JKptQ5iwh51WZHt9LPtdbh5RS1uqChX3TvPXlipgHEKV0UlSAqPyUceIY0N37zMhl5no90f76k81KKGqo3YzFcfxPeMJIOQsZ3IcY-B92iTvg4-BFnLo_Scdg_4eTTkC5lmJDTJF7WhhoUkn8Mrp8AH8guTKFNBGXhWj7Ta03Ho",
+        "width": 3024
+      }
+    ],
+    "rating": 4.1,
+    "user_ratings_total": 61
+  },
+  {
+    "formatted_address": "Helene-Weigel-Platz 14, 12681 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5271519,
+        "lng": 13.5401081
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Dog'sCare",
+    "photos": [
+      {
+        "height": 2592,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/103963474509827093447\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwLnBHRnD0VVyotWkdx9-5ieYnn4xwmKr-nRgQVreqh0RdUlYXuQhrVsyTACvqmquQFMOJf5uGAlHjj3s3_BjgTYK2zCfG_4tSNY4t2IZZmZMpge1eYPoZThkhZXmyNIADeKqT9kkXIY-xSztv2MT7vbHXOqX_zZwC7tgym4lMsu8yC4",
+        "width": 2112
+      }
+    ],
+    "rating": 4.3,
+    "user_ratings_total": 32
+  },
+  {
+    "formatted_address": "Schustehrusstraße 45, 10585 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.51677040000001,
+        "lng": 13.2973775
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Schloßhunde",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/110082566832065749067\">Yana Nikolaeva</a>"
+        ],
+        "photo_reference": "ATtYBwI9Bout9hA9IKIP8hFPKqLpvMvdqme9dnvjMEy6NEfsUSS-tSYJJ91j6QCuKwC-xHGDtWP4tl_0BvRQMdJSOateVHcfzuzQO2w8d5-s-p6Vhfts60tK4aJ-AtU689_P0bThIodvTdJ1kfNkKYmpG__UkANRG5B0w-893b-nLbQVRzkl",
+        "width": 3024
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 14
+  },
+  {
+    "formatted_address": "Hermann-Blankenstein-Straße 40, 10249 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5224414,
+        "lng": 13.4652485
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Fellini-Hundesalon Berlin-Friedrichshain",
+    "photos": [
+      {
+        "height": 896,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/109512747001768545881\">Fellini-Hundesalon Berlin-Friedrichshain</a>"
+        ],
+        "photo_reference": "ATtYBwJYR9YRufgyevjZMnu9zcx3fuSEy9Zeir7sbDovO4s5Z4hTudicnNLg6ahI72T0P_sdpOpP_cjGFcwZNCXtdUozxbf-72FTHjFPMPgBr8kF2NCrpoqTxTCtTZQ1dNzz3GLLYvLNFr71x4uRZoQCVz_9xr3TOXrvKa1QYDyPvklqoDW2",
+        "width": 1879
+      }
+    ],
+    "rating": 3.9,
+    "user_ratings_total": 8
+  },
+  {
+    "formatted_address": "Südwestkorso 8, 12161 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4758666,
+        "lng": 13.3246356
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Corso E.k.",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/113575257446406182229\">Р</a>"
+        ],
+        "photo_reference": "ATtYBwL6A-E7qNiIjTR1uDK6RAmX8iHuUuHL_74k5F0j7jCIRHftOqcxCS3_Uj-IK35sHOvPw09ehIzLrZEJnia16hwXnHcBuSMRxNsI0jdZ6trSMqv4KDy7L-T-qhLbOUBfU-CeGgvDPgGA3xhXG9kWcxwKZToBXKM9DhJxvYnrSBh12F7a",
+        "width": 3024
+      }
+    ],
+    "rating": 3.9,
+    "user_ratings_total": 7
+  },
+  {
+    "formatted_address": "Wegenerstraße 14, 10713 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4892149,
+        "lng": 13.3176645
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Hugo",
+    "photos": [
+      {
+        "height": 2592,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/100871357964665758497\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwKtVBQzM5fhD8tz5TdKDEdJU7Li3HHIMdzO9hMwA9THG0OZrhVvqLmWzCXcgpjUThFxVz4y0gb9bLK7jpS66Hi0faci2p-kUnOcym2LRm__PVRNuG4o3ncZ0XePvsfQq61TFuBxWkXU-vPIEX3t8xE4Sbyyiit4ksPTdkstZFgl7f_V",
+        "width": 4608
+      }
+    ],
+    "rating": 3.8,
+    "user_ratings_total": 19
+  },
+  {
+    "formatted_address": "Kopenhagener Str. 65, 10437 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.548899,
+        "lng": 13.4083946
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon NUR MUT",
+    "photos": [
+      {
+        "height": 5664,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/117976165863264259714\">Deyaa Lahlooh</a>"
+        ],
+        "photo_reference": "ATtYBwIjQHXwHTfNhhaDhAxoOrRfSsD10s-9mZN1LTGf7ZlxqNVRvggDrDJttirgMUK3JVUFXFc6L7QZwh2eGg5Z2zO3T3uX0e8NC1YH1F76oIE8YL9YJLqk_Z-3L6dSbJOE--Co3pbDpJgMjG71cqClsOacEqBLkdcapck1ICh1qukH6ZWg",
+        "width": 4248
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 44
+  },
+  {
+    "formatted_address": "Ladenbergstraße 4, 14195 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4461497,
+        "lng": 13.2924845
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Berlin",
+    "rating": 3,
+    "user_ratings_total": 4
+  },
+  {
+    "formatted_address": "Sömmeringstraße 39, 10589 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5251467,
+        "lng": 13.3057073
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon BerlinerSchnauze",
+    "photos": [
+      {
+        "height": 4224,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/113327253338348396694\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwIN_NHPGmJg2lOEJqV8v9enz7MSrvMVSPUGxnCIMG3Sz6vyXhMw9JwIErYSsR2IF43SRyWnslpuej285PkCI6QPDkOLGX7n_m6_dc27xZDvVrKaoHqr1Ob_Udjv6f4u64OL35-hVadX1tylUeEfEmO7OxrUrMjWf2_s2PECHHFrLSm9",
+        "width": 3168
+      }
+    ],
+    "rating": 3.9,
+    "user_ratings_total": 48
+  },
+  {
+    "formatted_address": "Aalesunder Str. 2, 13409 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5545809,
+        "lng": 13.407729
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Amling",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/105351200484229004667\">Hundesalon Antje Amling, Berlin Pankow, Prenzlauer Berg</a>"
+        ],
+        "photo_reference": "ATtYBwIFv9F2gcCN_gqMLYq4ceHGtds2nDZ0xTBDzebshaQD6SQ3-aCZQ2_PkNPPQMz7HxTw7I5FjQ61fLq_RIWyNUHggyfOIZe032Cz-3kAbjeUMtRf9QHgkgtbSNZDnGZsDYcPtfW4YOFI6gIp9Jp-5CJWMwdCpCkWoUgDOiwsHlIQvQJ4",
+        "width": 3024
+      }
+    ],
+    "rating": 4.8,
+    "user_ratings_total": 42
+  },
+  {
+    "formatted_address": "Kurfürstenstraße 73, 12105 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.44833329999999,
+        "lng": 13.3797222
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Hundesalon Kurfürstenstrasse Mariendorf",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/118266820363694152531\">118266820363694152531</a>"
+        ],
+        "photo_reference": "ATtYBwJZIwDsfveD_jwk-7t_kyritb7_pdWtzHlWKMVRyXttlJnU6NnzXIZsldm1wQ8EYunakH1JSPottVpr895W-qGb6PFHx1D4DwhXdFKl30NgwpOC5rO2oCuwsV8jXGO30_-dn4S2_kEjm8IC9Opr0k8DqAZq4bH01LOSbbBtroTlUnIq",
+        "width": 3024
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 59
+  }
+]

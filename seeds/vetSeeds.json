@@ -1,0 +1,444 @@
+[
+  {
+    "formatted_address": "Bayerischer Pl. 2, 10779 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4897031,
+        "lng": 13.3392501
+      }
+
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Veterinary clinic for cats - vets for cats Berlin",
+    "photos": [
+      {
+        "height": 3456,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/110216850045457164851\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwJTOOFbvB-FCfGbqLwD7fAzhifLRoWcaGkaAkTmf2eBBI3jesdb1hqMZ58M5FUiekrH3vrZR4rkcvpunYF1gF_Y7PQ6_to37eHYNCyr3-mPtJpw0BSgtVNC5knr0vjyEKx05nu8NokWYgbR1g17G8vuD5Rl-1ngB-QM3owUr5KW_oVm",
+        "width": 4608
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 131
+  },
+  {
+    "business_status": "OPERATIONAL",
+    "formatted_address": "Lützowufer 26, 10787 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5061236,
+        "lng": 13.3495643
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Kleintiermedizin am Lützowufer",
+    "photos": [
+      {
+        "height": 608,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/112023225539383939088\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwJ-Skk6362ZcR3JpP9YdKiLmtQFi4H8H82Itr9CARJepB369ESl7jUCD4nL8NpxSs0slMg6R6ZivBhCZo1YDvDZTMM-TcjxkXT427mV6VNGQrHl6_iEF9jjWi5tuKKMQo0YcDhNHI3L0Y7DwtSZVZiJ2j0iLKMOnCEY7mDMYtmpyiPk",
+        "width": 854
+      }
+    ],
+    "rating": 4.9,
+    "user_ratings_total": 65
+  },
+  {
+    "formatted_address": "Weichselstraße 25, 12045 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.48701149999999,
+        "lng": 13.4368223
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dr.med.vet. Wolfgang Beck veterinarian",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/113762862495240114323\">Claudia Jähring</a>"
+        ],
+        "photo_reference": "ATtYBwIk2q5gDBOXxJiTH8CNLKJPS0kkngr2b9VaOabf4Z6hOMEX3t1SxOAILJX3KEncHKWb4rm_7mORE0_vLgWthhKrQpO_yfFwRy2qYPQ22dHAMuo7JXYZr7BOEvem6Uhb8DgEHEJce1R8yPiQSIiITDL4Ceh07kbdgfc-jUZGC4mMmyx_",
+        "width": 1960
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 347
+  },
+  {
+    "formatted_address": "Brüsseler Str. 52A, 13353 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.54868,
+        "lng": 13.3531601
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dr.med.vet. Claudia Pastor Tierärztin",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/108229026735451410738\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwIPM_Gp9JA1ExK-1SUetky4IP57iyJwQU8040eIZfMxzQMJcWIdJ4rcnewdPE0NMSw7V4GtbWyKhxDn_YpJd8U63IR6AQQl24v2AM3kAwNc05u5L3eA--VGJ79Pg3npYKJSXQIuTtoeE0DgZLUDS9IPiZGApeu4zUkxUYme0IZXewg",
+        "width": 2268
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 224
+  },
+  {
+    "formatted_address": "Wiener Straße 25, 10999 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.49694,
+        "lng": 13.43256
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dr.med.vet. Bernhard Wehming veterinarian",
+    "photos": [
+      {
+        "height": 1836,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/103033804643390480224\">mueller bob</a>"
+        ],
+        "photo_reference": "ATtYBwK09iEse8MWOpqVCXECoZWQe2j0L_CTTTLg6DNlHFvNgtkuCymhXyjVimX4LOeDKNXpRy8AFEg65oxhc93MHJMhMGBUefqBwi1NqPJPTRylVWSuSfXCzuaxCDJifdkRG4xMCyFsFKWXxWWuXBdzLGAH2FbpvJrpG6ZEmqPrwoUaPO6p",
+        "width": 3264
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 33
+  },
+  {
+    "formatted_address": "Finowstraße 14, 10247 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5114023,
+        "lng": 13.4666097
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Tierarztpraxis Dr. Peter Vogel",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/114134273339186159197\">Sofia Heilert</a>"
+        ],
+        "photo_reference": "ATtYBwJSpmPFAUiIa1xmVS0GfUV1_m1JBiwM7-rwxHMJihziat4tmS9MWKRfFGvNoFplKPbxaclcLU-YmKj0co_RgkAv9clZ6i5noC1RflizyYuwaz3q1lWIg-E8iRXAHri8oU8mcXZe23ISYf_-cCL1e11MRCPgilP0S-nkO8VspPNaE5nE",
+        "width": 3024
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 311
+  },
+  {
+    "formatted_address": "Rykestraße 4, 10405 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.535054,
+        "lng": 13.4197401
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Veterinary Practice by the Water Tower",
+    "photos": [
+      {
+        "height": 3114,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/106029780814119894249\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwLipHxpcOJLuiS2XY7LhOjyHcUoQL-Ojqze93LqFPi8Uw9WG2KSg5EljlFek7NhiHNHS2c-tpxjQc_Izk3TnD54HFInXuE9B8p2xBIpWFd8yB-he7Lw20b-VvS_xOrZ60c-FXSDx_vaadEfRZ-F8JDHu6uANsrTUk7k7RK-c2ZrXMcL",
+        "width": 2729
+      }
+    ],
+    "rating": 4.8,
+    "user_ratings_total": 177
+  },
+  {
+    "formatted_address": "Bonhoefferufer 18, 10589 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5238352,
+        "lng": 13.2978271
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "med. vet. Symposien",
+    "photos": [
+      {
+        "height": 498,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/109028371531281375207\">Berliner Kleintiersymposium (BKS)</a>"
+        ],
+        "photo_reference": "ATtYBwIPmfFzC3W8q7QgTi4kXDUHxfAulyBs4WmLicytYV3asXcX6aDHWVVuv3fy38caMsd1w5ZOZWkzrQSlnT5-jTyfUO9kswW_wQ9n9Wny4KipTsbv9CGazZruEkrf8bJlPza0nJqsUVyl54k86AKoi5fdsF_AseiJK5W7rpm3l-cJS0Uz",
+        "width": 750
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 7
+  },
+  {
+    "formatted_address": "Alt-Biesdorf 22, 12683 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5087827,
+        "lng": 13.5557674
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Veterinary clinic for small animals and pets",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/106545710132499636409\">Dirk Liese</a>"
+        ],
+        "photo_reference": "ATtYBwLXAG30TbcPoyj9_EsTJdsrdtTeHjyHByMpxWLwp8pWVZjnYMb0H-5ga3byBPylCpGCLzVjOWdmuYq4vrOlazJUGNTkBbEusLU6QcNMt_ochtGVOYuFlNJPIJfg7eT-XOEzs4s2VHB9ZHrLyNz_gmaZ0TaZx1wmGpLTC0GXXdz0z0mK",
+        "width": 1960
+      }
+    ],
+    "rating": 4.3,
+    "user_ratings_total": 902
+  },
+  {
+    "formatted_address": "Pasewalker Str. 25, 13127 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5884245,
+        "lng": 13.4297689
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "SmartVet veterinary practice Berlin-Pankow",
+    "photos": [
+      {
+        "height": 640,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/111673606380410937617\">SmartVet Tierarztpraxis Berlin-Pankow</a>"
+        ],
+        "photo_reference": "ATtYBwLhV0X7DUBnFwOSdnHy8UlfKIuvUHqhbdx9Gzhwbp4W3Tgs8QpONYyjZWcVR5floIlChu4haYyrfl3EVqbnwvBPTD0sD-BqiNR8BmEEp0xqCMuRGZBWS3SumqsD2yGcekXXgBl_X-f_aq4ccd9Qvpcp57jgGxwSxX-BYQXDa6UkHtxg",
+        "width": 960
+      }
+    ],
+    "rating": 4.3,
+    "user_ratings_total": 197
+  },
+  {
+    "formatted_address": "Scharnweberstraße 136, 13405 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5643113,
+        "lng": 13.3262423
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Tierarztpraxis Rödiger - Das Veterinärmedizinische Zentrum Berlin - 24h geöffnet",
+    "photos": [
+      {
+        "height": 1365,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/108218498894702211520\">Tierarztpraxis Rödiger</a>"
+        ],
+        "photo_reference": "ATtYBwKyJwErCfL66yCDiZP6sxZQNGXaRLe249dbfT9hVKliAeSIoXcf7QyBQYca3wMTQYQ5Od4dWZd1aoXjvIku7UJ1F3WK53wnf0t4Gh7XiufAVYN5tHlRSm2bm5WDlinj6UIOInoC3MkE5FpfLSxkgAzzzQjBnsxBYGKGoo8G7mwSmEyW",
+        "width": 2048
+      }
+    ],
+    "rating": 4,
+    "user_ratings_total": 1074
+  },
+  {
+    "formatted_address": "Miltonweg 7, 14055 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.50479,
+        "lng": 13.23758
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Mobile Tierarztpraxis Dr. med. vet. J. Sommer",
+    "photos": [
+      {
+        "height": 3966,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/111277152138553553672\">Mobile Tierarztpraxis Dr. med. vet. J. Sommer</a>"
+        ],
+        "photo_reference": "ATtYBwKahnj0ycVQZJ9y_g4JYFNa7V_iM0h30jrMPWOD_9jcCjsrNYZ6jrvBBTrIJhb4NfLrVmhu68ofJSiXiOl9WRHuc2Jey43PA20iIS93b7U_9V13Re14WpHDHPq-8LyvZJCbP1UHB9yTLq3VarVj718XaJnt8pEnhUotI-PeAe22R5U",
+        "width": 5941
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 87
+  },
+  {
+    "formatted_address": "Friedrichstraße 17, 10969 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.50257999999999,
+        "lng": 13.39151
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "DVG-Vet-Congress",
+    "rating": 0,
+    "user_ratings_total": 0
+  },
+  {
+    "formatted_address": "Rotdornstraße 7, 12161 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4708956,
+        "lng": 13.3254626
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dr.med.vet. Katharina Dralle Tierärztin",
+    "photos": [
+      {
+        "height": 3000,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/105770787267246921928\">Christiane Fischer</a>"
+        ],
+        "photo_reference": "ATtYBwLEkCE73v1aLHebuYni89sFk8DH_3rG9AYy17MVi1zMRjIeuO6OmagQTBZPOQPjyp-Si1KEcr3oA6BBH4LK0xqXbfkehHiTK7DY35grodJvaG7mPjK8vVI_FQ64NSD9ZiWqBDndYoxkHXfF9a5H_fAWeFjB-5yZP9TnTKREosV-OHH0",
+        "width": 4000
+      }
+    ],
+    "rating": 4.6,
+    "user_ratings_total": 45
+  },
+  {
+    "formatted_address": "Altenbraker Str. 29, 12051 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4685913,
+        "lng": 13.4331026
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dr.med.vet. Ingrid Frenzel Tierärztin",
+    "photos": [
+      {
+        "height": 5632,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/101116927118520324258\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwK2VQcaQYh__JCB_Uu6me_uz83XyWSRJXLzC5KhsVE9qyAE3LV0ISrkOD-g_sI-Oj0iCmxwYtzddiP0BHzMXfd3b2MDWM_ExkORPaGMnW1YD8SK2hDMdX7MxRcYDFRacz2LomLWN2DNlUPmlOucGRIMj8niDWE6scmLTHUDrTBF_Unu",
+        "width": 4224
+      }
+    ],
+    "rating": 4.3,
+    "user_ratings_total": 3
+  },
+  {
+    "formatted_address": "Buschkrugallee 206, 12359 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.44630799999999,
+        "lng": 13.454283
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Flidais - Vet Kleintierarztpraxis - praktische Tierärzte",
+    "photos": [
+      {
+        "height": 770,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/103747146651388323314\">A Google User</a>"
+        ],
+        "photo_reference": "ATtYBwKqw-RNKk2BF-4E1DgNBh-uvLovR7PeOPgSk2j27HURzrzOxcbOrcKNaT1N56sOWj2zrkC8S7399LLQrPjNFTdwpuJivTIv0bhQc2aTmwkBrK62ug9_vUPXM00BsofiBSrZyON6dAIZnZJneplUGK8iTB0WfJZOO3j4eJuCI1a4Yg7c",
+        "width": 1368
+      }
+    ],
+    "rating": 4.4,
+    "user_ratings_total": 79
+  },
+  {
+    "formatted_address": "Dillenburger Str. 62, 14199 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.4717,
+        "lng": 13.30326
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Tierarzt Dr. med. vet. Wilhelm Haas",
+    "rating": 5,
+    "user_ratings_total": 10
+  },
+  {
+    "formatted_address": "Rungestraße 18, 10179 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.5121682,
+        "lng": 13.419935
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Dipl.Med.Vet. Jörg Porada",
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/116735575038082819937\">Hoda Mahmoud</a>"
+        ],
+        "photo_reference": "ATtYBwLJ3AbX0IYIQu8edj8ImT9lWnOda-pZV5QwFHvcRVwznEveuq89esLddXrbdngXdKRdjAnehswsjuozHA04uOBBVmfo-G9rQ82z15wgMEK9-Lf0u2DiS-MLpYbuImpAms1h-X4OV8hcyIYzreHWxviFK2J9cItplEvEtpWcsAlSm4Hm",
+        "width": 3024
+      }
+    ],
+    "rating": 4.9,
+    "user_ratings_total": 115
+  },
+  {
+    "formatted_address": "Richardstraße 55, 12055 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.47162669999999,
+        "lng": 13.4459654
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Mobile Animal Emergency 24",
+    "photos": [
+      {
+        "height": 564,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/101800014685127516518\">Mobiler Tiernotdienst 24</a>"
+        ],
+        "photo_reference": "ATtYBwJ9In8UgLzLcH6hT3rzyEpS8TTIx2mptrQweGJS63-DaXqkvP7xuBXWYcbu22TNkCAmUcBzqsZrBK6aEJxDz0gucMQ2FI_jOf4Vk2PkS0THL_fe2Ojr_alWL1B6axy_U-QOfvwEsg0ufUdCAFCpA8cIKcK6c2hd1X9TSm5S7Ig86xVW",
+        "width": 1004
+      }
+    ],
+    "rating": 3.5,
+    "user_ratings_total": 59
+  },
+  {
+    "formatted_address": "Anhaltinerstraße 2A, 14163 Berlin, Germany",
+    "geometry": {
+      "location": {
+        "lat": 52.431328,
+        "lng": 13.256282
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    "name": "Tierarztpraxis Dr. Brieger",
+    "photos": [
+      {
+        "height": 719,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115523681952530369829\">Brieger, Harald, Dr. und Dr. Barbara Glöckner</a>"
+        ],
+        "photo_reference": "ATtYBwISqLQZQ8-4bAxV0FN6FD0n9_uKMolzM7hjjn1yMi8azJPVT0r1rjqLxF4FwqebzD8_0G_onSSTmEZs1Qx4qnhbWu3SxijFrWvtduTcKBzEDrt3Dc3q1VQodpbdxUGyDa7LF0qSpvIZSguw2PhNm5_euaKl2wtumfh8c1hgafgAmub_",
+        "width": 1280
+      }
+    ],
+    "rating": 4.7,
+    "user_ratings_total": 97
+  }
+]
