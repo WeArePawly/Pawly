@@ -41,11 +41,15 @@ const userSchema = new Schema({
     {
       name: String,
       age: Number,
-      breed: String,
+      weight: Number,
+      size: {
+        enum: ["Klein", "Mittel", "Groß"]
+      },
       rescued: Boolean,
-      picture: String,
+      avatar: String,
       description: String,
-      diet: String
+      // diet: String
+      // breed: String,
     }
   ],
   // if vendor

@@ -5,15 +5,18 @@ const vendorSchema = new Schema({
   ownerFullName: {
     firstName: {
       type: String,
-      trim: true
+      trim: true,
+      required: true
     },
     lastName: {
       type: String,
-      trim: true
+      trim: true,
+      required: true
     }
   },
   type: {
-    enum: ["Hundeschule", "Salon"]
+    enum: ["Hundeschule", "Salon", "Tierarzt"],
+    required: true
   },
   address: {
     street: {
@@ -40,7 +43,7 @@ const vendorSchema = new Schema({
     additionalInfo: String
   },
   phoneNumber: {
-    type: String
+    type: String,
   },
   services: [
     { type: Schema.Types.ObjectId, ref: 'Service' }
@@ -53,8 +56,17 @@ const vendorSchema = new Schema({
     periods: [{
       start: Date,
       end: Date
-      }]
     }]
+  }],
+  description: {
+    type: String,
+    minLength: 100,
+    maxLength: 1000
+  },
+  vendorRating: {
+    type: Number,
+    // reference to service rating
+  }
 },
 { timestamps: true },
 );
