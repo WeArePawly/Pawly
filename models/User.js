@@ -44,7 +44,7 @@ const userSchema = new Schema({
     default: "dogOwner"
   },
   avatar: {
-    originalname: { type: String },
+    original_name: { type: String },
     path: {
       type: String,
       // default: <pathToCloudinaryFile>
@@ -82,7 +82,7 @@ const userSchema = new Schema({
       },
       description: String,
       dog_avatar: {
-        originalname: { type: String },
+        original_name: { type: String },
         path: {
           type: String,
           // default: <pathToCloudinaryFile>

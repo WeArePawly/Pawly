@@ -36,11 +36,11 @@ const serviceSchema = new Schema({
       required: true,
       trim: true
     },
-    additionalInfo: String
+    additional_info: String
   },
-  provider: [
-    {name: String}
-  ],
+  operator: [{
+    name: String
+  }],
   languages: [
     {
       enum: ["Deutsch", "Englisch"],
@@ -68,7 +68,7 @@ const serviceSchema = new Schema({
     required: true
   },
   service_avatar: {
-    originalname: { type: String },
+    original_name: { type: String },
     path: {
       type: String,
       // default: <pathToCloudinaryFile>
