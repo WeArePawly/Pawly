@@ -61,9 +61,8 @@ const userSchema = new Schema({
         type: String,
         required: true
       },
-      age: {
-        type: Number,
-        required: true
+      birthday: {
+        type: Date,
       },
       weight: Number,
       gender: {
