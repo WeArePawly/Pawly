@@ -17,29 +17,34 @@ const serviceSchema = new Schema({
   location: {
     street: {
       type: String,
+      required: true,
       trim: true
     },
-    houseNumber: {
+    house_number: {
       type: Number,
+      required: true,
       trim: true
     },
-    postalCode: {
+    postal_code: {
       type: Number,
+      required: true,
       minLength: 5,
       maxLength: 5
     },
     city: {
       type: Number,
+      required: true,
       trim: true
     },
     additionalInfo: String
   },
-  provider: [{
-    // here you should be able to select an employee of the vendor
-  }],
+  provider: [
+    {name: String}
+  ],
   languages: [
     {
-      enum: ["Deutsch", "Englisch"]
+      enum: ["Deutsch", "Englisch"],
+      default: "Deutsch"
     }
   ],
   description: {
@@ -48,13 +53,28 @@ const serviceSchema = new Schema({
     maxLength: 500
   },
   date: {
-    // time and date
+    start_date: {
+      type: Date,
+      required: true
+    },
+    end_date: {
+      type: Date,
+      required: true
+    }
   },
-  avatar: {
-    type: String,
-    // default:
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
-
+  service_avatar: {
+    originalname: { type: String },
+    path: {
+      type: String,
+      // default: <pathToCloudinaryFile>
+    },
+    cloudinaryId: { type: String },
+  }
 },
 { timestamps: true },
 );

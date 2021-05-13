@@ -1,35 +1,23 @@
 const { Schema, model } = require("mongoose");
 
 const vendorSchema = new Schema({
-  businessName: String,
-  ownerFullName: {
-    firstName: {
-      type: String,
-      trim: true,
-      required: true
-    },
-    lastName: {
-      type: String,
-      trim: true,
-      required: true
-    }
-  },
+  business_name: String,
   type: {
     enum: ["Hundeschule", "Salon", "Tierarzt"],
     required: true
   },
-  address: {
+  addresses: {
     street: {
       type: String,
       required: true,
       trim: true
     },
-    houseNumber: {
+    house_number: {
       type: Number,
       required: true,
       trim: true
     },
-    postalCode: {
+    postal_code: {
       type: Number,
       required: true,
       minLength: 5,
@@ -42,16 +30,14 @@ const vendorSchema = new Schema({
     },
     additionalInfo: String
   },
-  phoneNumber: {
-    type: String,
-  },
-  services: [
-    { type: Schema.Types.ObjectId, ref: 'Service' }
-  ],
+  services: [{ 
+    type: Schema.Types.ObjectId,
+    ref: 'Service'
+  }],
   employees: [
     { name: String }
   ],
-  openingHours: [{
+  opening_hours: [{
     day: Date, //mon - sun
     periods: [{
       start: Date,
@@ -63,10 +49,29 @@ const vendorSchema = new Schema({
     minLength: 100,
     maxLength: 1000
   },
-  vendorRating: {
+  ratings: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
+      rating_value: {
+        type: Number,
+        min: 0,
+        max: 5,
+        default: 0,
+      },
+      rating_description: {
+        type: String,
+        minLength: 20,
+        maxLength: 500
+      }
+    },
+  ],
+  avg_rating: {
     type: Number,
-    // reference to service rating
-  }
+    default: 0,
+  },
 },
 { timestamps: true },
 );

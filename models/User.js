@@ -15,45 +15,88 @@ const userSchema = new Schema({
     minLength: 8,
     trim: true
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true
+  full_name: {
+    first_name: {
+      type: String,
+      trim: true,
+      required: true
+    },
+    last_name: {
+      type: String,
+      trim: true,
+      required: true
+    }
+  },
+  contact: {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
+    },
+    phone_number: {
+      type: String,
+    },
   },
   role: {
+    type: String,
     enum: ["admin", "dogOwner", "vendor"],
     default: "dogOwner"
   },
   avatar: {
-    type: String,
-    // default: 
+    originalname: { type: String },
+    path: {
+      type: String,
+      // default: <pathToCloudinaryFile>
+    },
+    cloudinaryId: { type: String },
   },
-  // if dog owner
-  // fullName: {
-  // },
-  favourites: [{ type: Schema.Types.ObjectId, ref: 'Vendor' }
+  favourites: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Vendor' }
   ],
-  bookings: [{ type: Schema.Types.ObjectId, ref: 'Service' }
+  bookings: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Service' }
   ],
-  // message: [],
   dogs: [
     {
-      name: String,
-      age: Number,
+      name: {
+        type: String,
+        required: true
+      },
+      age: {
+        type: Number,
+        required: true
+      },
       weight: Number,
+      gender: {
+        enum: ["m", "f"]
+      },
       size: {
         enum: ["Klein", "Mittel", "Groß"]
       },
-      rescued: Boolean,
-      avatar: String,
+      rescued: {
+        type: Boolean,
+        default: false
+      },
       description: String,
+      dog_avatar: {
+        originalname: { type: String },
+        path: {
+          type: String,
+          // default: <pathToCloudinaryFile>
+        },
+        cloudinaryId: { type: String },
+      }
       // diet: String
       // breed: String,
     }
   ],
-  // if vendor
-  vendorId: { type: Schema.Types.ObjectId, ref: 'Vendor' }
+  vendorId: { 
+    type: Schema.Types.ObjectId,
+    ref: 'Vendor' },
+  // message: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
 },
 { timestamps: true },
 );
