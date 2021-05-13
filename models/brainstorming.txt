@@ -1,0 +1,25 @@
+User
+The user wants to book an appointment for a certain date.
+The user searches for an appointment using filters.
+The user sees the schools and a preview of the services in the search results.
+The user then clicks on one school and selects a service.
+The user can select a slot (date / hour).
+The user can see the booking in their profile/booking page.
+The user can reschule a booking.
+The user can cancel a booking.
+
+
+Vendor
+The vendor wants to create a service with certain dates, times, type, class size.
+The vendor wants to be able to edit the service.
+The vendor wants to be able to delete a service.
+The vendor wants to be able to pause a service.
+The vendor wants to see how many people have booked the appointment, how many slots are left, and also see the user data related to that.
+
+Bookings
+The bookings should have an address, a trainer, price, class size.
+The bookings can be of a different format (online, mobile,onsite).
+The bookings can be currently active or paused.
+The booking has a start and end date and time.
+The booking has a limited amount of slots.
+The bookings can have multiple dates.

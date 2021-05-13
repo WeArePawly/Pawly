@@ -9,13 +9,17 @@ const serviceSchema = new Schema({
     type: String,
     required: true
   },
+  status: {
+    type: Boolean,
+    default: true
+  },
   price: {
     type: Number,
     required: true
   },
   format: {
-    enum: ["online", "single", "group"],
-    groupSize: Number,
+    enum: ["online", "onsite", "mobile"],
+    default: "onsite",
     required: true
   },
   location: {
@@ -56,21 +60,27 @@ const serviceSchema = new Schema({
     minLength: 50,
     maxLength: 500
   },
-  date: {
-    start_date: {
-      type: Date,
-      required: true
+  bookings: [{
+    dates: [{
+      start_date: {
+        type: Date,
+        required: true
+      },
+      end_date: {
+        type: Date,
+        required: true
+      },
+    }],
+    group_size: {
+      total: Number,
+      available: Number
     },
-    end_date: {
-      type: Date,
+    booked_by: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User',
       required: true
-    }
-  },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
+    }]
+  }],
   service_avatar: {
     original_name: { type: String },
     path: {

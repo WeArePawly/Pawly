@@ -36,7 +36,7 @@ const userSchema = new Schema({
     },
     phone_number: {
       type: String,
-    },
+    }
   },
   role: {
     type: String,
@@ -54,10 +54,6 @@ const userSchema = new Schema({
   favourites: [{
     type: Schema.Types.ObjectId,
     ref: 'Vendor' }
-  ],
-  bookings: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Service' }
   ],
   dogs: [
     {
