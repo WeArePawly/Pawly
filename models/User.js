@@ -93,9 +93,10 @@ const userSchema = new Schema({
       // breed: String,
     }
   ],
-  vendorId: { 
+  vendor_id: {
     type: Schema.Types.ObjectId,
-    ref: 'Vendor' },
+    ref: 'Vendor'
+  }
   // message: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
 },
 { timestamps: true },

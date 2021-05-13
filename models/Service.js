@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const serviceSchema = new Schema({
+  vendor_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'Vendor'
+  },
   name: {
     type: String,
     required: true

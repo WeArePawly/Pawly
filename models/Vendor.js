@@ -28,9 +28,9 @@ const vendorSchema = new Schema({
       required: true,
       trim: true
     },
-    additionalInfo: String
+    additional_info: String
   },
-  services: [{ 
+  services: [{
     type: Schema.Types.ObjectId,
     ref: 'Service'
   }],
