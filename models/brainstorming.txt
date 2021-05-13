@@ -8,7 +8,6 @@ The user can see the booking in their profile/booking page.
 The user can reschule a booking.
 The user can cancel a booking.
 
-
 Vendor
 The vendor wants to create a service with certain dates, times, type, class size.
 The vendor wants to be able to edit the service.
