@@ -52,10 +52,15 @@ passport.deserializeUser((id, done) => {
 })
 
 passport.use(
-  new LocalStrategy((username, password, done) => {
+    new LocalStrategy({
+      usernameField: 'email',
+      passwordField: 'password'
+    }, (email, password, done) => {
+    console.log('checking passport')
     // this logic will be executed when we log in
-    User.findOne({ username: username })
+    User.findOne({ contact: {email: email} })
       .then(userFromDB => {
+        console.log(userFromDB)
         if (userFromDB === null) {
           // there is no user with this username
           done(null, false, { message: 'Wrong Credentials' });
