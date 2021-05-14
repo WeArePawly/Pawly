@@ -1,31 +1,35 @@
 const { Schema, model } = require("mongoose");
 
 const vendorSchema = new Schema({
-  business_name: String,
-  type: {
-    enum: ["Hundeschule", "Salon", "Tierarzt"],
+  business_name: {
+    type: String,
     required: true
+  },
+  business_type: {
+    type: String,
+    // required: true,
+    enum: ["Hundeschule", "Salon", "Tierarzt"]
   },
   addresses: {
     street: {
       type: String,
-      required: true,
+      // required: true,
       trim: true
     },
     house_number: {
       type: Number,
-      required: true,
+      // required: true,
       trim: true
     },
     postal_code: {
       type: Number,
-      required: true,
+      // required: true,
       minLength: 5,
       maxLength: 5
     },
     city: {
       type: Number,
-      required: true,
+      // required: true,
       trim: true
     },
     additional_info: String

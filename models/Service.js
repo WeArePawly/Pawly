@@ -7,7 +7,7 @@ const serviceSchema = new Schema({
   },
   name: {
     type: String,
-    required: true
+    // required: true
   },
   status: {
     type: Boolean,
@@ -15,33 +15,33 @@ const serviceSchema = new Schema({
   },
   price: {
     type: Number,
-    required: true
+    // required: true
   },
   format: {
     enum: ["online", "onsite", "mobile"],
     default: "onsite",
-    required: true
+    // required: true
   },
   location: {
     street: {
       type: String,
-      required: true,
+      // required: true,
       trim: true
     },
     house_number: {
       type: Number,
-      required: true,
+      // required: true,
       trim: true
     },
     postal_code: {
       type: Number,
-      required: true,
+      // required: true,
       minLength: 5,
       maxLength: 5
     },
     city: {
       type: Number,
-      required: true,
+      // required: true,
       trim: true
     },
     additional_info: String
@@ -64,7 +64,7 @@ const serviceSchema = new Schema({
     dates: [{
       start_date: {
         type: Date,
-        required: true
+        // required: true
       },
       end_date: {
         type: Date,
@@ -78,7 +78,7 @@ const serviceSchema = new Schema({
     booked_by: [{
       type: Schema.Types.ObjectId,
       ref: 'User',
-      required: true
+      // required: true
     }]
   }],
   service_avatar: {
