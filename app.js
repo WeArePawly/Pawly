@@ -56,7 +56,6 @@ passport.use(
       usernameField: 'email',
       passwordField: 'password'
     }, (email, password, done) => {
-    console.log('checking passport')
     // this logic will be executed when we log in
     User.findOne({ contact: {email: email} })
       .then(userFromDB => {
