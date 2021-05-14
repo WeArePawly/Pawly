@@ -41,7 +41,8 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ["admin", "dogOwner", "vendor"],
-    default: "dogOwner"
+    default: "dogOwner",
+    required: true
   },
   avatar: {
     original_name: { type: String },
@@ -59,7 +60,6 @@ const userSchema = new Schema({
     {
       name: {
         type: String,
-        required: true
       },
       birthday: {
         type: Date,
