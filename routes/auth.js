@@ -49,8 +49,11 @@ router.post('/signup', (req, res, next) => {
               .then((createdVendor) => {
                 console.log(userId, createdVendor); 
                 User.findByIdAndUpdate(userId, {
-                  vendor_id: createdVendor
+                  vendor_id: createdVendor._id
                 }, {new: true})
+                .then(() => {
+                  res.status(200)
+                })
               })
             }
             // console.log(createdUser)
