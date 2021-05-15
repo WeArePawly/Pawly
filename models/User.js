@@ -4,14 +4,14 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    required: true,
+    // required: true,
     minLength: 2,
     maxLength: 30,
     trim: true
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
     minLength: 8,
     trim: true
   },
@@ -19,18 +19,18 @@ const userSchema = new Schema({
     first_name: {
       type: String,
       trim: true,
-      required: true
+      // required: true
     },
     last_name: {
       type: String,
       trim: true,
-      required: true
+      // required: true
     }
   },
   contact: {
     email: {
       type: String,
-      required: true,
+      // required: true,
       unique: true,
       trim: true
     },
@@ -42,7 +42,7 @@ const userSchema = new Schema({
     type: String,
     enum: ["admin", "dogOwner", "vendor"],
     default: "dogOwner",
-    required: true
+    // required: true
   },
   avatar: {
     original_name: { type: String },

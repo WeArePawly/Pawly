@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 router.post('/signup', (req, res, next) => {
+  console.log(req.body);
   // get username and password
   const { username, password, first_name, last_name, email, role, business_name } = req.body;
   // is the password at least 8 chars
@@ -102,6 +103,7 @@ router.get('/loggedin', (req, res) => {
 router.delete('/logout', (req, res) => {
   // req.session.destroy() if you are not using passport
   req.logout();
+  req.session.destroy();
   res.status(200).json({ message: 'Successful Logout' });
 })
 

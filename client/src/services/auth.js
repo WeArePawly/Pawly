@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // check signup data and change them
-const signup = (username, password) => {
-  return axios.post('/api/auth/signup', { username, password })
+const signup = (email, password, role, first_name, last_name, username) => {
+  return axios.post('/api/auth/signup', { email, password, role, first_name, last_name, username })
     .then(response => {
       console.log(response.data)
       return response.data;
