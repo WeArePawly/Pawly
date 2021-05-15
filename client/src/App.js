@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 // import { Route, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Signup from './components/Signup';
+import Signup from './components/signup/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';

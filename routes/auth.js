@@ -5,9 +5,27 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 router.post('/signup', (req, res, next) => {
-  console.log(req.body);
+  console.log("this is the backend request:", req.body);
   // get username and password
-  const { username, password, first_name, last_name, email, role, business_name } = req.body;
+  const {
+    email,
+    password,
+    role,
+    first_name,
+    last_name,
+    username,
+    business_name,
+    street,
+    house_number,
+    additional_address_info,
+    postal_code,
+    city,
+    business_type,
+    // dogName,
+    // dogBirthday,
+    // dogSize,
+    // dogGender,
+  } = req.body;
   // is the password at least 8 chars
   if (password.length < 8) {
     // if not we show the signup form again with a message
@@ -41,14 +59,35 @@ router.post('/signup', (req, res, next) => {
         const hash = bcrypt.hashSync(password, salt);
         console.log(hash);
         // create the user in the database
-        User.create({ username: username, password: hash, full_name: {first_name, last_name}, contact: {email}, role })
+        User.create({
+          username: username,
+          password: hash,
+          full_name: {first_name, last_name},
+          contact: {email},
+          role,
+          // dogs: {
+          //   name: dogName,
+          //   birthday: dogBirthday,
+          //   size: dogSize,
+          //   gender: dogGender,
+          // }
+        })
           .then(createdUser => {
             if (createdUser.role === 'vendor') {
-              // console.log('the user is a vendor')
               const userId = createdUser._id;
-              Vendor.create({business_name})
+              Vendor.create({
+                business_name,
+                address: {
+                  street,
+                  house_number,
+                  additional_info: additional_address_info,
+                  postal_code,
+                  city,
+                },
+                business_type
+              })
               .then((createdVendor) => {
-                console.log(userId, createdVendor); 
+                // console.log(userId, createdVendor); 
                 User.findByIdAndUpdate(userId, {
                   vendor_id: createdVendor._id
                 }, {new: true})
