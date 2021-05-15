@@ -10,7 +10,7 @@ const vendorSchema = new Schema({
     // required: true,
     enum: ["Hundeschule", "Salon", "Tierarzt"]
   },
-  addresses: {
+  address: {
     street: {
       type: String,
       // required: true,
@@ -28,7 +28,7 @@ const vendorSchema = new Schema({
       maxLength: 5
     },
     city: {
-      type: Number,
+      type: String,
       // required: true,
       trim: true
     },
