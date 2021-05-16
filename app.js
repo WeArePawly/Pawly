@@ -82,8 +82,15 @@ app.use(passport.session());
 
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controled from the routes/index.js
+
 const auth = require("./routes/auth");
 app.use("/api/auth", auth);
+
+const owners = require("./routes/owners");
+app.use("/api/owners", owners);
+
+const vendors = require("./routes/vendors");
+app.use("/api/vendors", vendors);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

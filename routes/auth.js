@@ -146,4 +146,23 @@ router.delete('/logout', (req, res) => {
   res.status(200).json({ message: 'Successful Logout' });
 })
 
+router.post('/password', (req, res, next) => {
+  const { oldPassword, newPassword } = req.body;
+  if (oldPassword === newPassword) {
+    return res.status(400).json({ message: 'Old and new password can not be the same.' });
+  } else {
+    const salt = bcrypt.genSaltSync();
+    const hash = bcrypt.hashSync(newPassword, salt);
+    User.findOneAndUpdate(
+      { username: req.user.username },
+      { password: hash },
+    )
+    .then(() =>
+      res.status(200).json({ message: 'Password was successfully changed.' })
+    )
+    .catch(err => {
+      res.status(500).json({ message: 'Error while changing password' })
+    })
+  }
+});
 module.exports = router;
