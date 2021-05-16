@@ -18,6 +18,7 @@ const serviceSchema = new Schema({
     // required: true
   },
   format: {
+    type: String,
     enum: ["online", "onsite", "mobile"],
     default: "onsite",
     // required: true
@@ -40,7 +41,7 @@ const serviceSchema = new Schema({
       maxLength: 5
     },
     city: {
-      type: Number,
+      type: String,
       // required: true,
       trim: true
     },
@@ -51,6 +52,7 @@ const serviceSchema = new Schema({
   }],
   languages: [
     {
+      type: String,
       enum: ["Deutsch", "Englisch"],
       default: "Deutsch"
     }

@@ -85,6 +85,9 @@ app.use(passport.session());
 const auth = require("./routes/auth");
 app.use("/api/auth", auth);
 
+const vendors = require("./routes/vendors");
+app.use("/api/vendors", vendors);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
