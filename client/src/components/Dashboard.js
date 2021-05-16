@@ -12,7 +12,7 @@ export default function Dashboard(props) {
   const [postal_code, setPostalCode] = useState('');
   const [city, setCity] = useState('');
   const [operator_name, setOperator] = useState('');
-  const [language, setLanguage] = useState(['Deutsch']);
+  const [language, setLanguage] = useState('');
   const [description, setDescription] = useState('');
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
@@ -50,7 +50,8 @@ export default function Dashboard(props) {
   };
 
   const handleLanguageChange = changeEvent => {
-    setLanguage(changeEvent.target.value)
+    changeEvent.persist()
+    setLanguage(prevState => [...prevState, changeEvent.target.value])
   };
 
   return (
@@ -128,9 +129,10 @@ export default function Dashboard(props) {
             onChange={e => setDescription(e.target.value)}
           />
           <label htmlFor="language">Wählen Sie die Sprache</label>
-          <select multiple={true} value={language} onChange={handleLanguageChange} name="language" id="language">
+          <select multiple={true} value={language} onChange={handleLanguageChange} name="language" id="language" >
               <option value="Deutsch">Deutsch</option>
               <option value="Englisch">Englisch</option>
+              
           </select>
           <label htmlFor="start_date">Anfangsdatum</label>
           <input
