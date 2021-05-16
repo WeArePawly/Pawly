@@ -151,6 +151,7 @@ router.post('/password', (req, res, next) => {
   if (oldPassword === newPassword) {
     return res.status(400).json({ message: 'Old and new password can not be the same.' });
   } else {
+    // this is not checking yet if the current password is correct
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(newPassword, salt);
     User.findOneAndUpdate(

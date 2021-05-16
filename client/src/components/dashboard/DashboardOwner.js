@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ChangePassword from './ChangePassword'
 
 export default function DashboardOwner(props) {
   const [profileData, setProfileData] = useState(null);
+  const [showPasswordChange, setPasswordChange]= useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,9 +32,9 @@ export default function DashboardOwner(props) {
         </div>
         <div className="row">
           <div className="cell-title">Passwort:</div>
-          <div className="cell-desc">(Password ändern)</div>
+          <div className="cell-desc"><button onClick={() => setPasswordChange(!showPasswordChange)}>Password ändern</button></div>
+          {showPasswordChange === true && <ChangePassword/>}
         </div>
-        <Link to="dashboard/edit">Benutzerdaten ändern</Link>
       </>
       )}
     </div>
