@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import AddService from '../AddService'
 
 export default function DashboardVendor(props) {
   const [profileData, setProfileData] = useState(null);
@@ -45,6 +46,7 @@ export default function DashboardVendor(props) {
           <div className="cell-desc">{profileData.vendor_id.business_type}</div>
         </div>
         <Link to="dashboard/edit">Benutzerdaten ändern</Link>
+        <AddService/>
       </>
       )}
     </div>
