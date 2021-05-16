@@ -11,12 +11,12 @@ router.post('/:vendorId/addService', (req, res, next) => {
     house_number,
     postal_code,
     city,
-    operator,
-    languages,
+    operator_name,
+    language,
     description,
-    //     // start_date,
-    //     // end_date,
-    //     // group_size,
+    start_date,
+    end_date,
+    group_size,
   } = req.body;
   Service.create({
       name: name,
@@ -26,13 +26,13 @@ router.post('/:vendorId/addService', (req, res, next) => {
         house_number,
         postal_code,
         city},
-      operator: operator,
-      languages: languages,
+      operator: {name: operator_name},
+      language: [language],
       description: description,
-      //     // bookings: {
-      //     //   dates: {start_date, end_date},
-      //     //   group_size,
-      //     // }
+      bookings: {
+        dates: {start_date, end_date},
+        group_size: {total: group_size},
+      }
     })
     .then(createdService => {
       console.log(createdService)
