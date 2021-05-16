@@ -1,17 +1,17 @@
 const router = require("express").Router();
 const User = require('../models/User');
 const Vendor = require('../models/Vendor');
-const bcrypt = require('bcrypt');
 
 router.get('/:vendorId', (req, res, next) => {
   User
   .find({vendor_id: req.params.vendorId})
   .populate('vendor_id')
   .then(user => {
-    if(!user) { res.status(404).json(user) }
-    else { res.status(200).json(user) }
+    res.status(200).json(user[0])
   })
-  .catch(err => res.json(err))
+  .catch(err => {
+    res.status(404).json({ message: `Error while loading profile: ${err}` })
+  })
 });
 
 router.put('/:vendorId', (req, res, next) => {

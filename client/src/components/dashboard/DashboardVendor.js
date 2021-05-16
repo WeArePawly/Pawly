@@ -1,54 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function DashboardVendor(props) {
-  const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('');
-  const [first_name, setFirstName] = useState('');
-  const [last_name, setLastName] = useState('');
-  const [username, setUsername] = useState('')
-
-  const [business_name, setBusinessName] = useState('');
-  const [street, setStreet] = useState('');
-  const [house_number, setHouseNumber] = useState('');
-  const [additional_address_info, setAdditionalAddressInfo] = useState('');
-  const [postal_code, setPostalCode] = useState('');
-  const [city, setCity] = useState('');
-  const [business_type, setBusinessType] = useState('');
+  const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
-    getData();
-  });
+    async function fetchData() {
+      const response = await axios(
+        `/api/vendors/${props.user.vendor_id}`,
+      );
+      setProfileData(response.data);
+    }
+    fetchData();
+  }, [props]);
 
-  const getData = () => {
-    axios.get(`/api/owners/${props.user._id}`)
-      .then(response => {
-        console.log(response)
-        setMessage(response.data.message);
-        setEmail(response.data.contact.email);
-        setFirstName(response.data.full_name.first_name);
-        setLastName(response.data.full_name.last_name);
-        setUsername(response.data.username);
-        setBusinessName(response.data.vendor_id.business_name)
-        setStreet(response.data.vendor_id.address.street)
-        setHouseNumber(response.data.vendor_id.address.house_number)
-        setAdditionalAddressInfo(response.data.vendor_id.address.additional_info)
-        setPostalCode(response.data.vendor_id.address.postal_code)
-        setCity(response.data.vendor_id.address.city)
-        setBusinessType(response.data.vendor_id.business_type)
-      })
-      .catch(err => {
-        console.log(err);
-        // if (err.response.status === 404) {
-        //   this.setState({
-        //     message: 'Not found'
-        //   })
-        // }
-      })
-  }
   return (
-    <div>
-      this is the vendor dashboard
+    <div className="user-info">
+      <h1>Vendor Dashboard</h1>
+      {profileData && (
+      <>
+        <div className="row">
+          <div className="cell-title">Username:</div>
+          <div className="cell-desc">{profileData.username}</div>
+        </div>
+        <div className="row">
+          <div className="cell-title">Name:</div>
+          <div className="cell-desc">{profileData.full_name.first_name} {profileData.full_name.last_name}</div>
+        </div>
+        <div className="row">
+          <div className="cell-title">Passwort:</div>
+          <div className="cell-desc">(Passwort ändern)</div>
+        </div>
+        <div className="row">
+          <div className="cell-title">Addresse:</div>
+          <div className="cell-desc">{profileData.vendor_id.address.street} {profileData.vendor_id.address.house_number}, {profileData.vendor_id.address.additional_info && <>{profileData.vendor_id.address.additional_info},</>} {profileData.vendor_id.address.postal_code} {profileData.vendor_id.address.city}</div>
+        </div>
+        <div className="row">
+          <div className="cell-title">Firmenname:</div>
+          <div className="cell-desc">{profileData.vendor_id.business_name}</div>
+        </div>
+        <div className="row">
+          <div className="cell-title">Geschäftstyp:</div>
+          <div className="cell-desc">{profileData.vendor_id.business_type}</div>
+        </div>
+        <Link to="dashboard/edit">Benutzerdaten ändern</Link>
+      </>
+      )}
     </div>
   )
 }
