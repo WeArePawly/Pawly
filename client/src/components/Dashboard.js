@@ -1,3 +1,5 @@
+import DashboardOwner from './dashboard/DashboardOwner';
+import DashboardVendor from './dashboard/DashboardVendor';
 import axios from 'axios';
 import React, {useState} from 'react';
 
@@ -55,6 +57,12 @@ export default function Dashboard(props) {
   };
 
   return (
+    
+   if (props.user.role === "vendor") {
+    <DashboardVendor user={props.user}/>
+   } else if (props.user.role === "dogOwner") {
+      <DashboardOwner user={props.user}/>
+   }
     <div>
         <h2>Add Service</h2>
         <form onSubmit={handleSubmit}>
