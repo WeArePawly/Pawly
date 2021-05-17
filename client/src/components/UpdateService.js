@@ -1,9 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 export default function AddService(props) {
 
-  const [name, setName] = useState('');
+  const [serviceData, setServiceData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/api/vendors/${props.user.vendor_id}/${props.user.service._id}`)
+    .then(response => setServiceData(response.data))
+  }, [])
+
+  const [name, setName] = useState(`${serviceData.name}`);
   const [price, setPrice] = useState(0);
   const [format, setFormat] = useState('onsite');
   const [street, setStreet] = useState('');
