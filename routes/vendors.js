@@ -107,6 +107,7 @@ router.post('/:vendorId/addService', (req, res, next) => {
         })
         .catch(err => res.json(err));
     })
+    .catch(err => res.json(err));
 })
 
 router.get('/:vendorId/services', (req, res, next) => {

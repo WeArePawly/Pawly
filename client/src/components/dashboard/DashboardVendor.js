@@ -48,8 +48,11 @@ export default function DashboardVendor(props) {
           <div className="cell-desc">{profileData.vendor_id.business_type}</div>
         </div>
         <Link to="dashboard/edit">Benutzerdaten ändern</Link>
-        {/* <AddService user={props.user}/> */}
+
         <VendorServices user={props.user}/>
+
+        <AddService user={props.user}/>
+
       </>
       )}
     </div>
