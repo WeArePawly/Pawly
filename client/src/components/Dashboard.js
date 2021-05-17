@@ -10,17 +10,21 @@ import SidebarVendor from './dashboard/SidebarVendor';
 export default function Dashboard(props) {
   const [clickedSidebarItem, setSidebarItem] = useState('Übersicht');
 
+  const handleClick = (e) => {
+    setSidebarItem(e.target.innerText)
+  }
+
   if (props.user.role === "vendor") {
   return (
     <div className="dashboard-wrapper">
-      <SidebarVendor/>
+      <SidebarVendor handleClick={handleClick}/>
       <DashboardVendor user={props.user}/>
     </div>
   )
   }
   return (
     <div className="dashboard-wrapper">
-      <SidebarOwner/>
+      <SidebarOwner handleClick={handleClick}/>
       <DashboardOwner user={props.user}/>
     </div>
   )
