@@ -7,7 +7,7 @@ export default function SidebarVendor(props) {
       <ul>
         <li>Übersicht</li>
         <li>Benutzerdaten</li>
-        <li>Favoriten</li>
+        <li>Dienstleistungen</li>
         <li>Buchungen</li>
       </ul>
     </div>
