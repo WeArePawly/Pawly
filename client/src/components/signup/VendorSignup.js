@@ -7,7 +7,7 @@ export default function VendorSignup(props) {
 
   return (
     <>
-      <label htmlFor="business_name">Firmenname </label>
+      <label htmlFor="business_name">Firmenname</label>
       <input
         id="business_name"
         type="text"

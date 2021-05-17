@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import '../styles/dashboard.css';
 import DashboardOwner from './dashboard/DashboardOwner';
 import DashboardVendor from './dashboard/DashboardVendor';
-import UpdateService from './UpdateService';
 import SidebarOwner from './dashboard/SidebarOwner';
 import SidebarVendor from './dashboard/SidebarVendor';
 import BookingsOwner from './dashboard/BookingsOwner';
