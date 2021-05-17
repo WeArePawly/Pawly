@@ -16,8 +16,10 @@ router.get('/:vendorId', (req, res, next) => {
 });
 
 router.put('/:vendorId', (req, res, next) => {
+  console.log(req.body)
   const {
     email,
+    username,
     first_name,
     last_name,
     business_name,
@@ -34,6 +36,7 @@ router.put('/:vendorId', (req, res, next) => {
       {
         full_name: {first_name, last_name},
         contact: {email},
+        username,
        },
       { new: true }
     )

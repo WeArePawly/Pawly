@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 router.post('/signup', (req, res, next) => {
-  console.log("this is the backend request:", req.body);
+  console.log("this is the signup request:", req.body);
   // get username and password
   const {
     email,

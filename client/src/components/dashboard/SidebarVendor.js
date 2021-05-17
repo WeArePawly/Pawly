@@ -1,14 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
 export default function SidebarVendor(props) {
   return (
     <div className="sidebar">
       <ul>
-        <li>Übersicht</li>
-        <li>Benutzerdaten</li>
-        <li>Favoriten</li>
-        <li>Buchungen</li>
+        <li onClick={props.handleClick} className="active">Übersicht</li>
+        <li onClick={props.handleClick}>Benutzerdaten</li>
+        <li onClick={props.handleClick}>Dienstleistungen</li>
+        <li onClick={props.handleClick}>Buchungen</li>
       </ul>
     </div>
   )
