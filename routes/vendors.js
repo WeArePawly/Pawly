@@ -70,7 +70,7 @@ router.post('/:vendorId/addService', (req, res, next) => {
     postal_code,
     city,
     operator_name,
-    language,
+    languages,
     description,
     start_date,
     end_date,
@@ -85,7 +85,7 @@ router.post('/:vendorId/addService', (req, res, next) => {
         postal_code,
         city},
       operator: {name: operator_name},
-      language: language,
+      languages: languages,
       description: description,
       bookings: {
         dates: {start_date, end_date},
@@ -109,6 +109,14 @@ router.post('/:vendorId/addService', (req, res, next) => {
     })
 })
 
+router.get('/:vendorId/:serviceId', (req, res, next) => {
+    Service.findById(req.params.serviceId)
+    .then(serviceFromDB => {
+      console.log(serviceFromDB)
+      res.status(200).json(serviceFromDB)
+    })
+    .catch(err => res.json(err)); 
+})
 
 router.put('/:vendorId/:serviceId', (req, res, next) => {
   const {

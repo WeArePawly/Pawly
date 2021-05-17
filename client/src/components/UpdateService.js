@@ -21,7 +21,7 @@ export default function AddService(props) {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(props, props.user)
-    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, {
+    axios.post(`/api/vendors/${props.user.vendor_id}/${props.service._id}`, {
       name,
       price,
       format,
@@ -61,7 +61,7 @@ export default function AddService(props) {
   
   return (
     <div>
-        <h2>Add Service</h2>
+        <h2>Update Service</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name: </label>
           <input

@@ -50,7 +50,7 @@ const serviceSchema = new Schema({
   operator: [{
     name: String
   }],
-  language: [
+  languages: [
     {
       type: String,
       enum: ["Deutsch", "Englisch"],
