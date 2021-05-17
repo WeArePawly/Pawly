@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import ChangePassword from './ChangePassword';
 
 export default function SettingsVendor(props) {
@@ -7,6 +8,8 @@ export default function SettingsVendor(props) {
 
   const [message, setMessage] = useState('');
 
+  const [email, setEmail] = useState(props.profileData.contact.email);
+  const [username, setUsername] = useState(props.profileData.username)
   const [first_name, setFirstName] = useState(props.profileData.full_name.first_name);
   const [last_name, setLastName] = useState(props.profileData.full_name.last_name);
 
@@ -25,20 +28,32 @@ export default function SettingsVendor(props) {
 
   const submitChange = (e) => {
     e.preventDefault();
-    // axios.post('/api/auth/password', { oldPassword, newPassword })
-    //   .then(response => {
-    //     if (response.message) {
-    //       setMessage(response.message)
-    //       setOldPassword('')
-    //       setNewPassword('')
-    //     } else {
-    //       console.log(response);
-    //       props.history.push('/dashboard');
-    //     }
-    //   })
-    //   .catch(err => {
-    //     return err;
-    //   })
+    axios.put(`/api/vendors/${props.user.vendor_id}`, {
+      email,
+      username,
+      first_name,
+      last_name,
+      business_name,
+      street,
+      house_number,
+      additional_address_info,
+      postal_code,
+      city,
+      business_type
+    })
+      .then(response => {
+        console.log(response)
+        if (response.message) {
+          setMessage(response.message);
+        } else {x
+          console.log(response);
+          setMessage('Dein Profil wurde erfolgreich bearbeitet.');
+          props.history.push('/dashboard');
+        }
+      })
+      .catch(err => {
+        return err;
+      })
   }
   return (
     <div>
@@ -75,7 +90,24 @@ export default function SettingsVendor(props) {
       {(props.profileData && changeSettings) && (
         <>
           <h2>Benutzerdaten ändern</h2>
+          {message && <p>{message}</p>}
           <form onSubmit={submitChange}>
+          <label htmlFor="email">Email: </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <label htmlFor="username">Username: </label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+            />
             <fieldset>
               <legend>Name</legend>
               <input
