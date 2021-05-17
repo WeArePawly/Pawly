@@ -59,7 +59,7 @@ router.put('/:vendorId', (req, res, next) => {
       .then(editedVendor => {
         res.status(200).json({editedUser, editedVendor});
       })
-      .catch(err => res.json(err));
+      res.status(404).json({ message: `Error while editing profile.`})
   })
 })
 

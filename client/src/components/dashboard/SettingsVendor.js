@@ -92,7 +92,7 @@ export default function SettingsVendor(props) {
           <h2>Benutzerdaten ändern</h2>
           {message && <p>{message}</p>}
           <form onSubmit={submitChange}>
-          <label htmlFor="email">Email: </label>
+            <label htmlFor="email">Email: </label>
             <input
               id="email"
               type="email"
