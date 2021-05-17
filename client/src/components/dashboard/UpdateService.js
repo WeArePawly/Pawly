@@ -16,8 +16,6 @@ export default function UpdateService(props) {
 
   }, [])
 
-  
-
   const [name, setName] = useState('');
   // const [price, setPrice] = useState(0);
   // const [format, setFormat] = useState('onsite');
