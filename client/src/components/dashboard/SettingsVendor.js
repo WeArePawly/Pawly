@@ -5,6 +5,19 @@ export default function SettingsVendor(props) {
   const [showPasswordChange, setPasswordChange] = useState(false);
   const [changeSettings, setChangeSettings] = useState(false);
 
+  const [message, setMessage] = useState('');
+
+  const [first_name, setFirstName] = useState(props.profileData.full_name.first_name);
+  const [last_name, setLastName] = useState(props.profileData.full_name.last_name);
+
+  const [business_name, setBusinessName] = useState(props.profileData.vendor_id.business_name);
+  const [street, setStreet] = useState(props.profileData.vendor_id.address.street);
+  const [house_number, setHouseNumber] = useState(props.profileData.vendor_id.address.house_number);
+  const [additional_address_info, setAdditionalAddressInfo] = useState(props.profileData.vendor_id.address.additional_info);
+  const [postal_code, setPostalCode] = useState(props.profileData.vendor_id.address.postal_code);
+  const [city, setCity] = useState(props.profileData.vendor_id.address.city);
+  const [business_type, setBusinessType] = useState(props.profileData.vendor_id.business_type);
+
   const editInfo = () => {
     setPasswordChange(false);
     setChangeSettings(true);
@@ -27,8 +40,6 @@ export default function SettingsVendor(props) {
     //     return err;
     //   })
   }
-
-
   return (
     <div>
       {(props.profileData && !changeSettings) && (
@@ -71,16 +82,16 @@ export default function SettingsVendor(props) {
                 id="first_name"
                 type="text"
                 name="first_name"
-                // value={first_name}
-                // onChange={e => setName(e.target.value)}
+                value={first_name}
+                onChange={e => setFirstName(e.target.value)}
                 placeholder="Hanna"
               />
               <input
                 id="last_name"
                 type="text"
                 name="last_name"
-                // value={last_name}
-                // onChange={e => setName(e.target.value)}
+                value={last_name}
+                onChange={e => setLastName(e.target.value)}
                 placeholder="Schmidt"
               />
             </fieldset>
@@ -90,40 +101,40 @@ export default function SettingsVendor(props) {
                 id="street"
                 type="text"
                 name="street"
-                // value={street}
-                // onChange={e => setName(e.target.value)}
+                value={street}
+                onChange={e => setStreet(e.target.value)}
                 placeholder="Hundestraße"
               />
               <input
                 id="house_number"
                 type="number"
                 name="house_number"
-                // value={house_number}
-                // onChange={e => setName(e.target.value)}
+                value={house_number}
+                onChange={e => setHouseNumber(e.target.value)}
                 placeholder="1"
               />
               <input
                 id="address.additional_info"
                 type="text"
                 name="address.additional_info"
-                // value={address.additional_info}
-                // onChange={e => setName(e.target.value)}
+                value={additional_address_info}
+                onChange={e => setAdditionalAddressInfo(e.target.value)}
                 placeholder="c/o Kaiser"
               />
               <input
                 id="postal_code"
                 type="number"
                 name="postal_code"
-                // value={house_number}
-                // onChange={e => setName(e.target.value)}
+                value={postal_code}
+                onChange={e => setPostalCode(e.target.value)}
                 placeholder="12345"
               />
               <input
                 id="city"
                 type="text"
                 name="city"
-                // value={house_number}
-                // onChange={e => setName(e.target.value)}
+                value={city}
+                onChange={e => setCity(e.target.value)}
                 placeholder="Hundestadt"
               />
             </fieldset>
@@ -132,15 +143,14 @@ export default function SettingsVendor(props) {
               id="business_name"
               type="text"
               name="business_name"
-              // value={business_name}
-              // onChange={e => setName(e.target.value)}
+              value={business_name}
+              onChange={e => setBusinessName(e.target.value)}
             />
             <label htmlFor="business_type">Geschäftstyp: </label>
-            {/* value={props.vendorProps.business_type} onChange={handleBusinessTypeChange}  */}
-            <select name="business_type" id="business_type">
-                <option value="dogschool">Hundeschule</option>
-                <option value="salon">Salon</option>
-                <option value="tierarzt">Tierarzt</option>
+            <select name="business_type" id="business_type" value={business_type} onChange={e => setBusinessType(e.target.value)} >
+                <option value="Hundeschule">Hundeschule</option>
+                <option value="Salon">Salon</option>
+                <option value="Tierarzt">Tierarzt</option>
             </select>
             <button type="submit">Benutzerdaten ändern</button>
           </form>
