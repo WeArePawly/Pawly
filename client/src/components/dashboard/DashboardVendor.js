@@ -17,7 +17,7 @@ export default function DashboardVendor(props) {
   }, [props]);
 
   return (
-    <div className="user-info">
+    <div className="dashboard-content">
       <h1>Vendor Dashboard</h1>
       {profileData && (
       <>

@@ -1,7 +1,6 @@
-import './App.css';
+import './styles/normalize.css';
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
-// import { Route, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Signup from './components/signup/Signup';
 import Login from './components/Login';

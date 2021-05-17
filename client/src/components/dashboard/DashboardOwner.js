@@ -18,7 +18,7 @@ export default function DashboardOwner(props) {
   }, [props]);
 
   return (
-    <div className="user-info">
+    <div className="dashboard-content">
       <h1>Owner Dashboard</h1>
       {profileData && (
       <>

@@ -1,0 +1,13 @@
+.dashboard-wrapper {
+  display: flex;
+}
+.dashboard-wrapper .sidebar {
+  width: 200px;
+  background-color: bisque;
+}
+.dashboard-wrapper .sidebar ul {
+  list-style: none;
+}
+.dashboard-wrapper .dashboard-content {
+  padding: 20px;
+}
