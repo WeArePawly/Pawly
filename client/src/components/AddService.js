@@ -71,7 +71,7 @@ export default function AddService(props) {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          <label htmlFor="price">Price: </label>
+          <label htmlFor="price">Preis: </label>
           <input
             id="price"
             type="number"
