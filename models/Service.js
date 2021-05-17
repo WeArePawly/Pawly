@@ -76,13 +76,20 @@ const serviceSchema = new Schema({
     group_size: {
       total: Number,
       available: Number
-    },
-    booked_by: [{
+    }
+    // booked_by: [String]
+    // [{
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'User',
+    //   // required: true
+    // }]   
+  }],
+  booked_by:
+    [{
       type: Schema.Types.ObjectId,
       ref: 'User',
       // required: true
-    }]
-  }],
+    }],
   service_avatar: {
     original_name: { type: String },
     path: {

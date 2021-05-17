@@ -4,6 +4,8 @@ import axios from 'axios';
 import AddService from '../AddService'
 
 export default function DashboardVendor(props) {
+  console.log('These are the props for the Dashboard Vendor: ', props.user);
+  
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
