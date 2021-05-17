@@ -109,6 +109,19 @@ router.post('/:vendorId/addService', (req, res, next) => {
     })
 })
 
+router.get('/:vendorId/services', (req, res, next) => {
+  Vendor.findById(req.params.vendorId)
+  .then(vendor => {
+    console.log(vendor)
+    Service.find()
+    .then(vendorServices => {
+      res.status(200).json(vendorServices)
+    })
+    .catch(err => res.json(err));
+  })
+  .catch(err => res.json(err));
+})
+
 router.get('/:vendorId/:serviceId', (req, res, next) => {
     Service.findById(req.params.serviceId)
     .then(serviceFromDB => {
