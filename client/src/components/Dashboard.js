@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../styles/dashboard.css';
 import DashboardOwner from './dashboard/DashboardOwner';
 import DashboardVendor from './dashboard/DashboardVendor';
@@ -11,8 +11,29 @@ import ServiceOverview from './dashboard/ServiceOverview';
 import SettingsOwner from './dashboard/SettingsOwner';
 import SettingsVendor from './dashboard/SettingsVendor';
 import Favorites from './dashboard/Favorites'
+import axios from 'axios';
 
 export default function Dashboard(props) {
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      if (props.user.role === "vendor") {
+        const response = await axios(
+          `/api/vendors/${props.user.vendor_id}`,
+        );
+        setProfileData(response.data);
+      }
+      else if(props.user.role === "dogOwner") {
+        const response = await axios(
+          `/api/owners/${props.user._id}`,
+        );
+        setProfileData(response.data);
+      }
+    }
+    fetchData();
+  }, [props]);
+
   const [clickedSidebarItem, setSidebarItem] = useState('Übersicht');
   let sidebar;
   let content;
@@ -28,10 +49,10 @@ export default function Dashboard(props) {
   if (props.user.role === "vendor") {
     sidebar = <SidebarVendor handleClick={handleClick} clickedSidebarItem={clickedSidebarItem} setSidebarItem={setSidebarItem}/>
     if (clickedSidebarItem === 'Übersicht') {
-      content = <DashboardVendor user={props.user}/>
+      content = <DashboardVendor user={props.user} profileData={profileData}/>
     }
     else if (clickedSidebarItem === 'Benutzerdaten') {
-      content = <SettingsVendor user={props.user}/>
+      content = <SettingsVendor user={props.user} profileData={profileData}/>
     }
     else if (clickedSidebarItem === 'Dienstleistungen') {
       content = <ServiceOverview user={props.user}/>
@@ -43,10 +64,10 @@ export default function Dashboard(props) {
   else if (props.user.role === "dogOwner") {
     sidebar = <SidebarOwner handleClick={handleClick} clickedSidebarItem={clickedSidebarItem} setSidebarItem={setSidebarItem} />
     if (clickedSidebarItem === 'Übersicht') {
-      content = <DashboardOwner user={props.user}/>
+      content = <DashboardOwner user={props.user} profileData={profileData}/>
     }
     else if (clickedSidebarItem === 'Benutzerdaten') {
-      content = <SettingsOwner user={props.user}/>
+      content = <SettingsOwner user={props.user} profileData={profileData}/>
     }
     else if (clickedSidebarItem === 'Favoriten') {
       content = <Favorites user={props.user}/>
