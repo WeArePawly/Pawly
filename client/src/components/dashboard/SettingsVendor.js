@@ -45,7 +45,7 @@ export default function SettingsVendor(props) {
         console.log(response)
         if (response.message) {
           setMessage(response.message);
-        } else {x
+        } else {
           console.log(response);
           setMessage('Dein Profil wurde erfolgreich bearbeitet.');
           props.history.push('/dashboard');
