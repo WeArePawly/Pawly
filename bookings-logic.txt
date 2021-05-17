@@ -1,0 +1,13 @@
+Vendor creates a service with:
+  - date-picker tool -> will save the time in the service 
+
+- Display the Services that can be booked
+- Click on "Book" -> redirected to Details View with more information
+- Display a Calendar with time slots
+- Click on time slot -> book it 
+- Add a toggle so people can select & unselect before they book
+- Backend route is rendered
+- Booking is confirmed
+
+- Display calendar with dates? Check whether with that service Id there are any dates that fit?
+--> if yes: display times

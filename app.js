@@ -92,6 +92,9 @@ app.use("/api/owners", owners);
 const vendors = require("./routes/vendors");
 app.use("/api/vendors", vendors);
 
+const bookings = require("./routes/bookings");
+app.use("/api/bookings", bookings)
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

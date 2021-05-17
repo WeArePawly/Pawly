@@ -93,7 +93,11 @@ const userSchema = new Schema({
   vendor_id: {
     type: Schema.Types.ObjectId,
     ref: 'Vendor'
-  }
+  },
+  bookings: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Service'
+  }]
   // message: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
 },
 { timestamps: true },
