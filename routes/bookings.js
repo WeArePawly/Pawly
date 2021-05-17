@@ -4,6 +4,7 @@ const Vendor = require('../models/Vendor');
 const Service = require("../models/Service");
 
 // The available slots for service are updated
+// I need to pass that in from the front end --> Update that as well (in group size)
 
 router.put('/:serviceId', (req, res) => {
   const {user} = req.session.passport;
