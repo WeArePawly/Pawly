@@ -69,13 +69,13 @@ const serviceSchema = new Schema({
     },
     end_date: {
       type: Date,
-      required: true
+      // required: true
     },
   },
   group_size: {
     total: Number,
     available: Number
-  }, 
+  },
   booked_by:
     [{
       type: Schema.Types.ObjectId,

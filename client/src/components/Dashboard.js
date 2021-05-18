@@ -38,7 +38,7 @@ export default function Dashboard(props) {
   let content;
   const handleClick = (e) => {
     setSidebarItem(e.target.innerText)
-    let listItems = document.querySelectorAll(".sidebar ul li");
+    let listItems = document.querySelectorAll("aside ul li");
     listItems.forEach(item => {
       item.classList.remove("active")
     })

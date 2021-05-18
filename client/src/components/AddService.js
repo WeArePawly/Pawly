@@ -20,11 +20,19 @@ export default function AddService(props) {
   const [group_size, setGroupSize] = useState('');
   const [addDate, setAddDate] = useState(new Date());
 
+  const [fileData, setFileData] = useState();
+  const [image, setFile] = useState("");
+  
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('image', fileData)
+
     console.log(props, props.user)
-    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, {
+    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData, {
       name,
       price,
       format,
@@ -37,7 +45,8 @@ export default function AddService(props) {
       description,
       start_date,
       end_date,
-      group_size
+      group_size,
+      image
     })
     .then(response => {
       console.log(response.data)
@@ -70,11 +79,15 @@ export default function AddService(props) {
     console.log(values)
     setAddDate(values)
   }
+  const handleFileChange = e => {
+    setFileData(e.target.files[0])
+    setFile(e.target.value)
+  }
   
   return (
     <div>
         <h2>Add Service</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
           <label htmlFor="name">Name: </label>
           <input
             id="name"
@@ -187,6 +200,15 @@ export default function AddService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
+          <label htmlFor="image">Image</label>
+          <input 
+            type='file' 
+            value={image} 
+            name='file' 
+            accept='image/*' 
+            onChange={e => handleFileChange(e.target.files)} 
+            alt='name'
+            placeholder='image' />
           <button type="submit">Add</button>
         </form>
     </div>

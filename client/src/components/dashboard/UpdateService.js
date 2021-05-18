@@ -3,51 +3,52 @@ import axios from 'axios';
 
 export default function UpdateService(props) {
 
-  // const [serviceData, setServiceData] = useState([]);
-
-  let serviceData;
-
-  useEffect(() => {
-    axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
-    .then(response => {serviceData = response.data;
-    console.log(serviceData)
-    setName(response.data.name)
-  })
-
-  }, [])
-
   const [name, setName] = useState('');
-  // const [price, setPrice] = useState(0);
-  // const [format, setFormat] = useState('onsite');
-  // const [street, setStreet] = useState('');
-  // const [house_number, setHouseNumber] = useState('');
-  // const [postal_code, setPostalCode] = useState('');
-  // const [city, setCity] = useState('');
-  // const [operator_name, setOperator] = useState('');
-  // const [languages, setLanguages] = useState(['Deutsch']);
-  // const [description, setDescription] = useState('');
-  // const [start_date, setStartDate] = useState('');
-  // const [end_date, setEndDate] = useState('');
-  // const [group_size, setGroupSize] = useState('');
+  const [price, setPrice] = useState('');
+  const [format, setFormat] = useState('');
+  const [street, setStreet] = useState('');
+  const [house_number, setHouseNumber] = useState('');
+  const [postal_code, setPostalCode] = useState('');
+  const [city, setCity] = useState('');
+  const [operator_name, setOperator] = useState('');
+  const [languages, setLanguages] = useState([]);
+  const [description, setDescription] = useState('');
+  const [start_date, setStartDate] = useState('');
+  const [end_date, setEndDate] = useState('');
+  const [group_size, setGroupSize] = useState('');
 
+  useEffect(async() => {
+      const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
+      console.log(service.data.dates.start_date)
+      setName(service.data.name)
+      setPrice(service.data.price)
+      setStreet(service.data.location.street)
+      setHouseNumber(service.data.location.house_number)
+      setPostalCode(service.data.location.postal_code)
+      setCity(service.data.location.city)
+      setOperator(service.data.operator[0].name)
+      setDescription(service.data.description)
+      setGroupSize(service.data.group_size.total)
+      setStartDate(service.data.dates.start_date)
+    }, [])
 
-  function handleSubmit(e) {
+  function handleSubmit(e) {  
     e.preventDefault();
     console.log(props, props.user)
-    axios.post(`/api/vendors/${props.user.vendor_id}/${props.service._id}`, {
+    axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, {
       name,
-      // price,
-      // format,
-      // street,
-      // house_number,
-      // postal_code,
-      // city,
-      // operator_name,
-      // languages,
-      // description,
-      // start_date,
-      // end_date,
-      // group_size
+      price,
+      format,
+      street,
+      house_number,
+      postal_code,
+      city,
+      operator_name,
+      languages,
+      description,
+      start_date,
+      end_date,
+      group_size
     })
     .then(response => {
       console.log(response.data)
@@ -57,20 +58,21 @@ export default function UpdateService(props) {
     })
   }
 
-  // const handleFormatChange = changeEvent => {
-  //   setFormat(changeEvent.target.value)
-  // };
+  const handleFormatChange = changeEvent => {
+    setFormat(changeEvent.target.value)
+  };
 
-  // const handleLanguageChange = changeEvent => {
-  //   changeEvent.persist()
-  //   setLanguages(prevState => {
-  //     const lang = changeEvent.target.value;
-  //     if (prevState.includes(lang)) {
-  //       return prevState.filter(el => el !== lang);
-  //     }
-  //    return [...prevState, lang]
-  //   })
-  // };
+  const handleLanguageChange = changeEvent => {
+    changeEvent.persist()
+    setLanguages(prevState => {
+      const lang = changeEvent.target.value;
+      if (prevState.includes(lang)) {
+        return prevState.filter(el => el !== lang);
+      }
+     return [...prevState, lang]
+    })
+  };
+
   
   return (
     <div>
@@ -84,7 +86,7 @@ export default function UpdateService(props) {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          {/* <label htmlFor="price">Price: </label>
+          <label htmlFor="price">Price: </label>
           <input
             id="price"
             type="number"
@@ -106,7 +108,7 @@ export default function UpdateService(props) {
             value={street}
             onChange={e => setStreet(e.target.value)}
           />
-          <label htmlFor="house_number">Hausnummer</label>
+         <label htmlFor="house_number">Hausnummer</label>
           <input
             id="house_number"
             type="number"
@@ -175,7 +177,7 @@ export default function UpdateService(props) {
             name="group_size"
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
-          />*/}
+          />
           <button type="submit">Add</button> 
         </form>
     </div>

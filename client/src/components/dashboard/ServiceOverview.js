@@ -6,7 +6,7 @@ export default function ServiceOverview(props) {
 
   const [servicesData, setServicesData] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
-  const [serviceId, setServiceId] = useState('')
+  const [serviceId, setServiceId] = useState('');
 
   useEffect(() => {
     axios.get(`/api/vendors/${props.user.vendor_id}/services/`)
