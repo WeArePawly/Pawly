@@ -13,13 +13,14 @@ import About from './components/About'
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
+  const [search, setSearch] = useState([]);
 
   return (
     <div className="App">
       <Navbar user={user} setUser={user => setUser(user)} />
       <Route
         exact path="/"
-        render={props => <Home user={user} setUser={user => setUser(user)} {...props} />}
+        render={props => <Home user={user} setUser={user => setUser(user)} search={search} setSearch={setSearch} {...props} />}
       />
       <Route
         exact path="/about"
@@ -27,7 +28,7 @@ export default function App(props) {
       />
       <Route
         exact path="/training"
-        render={props => <Search user={user} setUser={user => setUser(user)} {...props} />}
+        render={props => <Search user={user} setUser={user => setUser(user)} search={search} setSearch={setSearch} {...props} />}
       />
       <Route
         exact path="/login"

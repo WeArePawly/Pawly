@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
 import '../../styles/home.css';
 
-export default function Home() {
+export default function Home(props) {
+  const [specialization, setSpecialization] = useState('');
+  const [age, setAge] = useState('');
+  const [trainingType, setTrainingType] = useState('');
+
+
   const submitSearchForm = (e) => {
     e.preventDefault();
-    console.log('clicked')
+    props.setSearch([specialization, age, trainingType])
+    props.history.push('/training');
   }
   return (
     <section className="hero is-fullheight-with-navbar">
@@ -17,7 +24,7 @@ export default function Home() {
             <label className="label">Spezialisierung</label>
             <div className="control">
               <div className="select">
-                <select>
+                <select id="specialization" value={specialization} onChange={e => setSpecialization(e.target.value)}>
                   <option>Bitte auswählen</option>
                   <option>Leinentraining</option>
                   <option>Trennungsangst</option>
@@ -31,8 +38,8 @@ export default function Home() {
             <label className="label">Alter</label>
             <div className="control">
               <div className="select">
-                <select>
-                <option>Bitte auswählen</option>
+                <select id="age" value={age} onChange={e => setAge(e.target.value)}>
+                  <option>Bitte auswählen</option>
                   <option>Welpe (0-5 Monate)</option>
                   <option>Junghund (6-17 Monate)</option>
                   <option>Erwachsen (18+ Monate)</option>
@@ -43,11 +50,11 @@ export default function Home() {
           <div className="field">
             <div className="control">
               <label className="radio training-type">
-                <input type="radio" id="training-type-single" name="training-type"/>
+                <input type="radio" id="training-type-single" name="training-type" value="training-type-single" checked={trainingType === "training-type-single"} onChange={() => setTrainingType("training-type-single")} />
                 Einzeltraining
               </label>
               <label className="radio">
-                <input type="radio" id="training-type-group" name="training-type"/>
+              <input type="radio" id="training-type-group" name="training-type" value="training-type-group" checked={trainingType === "training-type-group"} onChange={() => setTrainingType("training-type-group")} />
                 Gruppentraining
               </label>
             </div>
