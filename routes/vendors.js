@@ -84,7 +84,7 @@ router.put('/:vendorId', (req, res, next) => {
 })
 
 router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
-  console.log(req.file.path)
+  console.log("This is cloudinary path", req.file.path)
   const {
     name,
     price,
@@ -123,7 +123,6 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
           new: true
         })
         .then(updatedVendor => {
-          console.log(updatedVendor)
           res.status(200).json({
             message: 'A service has been successfully created.'
           });
