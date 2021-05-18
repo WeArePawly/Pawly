@@ -1,10 +1,12 @@
 import './styles/normalize.css';
+import './styles/bulma.css';
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Signup from './components/signup/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Home from './components/home/Home';
 import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App(props) {
@@ -13,6 +15,10 @@ export default function App(props) {
   return (
     <div className="App">
       <Navbar user={user} setUser={user => setUser(user)} />
+      <Route
+        exact path="/"
+        render={props => <Home user={user} setUser={user => setUser(user)} {...props} />}
+      />
       <Route
         exact path="/login"
         render={props => <Login user={user} setUser={user => setUser(user)} {...props} />}
