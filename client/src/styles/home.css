@@ -16,3 +16,42 @@
   padding: 30px 20px;
   border-radius: 10px;
 }
+.service-statement {
+  padding: 40px 0;
+  background-color: #2c2931;
+}
+.service-statement h2,
+.service-statement h4 {
+  color: #ee846d;
+}
+.service-statement p {
+  text-align: center;
+  color: #f9f9f9;
+  padding: 0 20px;
+}
+.join {
+  padding: 40px 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff 50%, #ffba33 50%);
+}
+.join .column {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.join .column p {
+  margin-bottom: 10px;
+}
+.join .button.owner-signup {
+  background-color: #ffba33;
+}
+
+@media screen and (max-width: 768px) {
+  .join {
+    background: #ffba33;
+  }
+  .join .button.owner-signup {
+    background-color: #fff;
+  }
+}

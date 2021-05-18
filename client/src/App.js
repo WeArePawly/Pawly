@@ -8,8 +8,9 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Home from './components/home/Home';
 import ProtectedRoute from './components/ProtectedRoute';
-import Search from './components/search/Search'
-import About from './components/About'
+import Search from './components/search/Search';
+import About from './components/About';
+import Footer from './components/Footer'
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
@@ -44,6 +45,7 @@ export default function App(props) {
         component={Dashboard}
         redirectPath='/login'
       />
+      <Footer/>
     </div>
   )
 }
