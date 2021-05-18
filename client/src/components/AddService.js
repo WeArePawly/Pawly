@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import NewDateInput from './newDateInput';
+import DatePicker from "react-multi-date-picker";
 
 export default function AddService(props) {
 
@@ -16,6 +18,7 @@ export default function AddService(props) {
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
   const [group_size, setGroupSize] = useState('');
+  const [addDate, setAddDate] = useState(new Date());
 
 
   function handleSubmit(e) {
@@ -58,6 +61,15 @@ export default function AddService(props) {
      return [...prevState, lang]
     })
   };
+
+  // const addNewDate = () => {
+  //   setAddDate(dates => [...dates, <NewDateInput />]);
+  // }
+
+  const addNewDates = (values) => {
+    console.log(values)
+    setAddDate(values)
+  }
   
   return (
     <div>
@@ -137,24 +149,36 @@ export default function AddService(props) {
           <select multiple={true} value={languages} onChange={handleLanguageChange} name="languages" id="languages" >
               <option value="Deutsch">Deutsch</option>
               <option value="Englisch">Englisch</option>
-              
           </select>
-          <label htmlFor="start_date">Anfangsdatum</label>
-          <input
+
+          <label htmlFor="start_date">Datum:</label>
+          {/* <input
             id="start_date"
             type="date"
             name="start_date"
             value={start_date}
             onChange={e => setStartDate(e.target.value)}
-          />
-          <label htmlFor="end_date">Enddatum</label>
+          /> */}
+
+          <DatePicker 
+          multiple
+          value={addDate} 
+          onChange={addNewDates}/>
+
+          {/* <button onClick={addNewDate}>Add another date</button>
+          {addDate.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))} */}
+
+          {/* <label htmlFor="end_date">Enddatum</label>
           <input
             id="end_date"
             type="date"
             name="end_date"
             value={end_date}
             onChange={e => setEndDate(e.target.value)}
-          />
+          /> */}
+
           <label htmlFor="group_size">Teilnehmer max.</label>
           <input
             id="group_size"
