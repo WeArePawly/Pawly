@@ -75,7 +75,7 @@ const serviceSchema = new Schema({
   group_size: {
     total: Number,
     available: Number
-  }, 
+  },
   booked_by:
     [{
       type: Schema.Types.ObjectId,

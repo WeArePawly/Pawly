@@ -1,18 +1,18 @@
 .dashboard-wrapper {
   display: flex;
 }
-.dashboard-wrapper .sidebar {
+.dashboard-wrapper aside {
   width: 200px;
   background-color: bisque;
 }
-.dashboard-wrapper .sidebar ul {
+.dashboard-wrapper aside ul {
   list-style: none;
 }
-.dashboard-wrapper .sidebar li {
+.dashboard-wrapper aside li {
   cursor: pointer;
   padding: 15px 10px;
 }
-.dashboard-wrapper .sidebar li.active {
+.dashboard-wrapper aside li.active {
   background-color: aquamarine;
 }
 .dashboard-wrapper .dashboard-content {
