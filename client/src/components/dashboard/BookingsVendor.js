@@ -3,7 +3,7 @@ import React from 'react'
 export default function BookingsVendor() {
   return (
     <div>
-      this is the booking page for the vendor
+      <h1>These people have booked your services</h1>
     </div>
   )
 }
