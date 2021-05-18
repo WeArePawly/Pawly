@@ -1,0 +1,22 @@
+footer {
+  padding: 20px;
+  background-color: #677388;
+  color: #f9f9f9;
+}
+footer ul {
+  list-style: none;
+}
+footer .columns .column:last-of-type {
+  text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+  footer .columns .column:first-of-type {
+    padding-bottom: 0;
+    text-align: center;
+  }
+  footer .columns .column:last-of-type {
+    text-align: center;
+    padding-top: 0;
+  }
+}
