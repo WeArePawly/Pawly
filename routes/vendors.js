@@ -64,7 +64,8 @@ router.put('/:vendorId', (req, res, next) => {
   })
 })
 
-router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) => {
+router.post('/:vendorId/addService', (req, res, next) => {
+  console.log('This is the req.body: ', req.body)
   const {
     name,
     price,
@@ -93,17 +94,16 @@ router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) 
       description: description,
       dates: {start_date, end_date},
       group_size: {total: group_size},
-      service_avatar: {path: {image: req.file.path}}
+      // service_avatar: {path: {image: req.file.path}}
     })
     .then(createdService => {
-      console.log(createdService)
+      console.log('This is the service: ', createdService)
       Vendor.findByIdAndUpdate(req.params.vendorId, {
           $push: {services: createdService._id}
         }, {
           new: true
         })
-        .then(updatedVendor => {
-          console.log(updatedVendor)
+        .then(() => {
           res.status(200).json({
             message: 'A service has been successfully created.'
           });

@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import NewDateInput from './newDateInput';
-import DatePicker from "react-multi-date-picker";
 
 export default function AddService(props) {
 
@@ -15,24 +13,20 @@ export default function AddService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState(['Deutsch']);
   const [description, setDescription] = useState('');
-  const [start_date, setStartDate] = useState('');
-  const [end_date, setEndDate] = useState('');
+  const [datesInput, setDatesInput] = useState('');
+  const [dates, setDates] = useState('');
   const [group_size, setGroupSize] = useState('');
-  const [addDate, setAddDate] = useState(new Date());
 
-  const [fileData, setFileData] = useState();
-  const [image, setFile] = useState("");
+  // const [fileData, setFileData] = useState();
+  // const [image, setFile] = useState("");
   
-
   function handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData();
+    // const formData = new FormData();
+    // formData.append('image', fileData)
 
-    formData.append('image', fileData)
-
-    console.log(props, props.user)
-    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData, {
+    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, {
       name,
       price,
       format,
@@ -43,10 +37,10 @@ export default function AddService(props) {
       operator_name,
       languages,
       description,
-      start_date,
-      end_date,
+      dates,
+      // end_date,
       group_size,
-      image
+      // image
     })
     .then(response => {
       console.log(response.data)
@@ -71,18 +65,21 @@ export default function AddService(props) {
     })
   };
 
-  // const addNewDate = () => {
-  //   setAddDate(dates => [...dates, <NewDateInput />]);
+  const addNewDate = event => {
+    // event.persist();
+    setDates(event.value.target);
+  }
+
+  // const addNewDates = (values) => {
+  //   // console.log(`${values[0].year}-0${values[0].month.number}-${values[0].day}`)
+  //   console.log(values)
+  //   setAddDate(values)
   // }
 
-  const addNewDates = (values) => {
-    console.log(values)
-    setAddDate(values)
-  }
-  const handleFileChange = e => {
-    setFileData(e.target.files[0])
-    setFile(e.target.value)
-  }
+  // const handleFileChange = e => {
+  //   setFileData(e.target.files[0])
+  //   setFile(e.target.value)
+  // }
   
   return (
     <div>
@@ -164,26 +161,23 @@ export default function AddService(props) {
               <option value="Englisch">Englisch</option>
           </select>
 
-          <label htmlFor="start_date">Datum:</label>
-          {/* <input
-            id="start_date"
+          <label htmlFor="dates">Datum:</label>
+          <input
+            id="date"
             type="date"
-            name="start_date"
-            value={start_date}
-            onChange={e => setStartDate(e.target.value)}
-          /> */}
+            name="dates"
+            value={dates}
+            onChange={e => setDates([...dates, e.target.value])}
+          />
+          <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+          <p>Diese Daten hast du schon ausgewählt:</p>
+          <p>{dates}</p>
 
-          <DatePicker 
-          multiple
-          value={addDate} 
-          onChange={addNewDates}/>
-
-          {/* <button onClick={addNewDate}>Add another date</button>
-          {addDate.map((item, i) => (
-            <div key={i}>{item}</div>
+          {/* {addDate.map((item, i) => (
           ))} */}
 
-          {/* <label htmlFor="end_date">Enddatum</label>
+          {/* 
+          <label htmlFor="end_date">Enddatum</label>
           <input
             id="end_date"
             type="date"
@@ -200,7 +194,8 @@ export default function AddService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
-          <label htmlFor="image">Image</label>
+
+          {/* <label htmlFor="image">Image</label>
           <input 
             type='file' 
             value={image} 
@@ -208,9 +203,11 @@ export default function AddService(props) {
             accept='image/*' 
             onChange={e => handleFileChange(e.target.files)} 
             alt='name'
-            placeholder='image' />
+            placeholder='image' /> */}
           <button type="submit">Add</button>
         </form>
+            
+        
     </div>
   )
 }
