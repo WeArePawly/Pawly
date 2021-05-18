@@ -69,7 +69,7 @@ const serviceSchema = new Schema({
     },
     end_date: {
       type: Date,
-      required: true
+      // required: true
     },
   },
   group_size: {

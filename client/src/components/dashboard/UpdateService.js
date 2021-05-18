@@ -3,22 +3,43 @@ import axios from 'axios';
 
 export default function UpdateService(props) {
 
-  // const [serviceData, setServiceData] = useState([]);
+  const [serviceData, setServiceData] = useState([]);
 
-  let serviceData;
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState('');
 
-  useEffect(() => {
-    axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
-    .then(response => {serviceData = response.data;
-    console.log(serviceData)
-    setName(response.data.name)
-  })
+  useEffect(async() => {
+    // const fetchData = async () => {
+      // setServiceData(await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`))
+      const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
+      console.log(service)
+      setName(service.data.name)
+      setPrice(service.data.price)
+      // setStreet(service.location.street)
+    }, [])
 
-  }, [])
+  //   fetchData()
+  // }, [props])
 
-  const [name, setName] = useState('');
-  // const [price, setPrice] = useState(0);
-  // const [format, setFormat] = useState('onsite');
+
+  // useEffect(() => {
+  //   let serviceData;
+  //   axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
+  //   .then(response => {serviceData = response.data;
+  //   console.log(serviceData)
+  //   // setName(serviceData.name)
+  // //   // setPrice(response.data.price)
+  // //   // setFormat(response.data.format)
+  //   setStreet(serviceData.location.street)
+  // //   // setHouseNumber(response.data.house_number)
+  // //   // setPostalCode(response.data.postal_code)
+  // //   // setCity(response.data.city)
+  // //   // setOperator(response.data.operator_name)
+  //   })
+  // }, [props])
+
+  
+  // const [format, setFormat] = useState('');
   // const [street, setStreet] = useState('');
   // const [house_number, setHouseNumber] = useState('');
   // const [postal_code, setPostalCode] = useState('');
@@ -34,8 +55,8 @@ export default function UpdateService(props) {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(props, props.user)
-    axios.post(`/api/vendors/${props.user.vendor_id}/${props.service._id}`, {
-      name,
+    axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, {
+      // name,
       // price,
       // format,
       // street,
@@ -71,7 +92,7 @@ export default function UpdateService(props) {
   //    return [...prevState, lang]
   //   })
   // };
-  
+  console.log(name)
   return (
     <div>
         <h2>Update Service</h2>
@@ -84,7 +105,7 @@ export default function UpdateService(props) {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          {/* <label htmlFor="price">Price: </label>
+          <label htmlFor="price">Price: </label>
           <input
             id="price"
             type="number"
@@ -92,21 +113,21 @@ export default function UpdateService(props) {
             value={price}
             onChange={e => setPrice(e.target.value)}
           />
-          <label htmlFor="format">Wählen Sie Ihre Unterrichtsart</label>
+         {/*  <label htmlFor="format">Wählen Sie Ihre Unterrichtsart</label>
           <select value={format} onChange={handleFormatChange} name="format" id="format">
               <option value="online">Online</option>
               <option value="onsite">Vor Ort</option>
               <option value="mobile">Mobil</option>
-          </select>
-          <label htmlFor="street">Adresse</label>
+          </select> */}
+          {/* <label htmlFor="street">Adresse</label>
           <input
             id="street"
             type="text"
             name="street"
             value={street}
             onChange={e => setStreet(e.target.value)}
-          />
-          <label htmlFor="house_number">Hausnummer</label>
+          /> */}
+         {/* <label htmlFor="house_number">Hausnummer</label>
           <input
             id="house_number"
             type="number"
