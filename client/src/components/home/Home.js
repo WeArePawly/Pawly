@@ -2,13 +2,17 @@ import React from 'react';
 import '../../styles/home.css';
 
 export default function Home() {
+  const submitSearchForm = (e) => {
+    e.preventDefault();
+    console.log('clicked')
+  }
   return (
     <section className="hero is-fullheight-with-navbar">
       <div className="hero-body">
         <p className="title">
         Finde schnell & einfach die perfekten Trainer:innen für dich & deinen Hund
         </p>
-        <div className="search-box">
+        <form className="search-box" onSubmit={submitSearchForm}>
           <div className="field">
             <label className="label">Spezialisierung</label>
             <div className="control">
@@ -50,10 +54,10 @@ export default function Home() {
           </div>
           <div className="field is-grouped">
             <div className="control">
-              <button className="button is-link">Jetzt schnüffeln</button>
+              <button className="button is-link" type="submit">Jetzt schnüffeln</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </section>
   )
