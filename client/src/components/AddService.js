@@ -13,7 +13,7 @@ export default function AddService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState(['Deutsch']);
   const [description, setDescription] = useState('');
-  const [datesInput, setDatesInput] = useState('');
+  const [datesInput, setDatesInput] = useState([]);
   const [dates, setDates] = useState('');
   const [group_size, setGroupSize] = useState('');
 
@@ -66,15 +66,9 @@ export default function AddService(props) {
   };
 
   const addNewDate = event => {
-    // event.persist();
-    setDates(event.value.target);
+    event.persist();
+    setDatesInput(prevState => [...prevState, dates]);
   }
-
-  // const addNewDates = (values) => {
-  //   // console.log(`${values[0].year}-0${values[0].month.number}-${values[0].day}`)
-  //   console.log(values)
-  //   setAddDate(values)
-  // }
 
   // const handleFileChange = e => {
   //   setFileData(e.target.files[0])
@@ -167,9 +161,10 @@ export default function AddService(props) {
             type="date"
             name="dates"
             value={dates}
-            onChange={e => setDates([...dates, e.target.value])}
+            onChange={e => setDates(e.target.value)}
           />
           <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+
           <p>Diese Daten hast du schon ausgewählt:</p>
           <p>{dates}</p>
 
