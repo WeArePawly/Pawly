@@ -20,8 +20,7 @@ export default function AddService(props) {
   const [group_size, setGroupSize] = useState('');
   const [addDate, setAddDate] = useState(new Date());
 
-  const [fileData, setFileData] = useState();
-  const [image, setFile] = useState("");
+  const [fileData, setFileData] = useState('');
   
 
   function handleSubmit(e) {
@@ -29,7 +28,7 @@ export default function AddService(props) {
 
     const formData = new FormData();
 
-    formData.append('image', fileData)
+    formData.append('imgUrl', fileData)
 
     console.log(props, props.user)
     axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData, {
@@ -46,7 +45,6 @@ export default function AddService(props) {
       start_date,
       end_date,
       group_size,
-      image
     })
     .then(response => {
       console.log(response.data)
@@ -80,8 +78,8 @@ export default function AddService(props) {
     setAddDate(values)
   }
   const handleFileChange = e => {
+    console.log(e.target.files[0])
     setFileData(e.target.files[0])
-    setFile(e.target.value)
   }
   
   return (
@@ -203,10 +201,9 @@ export default function AddService(props) {
           <label htmlFor="image">Image</label>
           <input 
             type='file' 
-            value={image} 
             name='file' 
             accept='image/*' 
-            onChange={e => handleFileChange(e.target.files)} 
+            onChange={e => handleFileChange(e)} 
             alt='name'
             placeholder='image' />
           <button type="submit">Add</button>

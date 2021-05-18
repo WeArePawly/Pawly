@@ -84,7 +84,8 @@ router.put('/:vendorId', (req, res, next) => {
   })
 })
 
-router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) => {
+router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
+  console.log(req.file.path)
   const {
     name,
     price,
@@ -99,7 +100,7 @@ router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) 
     start_date,
     end_date,
     group_size
-  } = req.body;
+  } = req.body; 
   Service.create({
       name: name,
       price: price,
@@ -113,7 +114,7 @@ router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) 
       description: description,
       dates: {start_date, end_date},
       group_size: {total: group_size},
-      service_avatar: {path: {image: req.file.path}}
+      service_avatar: {imgUrl: req.file.path}
     })
     .then(createdService => {
       console.log(createdService)
@@ -131,6 +132,7 @@ router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) 
         .catch(err => res.json(err));
     })
     .catch(err => res.json(err));
+  
 })
 
 router.get('/:vendorId/services', (req, res, next) => {
