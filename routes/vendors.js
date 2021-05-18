@@ -7,6 +7,14 @@ router.get('/', (req, res, next) => {
   User
   .find({vendor_id: { $exists: true } })
   .populate('vendor_id')
+  .populate()
+  .populate({ 
+    path: 'vendor_id',
+    populate: {
+      path: 'services',
+      model: 'Service'
+    }
+ })
   .then(user => {
     res.status(200).json(user)
   })
