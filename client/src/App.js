@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Home from './components/home/Home';
 import ProtectedRoute from './components/ProtectedRoute';
+import Search from './components/search/Search'
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
@@ -18,6 +19,10 @@ export default function App(props) {
       <Route
         exact path="/"
         render={props => <Home user={user} setUser={user => setUser(user)} {...props} />}
+      />
+      <Route
+        exact path="/search"
+        render={props => <Search user={user} setUser={user => setUser(user)} {...props} />}
       />
       <Route
         exact path="/login"
