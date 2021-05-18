@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const uploader = require("../config/cloudinary");
 const User = require('../models/User');
 const Vendor = require('../models/Vendor');
 const Service = require("../models/Service");
@@ -63,7 +64,7 @@ router.put('/:vendorId', (req, res, next) => {
   })
 })
 
-router.post('/:vendorId/addService', (req, res, next) => {
+router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) => {
   const {
     name,
     price,
@@ -77,7 +78,7 @@ router.post('/:vendorId/addService', (req, res, next) => {
     description,
     start_date,
     end_date,
-    group_size,
+    group_size
   } = req.body;
   Service.create({
       name: name,
@@ -91,7 +92,8 @@ router.post('/:vendorId/addService', (req, res, next) => {
       languages: languages,
       description: description,
       dates: {start_date, end_date},
-      group_size: {total: group_size}
+      group_size: {total: group_size},
+      service_avatar: {path: {image: req.file.path}}
     })
     .then(createdService => {
       console.log(createdService)
@@ -162,10 +164,8 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
       operator: {name: operator_name},
       language: language,
       description: description,
-      bookings: {
-        dates: {start_date, end_date},
-        group_size: {total: group_size},
-      }
+      dates: {start_date, end_date},
+      group_size: {total: group_size},
     }, {new: true}
   )
     .then(serviceUpdated => {
