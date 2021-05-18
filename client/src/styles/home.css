@@ -2,3 +2,17 @@
   background-image: url("https://res.cloudinary.com/cloud-michelle/image/upload/v1621325994/pawly/dogtreats_frtn7l.jpg");
   background-size: cover;
 }
+.hero .hero-body {
+  display: flex;
+  justify-content: space-between;
+}
+.hero .title {
+  width: 70%;
+  max-width: 500px;
+}
+.hero .search-box {
+  width: 30%;
+  background-color: rgba(233, 233, 233, 0.6);
+  padding: 30px 20px;
+  border-radius: 10px;
+}

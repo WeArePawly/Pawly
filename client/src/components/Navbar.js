@@ -12,7 +12,7 @@ export default function Dashboard(props) {
   }
 
   return (
-<nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
           <img src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621325707/pawly/pawly-logo_l3wgjg.jpg" width="auto" height="28"/>
@@ -27,7 +27,8 @@ export default function Dashboard(props) {
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Link to="/" className="navbar-item">Home</Link>
-          <Link to="/about" className="navbar-item">About</Link>
+          <Link to="/training" className="navbar-item">Training</Link>
+          <Link to="/about" className="navbar-item">Über uns</Link>
           {props.user ? (
             <Link to="/dashboard" className="navbar-item">Dashboard</Link> ) : (null)}
 
@@ -51,7 +52,7 @@ export default function Dashboard(props) {
               </a>
             </div>
           </div>*/}
-        </div> 
+        </div>
 
         <div className="navbar-end">
           <div className="navbar-item">

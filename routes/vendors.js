@@ -4,6 +4,26 @@ const User = require('../models/User');
 const Vendor = require('../models/Vendor');
 const Service = require("../models/Service");
 
+router.get('/', (req, res, next) => {
+  User
+  .find({vendor_id: { $exists: true } })
+  .populate('vendor_id')
+  .populate()
+  .populate({ 
+    path: 'vendor_id',
+    populate: {
+      path: 'services',
+      model: 'Service'
+    }
+ })
+  .then(user => {
+    res.status(200).json(user)
+  })
+  .catch(err => {
+    res.status(404).json({ message: `Error while loading profile: ${err}` })
+  })
+});
+
 router.get('/:vendorId', (req, res, next) => {
   User
   .find({vendor_id: req.params.vendorId})
