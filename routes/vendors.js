@@ -90,10 +90,8 @@ router.post('/:vendorId/addService', (req, res, next) => {
       operator: {name: operator_name},
       languages: languages,
       description: description,
-      bookings: {
-        dates: {start_date, end_date},
-        group_size: {total: group_size},
-      }
+      dates: {start_date, end_date},
+      group_size: {total: group_size}
     })
     .then(createdService => {
       console.log(createdService)
