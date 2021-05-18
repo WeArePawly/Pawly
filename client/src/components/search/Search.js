@@ -5,9 +5,18 @@ import '../../styles/search.css'
 
 export default function Search(props) {
   const [searchResult, setSearchResult] = useState(null);
+  const [specialization, setSpecialization] = useState(null);
+  const [age, setAge] = useState(null);
+  const [trainingType, setTrainingType] = useState(null);
+
   let list;
 
   useEffect(() => {
+    if (props.search) {
+      setSpecialization(props.search[0])
+      setAge(props.search[1])
+      setTrainingType(props.search[2])
+    }
     async function fetchData() {
       const response = await axios(
           '/api/vendors/',
@@ -15,12 +24,22 @@ export default function Search(props) {
         setSearchResult(response.data);
       }
     fetchData();
-    console.log(searchResult)
-  }, []);
+  }, [props]);
 
 
   if(searchResult) {
-    list = searchResult.map(vendor => {
+    list = searchResult
+    .filter(
+      vendor => {
+        if (specialization) {
+          return vendor.vendor_id.specialization === specialization
+        }
+        else {
+          return vendor
+        }
+      }
+    )
+    .map(vendor => {
       return (
         <div className="card" key={vendor.vendor_id}>
           <div class="card-image">
