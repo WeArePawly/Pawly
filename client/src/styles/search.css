@@ -1,6 +1,6 @@
 .search-results {
   width: 60vw;
-  padding: 20px;
+  padding: 20px 0;
 }
 .search-results .card {
   display: flex;
