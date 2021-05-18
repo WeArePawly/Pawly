@@ -3,72 +3,52 @@ import axios from 'axios';
 
 export default function UpdateService(props) {
 
-  const [serviceData, setServiceData] = useState([]);
-
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [format, setFormat] = useState('');
+  const [street, setStreet] = useState('');
+  const [house_number, setHouseNumber] = useState('');
+  const [postal_code, setPostalCode] = useState('');
+  const [city, setCity] = useState('');
+  const [operator_name, setOperator] = useState('');
+  const [languages, setLanguages] = useState([]);
+  const [description, setDescription] = useState('');
+  const [start_date, setStartDate] = useState('');
+  const [end_date, setEndDate] = useState('');
+  const [group_size, setGroupSize] = useState('');
 
   useEffect(async() => {
-    // const fetchData = async () => {
-      // setServiceData(await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`))
       const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
-      console.log(service)
+      console.log(service.data.dates.start_date)
       setName(service.data.name)
       setPrice(service.data.price)
-      // setStreet(service.location.street)
+      setStreet(service.data.location.street)
+      setHouseNumber(service.data.location.house_number)
+      setPostalCode(service.data.location.postal_code)
+      setCity(service.data.location.city)
+      setOperator(service.data.operator[0].name)
+      setDescription(service.data.description)
+      setGroupSize(service.data.group_size.total)
+      setStartDate(service.data.dates.start_date)
     }, [])
 
-  //   fetchData()
-  // }, [props])
-
-
-  // useEffect(() => {
-  //   let serviceData;
-  //   axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
-  //   .then(response => {serviceData = response.data;
-  //   console.log(serviceData)
-  //   // setName(serviceData.name)
-  // //   // setPrice(response.data.price)
-  // //   // setFormat(response.data.format)
-  //   setStreet(serviceData.location.street)
-  // //   // setHouseNumber(response.data.house_number)
-  // //   // setPostalCode(response.data.postal_code)
-  // //   // setCity(response.data.city)
-  // //   // setOperator(response.data.operator_name)
-  //   })
-  // }, [props])
-
-  
-  // const [format, setFormat] = useState('');
-  // const [street, setStreet] = useState('');
-  // const [house_number, setHouseNumber] = useState('');
-  // const [postal_code, setPostalCode] = useState('');
-  // const [city, setCity] = useState('');
-  // const [operator_name, setOperator] = useState('');
-  // const [languages, setLanguages] = useState(['Deutsch']);
-  // const [description, setDescription] = useState('');
-  // const [start_date, setStartDate] = useState('');
-  // const [end_date, setEndDate] = useState('');
-  // const [group_size, setGroupSize] = useState('');
-
-
-  function handleSubmit(e) {
+  function handleSubmit(e) {  
     e.preventDefault();
     console.log(props, props.user)
     axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, {
-      // name,
-      // price,
-      // format,
-      // street,
-      // house_number,
-      // postal_code,
-      // city,
-      // operator_name,
-      // languages,
-      // description,
-      // start_date,
-      // end_date,
-      // group_size
+      name,
+      price,
+      format,
+      street,
+      house_number,
+      postal_code,
+      city,
+      operator_name,
+      languages,
+      description,
+      start_date,
+      end_date,
+      group_size
     })
     .then(response => {
       console.log(response.data)
@@ -78,21 +58,22 @@ export default function UpdateService(props) {
     })
   }
 
-  // const handleFormatChange = changeEvent => {
-  //   setFormat(changeEvent.target.value)
-  // };
+  const handleFormatChange = changeEvent => {
+    setFormat(changeEvent.target.value)
+  };
 
-  // const handleLanguageChange = changeEvent => {
-  //   changeEvent.persist()
-  //   setLanguages(prevState => {
-  //     const lang = changeEvent.target.value;
-  //     if (prevState.includes(lang)) {
-  //       return prevState.filter(el => el !== lang);
-  //     }
-  //    return [...prevState, lang]
-  //   })
-  // };
-  console.log(name)
+  const handleLanguageChange = changeEvent => {
+    changeEvent.persist()
+    setLanguages(prevState => {
+      const lang = changeEvent.target.value;
+      if (prevState.includes(lang)) {
+        return prevState.filter(el => el !== lang);
+      }
+     return [...prevState, lang]
+    })
+  };
+
+  
   return (
     <div>
         <h2>Update Service</h2>
@@ -113,21 +94,21 @@ export default function UpdateService(props) {
             value={price}
             onChange={e => setPrice(e.target.value)}
           />
-         {/*  <label htmlFor="format">Wählen Sie Ihre Unterrichtsart</label>
+          <label htmlFor="format">Wählen Sie Ihre Unterrichtsart</label>
           <select value={format} onChange={handleFormatChange} name="format" id="format">
               <option value="online">Online</option>
               <option value="onsite">Vor Ort</option>
               <option value="mobile">Mobil</option>
-          </select> */}
-          {/* <label htmlFor="street">Adresse</label>
+          </select>
+          <label htmlFor="street">Adresse</label>
           <input
             id="street"
             type="text"
             name="street"
             value={street}
             onChange={e => setStreet(e.target.value)}
-          /> */}
-         {/* <label htmlFor="house_number">Hausnummer</label>
+          />
+         <label htmlFor="house_number">Hausnummer</label>
           <input
             id="house_number"
             type="number"
@@ -196,7 +177,7 @@ export default function UpdateService(props) {
             name="group_size"
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
-          />*/}
+          />
           <button type="submit">Add</button> 
         </form>
     </div>

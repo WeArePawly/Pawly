@@ -91,10 +91,8 @@ router.post('/:vendorId/addService', uploader.single('image'), (req, res, next) 
       operator: {name: operator_name},
       languages: languages,
       description: description,
-      bookings: {
-        dates: {start_date, end_date},
-        group_size: {total: group_size},
-      },
+      dates: {start_date, end_date},
+      group_size: {total: group_size},
       service_avatar: {path: {image: req.file.path}}
     })
     .then(createdService => {
@@ -166,10 +164,8 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
       operator: {name: operator_name},
       language: language,
       description: description,
-      bookings: {
-        dates: {start_date, end_date},
-        group_size: {total: group_size},
-      }
+      dates: {start_date, end_date},
+      group_size: {total: group_size},
     }, {new: true}
   )
     .then(serviceUpdated => {
