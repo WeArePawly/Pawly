@@ -5,15 +5,15 @@ export default function Footer() {
   return (
     <footer>
       <div className="">
-        <div class="columns">
-          <div class="column">
+        <div className="columns">
+          <div className="column">
             <ul>
               <li>About</li>
               <li>Instagram</li>
               <li>Facebook</li>
             </ul>
           </div>
-          <div class="column">
+          <div className="column">
           <ul>
             <li>Datenschutzerklärung</li>
             <li>Impressum</li>
