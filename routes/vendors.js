@@ -77,8 +77,8 @@ router.post('/:vendorId/addService', (req, res, next) => {
     operator_name,
     languages,
     description,
-    start_date,
-    end_date,
+    final_dates,
+    time,
     group_size
   } = req.body;
   Service.create({
@@ -92,8 +92,11 @@ router.post('/:vendorId/addService', (req, res, next) => {
       operator: {name: operator_name},
       languages: languages,
       description: description,
-      dates: {start_date, end_date},
-      group_size: {total: group_size},
+      Booking: {
+        final_dates,
+        time,
+        group_size : {total: group_size}
+      }
       // service_avatar: {path: {image: req.file.path}}
     })
     .then(createdService => {
@@ -147,9 +150,9 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
     operator_name,
     language,
     description,
-    start_date,
-    end_date,
-    group_size,
+    final_dates,
+    time,
+    group_size
   } = req.body;
   Service.findByIdAndUpdate(
     req.params.serviceId,

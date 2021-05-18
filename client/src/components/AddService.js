@@ -13,8 +13,9 @@ export default function AddService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState(['Deutsch']);
   const [description, setDescription] = useState('');
-  const [datesInput, setDatesInput] = useState([]);
-  const [dates, setDates] = useState('');
+  const [datesInput, setDatesInput] = useState('');
+  const [final_dates, setFinal_dates] = useState([]);
+  const [time, setTime] = useState('');
   const [group_size, setGroupSize] = useState('');
 
   // const [fileData, setFileData] = useState();
@@ -37,8 +38,8 @@ export default function AddService(props) {
       operator_name,
       languages,
       description,
-      dates,
-      // end_date,
+      final_dates,
+      time,
       group_size,
       // image
     })
@@ -65,9 +66,9 @@ export default function AddService(props) {
     })
   };
 
-  const addNewDate = event => {
-    event.persist();
-    setDatesInput(prevState => [...prevState, dates]);
+  const addNewDate = () => {
+    // event.persist();
+    setFinal_dates(prevState => [...prevState, datesInput]);
   }
 
   // const handleFileChange = e => {
@@ -117,7 +118,7 @@ export default function AddService(props) {
             value={house_number}
             onChange={e => setHouseNumber(e.target.value)}
           />
-          <label htmlFor="postal_code">PLZ </label>
+          <label htmlFor="postal_code">PLZ</label>
           <input
             id="postal_code"
             type="number"
@@ -155,31 +156,31 @@ export default function AddService(props) {
               <option value="Englisch">Englisch</option>
           </select>
 
-          <label htmlFor="dates">Datum:</label>
+          <label htmlFor="dates">Datum</label>
           <input
             id="date"
             type="date"
             name="dates"
-            value={dates}
-            onChange={e => setDates(e.target.value)}
+            value={datesInput}
+            onChange={e => setDatesInput(e.target.value)}
           />
           <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
 
           <p>Diese Daten hast du schon ausgewählt:</p>
-          <p>{dates}</p>
+          <ul>
+            {final_dates.map((date,i) => (
+              <li key={i}>{date}</li>
+            ))}
+          </ul>
 
-          {/* {addDate.map((item, i) => (
-          ))} */}
-
-          {/* 
-          <label htmlFor="end_date">Enddatum</label>
+          <label htmlFor="time">Zeit</label>
           <input
-            id="end_date"
-            type="date"
-            name="end_date"
-            value={end_date}
-            onChange={e => setEndDate(e.target.value)}
-          /> */}
+            id="time"
+            type="time"
+            name="time"
+            value={time}
+            onChange={e => setTime(e.target.value)}
+          />
 
           <label htmlFor="group_size">Teilnehmer max.</label>
           <input
@@ -201,8 +202,6 @@ export default function AddService(props) {
             placeholder='image' /> */}
           <button type="submit">Add</button>
         </form>
-            
-        
     </div>
   )
 }
