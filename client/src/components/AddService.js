@@ -74,7 +74,7 @@ export default function AddService(props) {
   // }
 
   const addNewDates = (values) => {
-    console.log(values)
+    // console.log(values)
     setAddDate(values)
   }
   const handleFileChange = e => {
