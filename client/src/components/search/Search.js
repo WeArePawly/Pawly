@@ -26,7 +26,7 @@ export default function Search(props) {
 
   const resetFilter = () => {
     setSpecialization(null);
-    setCity(null);
+    setCity("");
     setTrainingType(null);
   };
 
