@@ -105,7 +105,17 @@ export default function Search(props) {
                 </div>
               </div>
               <footer className="card-footer">
-                <Link className="card-footer-item">Kontaktieren</Link>
+                <Link
+                  to={`mailto:${vendor.contact.email}`}
+                  onClick={(e) => {
+                    window.location = `mailto:${vendor.contact.email}`;
+                    e.preventDefault();
+                  }}
+                  className="card-footer-item"
+                >
+                  Kontaktieren
+                </Link>
+
                 <Link
                   to={`/training/${vendor.vendor_id._id}`}
                   className="card-footer-item"
@@ -120,75 +130,78 @@ export default function Search(props) {
   }
 
   return (
-    <div className="container">
-      <div className="search-bar">
-        <form className="search-box" onSubmit={(e) => e.preventDefault()}>
-          <div className="field">
-            <label className="label">Spezialisierung</label>
-            <div className="control">
-              <div className="select">
-                <select
-                  id="specialization"
-                  value={specialization}
-                  onChange={(e) => setSpecialization(e.target.value)}
-                >
-                  <option>Bitte auswählen</option>
-                  <option>Leinentraining</option>
-                  <option>Trennungsangst</option>
-                  <option>Welpenschule</option>
-                  <option>Agility</option>
-                </select>
+    <div className="container search-page">
+      <h2 className="title is-2">Dein perfektes Match wartet auf dich! 🐕</h2>
+      <div className="search-page-wrapper">
+        <div className="search-bar">
+          <form className="search-box" onSubmit={(e) => e.preventDefault()}>
+            <div className="field">
+              <label className="label">Spezialisierung</label>
+              <div className="control">
+                <div className="select">
+                  <select
+                    id="specialization"
+                    value={specialization}
+                    onChange={(e) => setSpecialization(e.target.value)}
+                  >
+                    <option>Bitte auswählen</option>
+                    <option>Leinentraining</option>
+                    <option>Trennungsangst</option>
+                    <option>Welpenschule</option>
+                    <option>Agility</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="field">
-            <label className="label">Stadt</label>
-            <input
-              id="city"
-              name="city"
-              className="input is-link"
-              type="text"
-              placeholder="Deine Stadt"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-            />
-          </div>
-          <div className="field">
-            <div className="control">
-              <label className="radio training-type">
-                <input
-                  type="radio"
-                  id="training-type-single"
-                  name="training-type"
-                  value="training-type-single"
-                  checked={trainingType === "training-type-single"}
-                  onChange={() => setTrainingType("training-type-single")}
-                />
-                Einzeltraining
-              </label>
-              <label className="radio">
-                <input
-                  type="radio"
-                  id="training-type-group"
-                  name="training-type"
-                  value="training-type-group"
-                  checked={trainingType === "training-type-group"}
-                  onChange={() => setTrainingType("training-type-group")}
-                />
-                Gruppentraining
-              </label>
+            <div className="field">
+              <label className="label">Stadt</label>
+              <input
+                id="city"
+                name="city"
+                className="input is-link"
+                type="text"
+                placeholder="Deine Stadt"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
             </div>
+            <div className="field">
+              <div className="control">
+                <label className="radio training-type">
+                  <input
+                    type="radio"
+                    id="training-type-single"
+                    name="training-type"
+                    value="training-type-single"
+                    checked={trainingType === "training-type-single"}
+                    onChange={() => setTrainingType("training-type-single")}
+                  />
+                  Einzeltraining
+                </label>
+                <label className="radio">
+                  <input
+                    type="radio"
+                    id="training-type-group"
+                    name="training-type"
+                    value="training-type-group"
+                    checked={trainingType === "training-type-group"}
+                    onChange={() => setTrainingType("training-type-group")}
+                  />
+                  Gruppentraining
+                </label>
+              </div>
+            </div>
+            <div className="field is-grouped">
+              <div className="control"></div>
+            </div>
+          </form>
+          <div className="button is-link" onClick={resetFilter}>
+            Filter zurücksetzen
           </div>
-          <div className="field is-grouped">
-            <div className="control"></div>
-          </div>
-        </form>
-      </div>
-      <div className="button is-link" onClick={resetFilter}>
-        Filter zurücksetzen
-      </div>
-      <div className="search-results">
-        {searchResult ? list : <p>Loading...</p>}
+        </div>
+        <div className="search-results">
+          {searchResult ? list : <p>Loading...</p>}
+        </div>
       </div>
     </div>
   );
