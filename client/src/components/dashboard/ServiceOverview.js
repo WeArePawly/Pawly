@@ -53,5 +53,3 @@ export default function ServiceOverview(props) {
     </div>
   )
 }
-
-{/* <Link to={`/vendors/${props.user.vendor_id}/${service._id}/`}></Link> */}
