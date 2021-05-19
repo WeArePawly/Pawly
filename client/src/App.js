@@ -21,70 +21,72 @@ export default function App(props) {
   return (
     <div className="App">
       <Navbar user={user} setUser={(user) => setUser(user)} />
-      <Route
-        exact
-        path="/"
-        render={(props) => (
-          <Home
-            user={user}
-            setUser={(user) => setUser(user)}
-            search={search}
-            setSearch={setSearch}
-            {...props}
-          />
-        )}
-      />
-      <Route
-        exact
-        path="/about"
-        render={(props) => (
-          <About user={user} setUser={(user) => setUser(user)} {...props} />
-        )}
-      />
-      <Route
-        exact
-        path="/training"
-        render={(props) => (
-          <Search
-            user={user}
-            setUser={(user) => setUser(user)}
-            search={search}
-            setSearch={setSearch}
-            {...props}
-          />
-        )}
-      />
-      <Route
-        exact
-        path="/training/:vendorId"
-        render={(props) => (
-          <VendorPage
-            user={user}
-            setUser={(user) => setUser(user)}
-            {...props}
-          />
-        )}
-      />
-      <Route
-        exact
-        path="/login"
-        render={(props) => (
-          <Login user={user} setUser={(user) => setUser(user)} {...props} />
-        )}
-      />
-      <Route
-        exact
-        path="/signup"
-        render={(props) => (
-          <Signup user={user} setUser={(user) => setUser(user)} {...props} />
-        )}
-      />
-      <ProtectedRoute
-        path="/dashboard"
-        user={user}
-        component={Dashboard}
-        redirectPath="/login"
-      />
+      <main>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <Home
+              user={user}
+              setUser={(user) => setUser(user)}
+              search={search}
+              setSearch={setSearch}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/about"
+          render={(props) => (
+            <About user={user} setUser={(user) => setUser(user)} {...props} />
+          )}
+        />
+        <Route
+          exact
+          path="/training"
+          render={(props) => (
+            <Search
+              user={user}
+              setUser={(user) => setUser(user)}
+              search={search}
+              setSearch={setSearch}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/training/:vendorId"
+          render={(props) => (
+            <VendorPage
+              user={user}
+              setUser={(user) => setUser(user)}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/login"
+          render={(props) => (
+            <Login user={user} setUser={(user) => setUser(user)} {...props} />
+          )}
+        />
+        <Route
+          exact
+          path="/signup"
+          render={(props) => (
+            <Signup user={user} setUser={(user) => setUser(user)} {...props} />
+          )}
+        />
+        <ProtectedRoute
+          path="/dashboard"
+          user={user}
+          component={Dashboard}
+          redirectPath="/login"
+        />
+      </main>
       <Footer />
     </div>
   );

@@ -1,5 +1,4 @@
-import React from 'react';
-import '../styles/footer.css';
+import React from "react";
 
 export default function Footer() {
   return (
@@ -14,16 +13,16 @@ export default function Footer() {
             </ul>
           </div>
           <div className="column">
-          <ul>
-            <li>Datenschutzerklärung</li>
-            <li>Impressum</li>
-            <li>AGB</li>
-            <li>Kontakt</li>
-          </ul>
+            <ul>
+              <li>Datenschutzerklärung</li>
+              <li>Impressum</li>
+              <li>AGB</li>
+              <li>Kontakt</li>
+            </ul>
           </div>
         </div>
-        <p className="has-text-centered">Aus Berlin.</p>
+        <p className="has-text-centered">Aus Berlin mit ❤️ & 🐶</p>
       </div>
     </footer>
-  )
+  );
 }

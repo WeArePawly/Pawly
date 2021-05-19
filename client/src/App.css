@@ -1,6 +1,12 @@
+/* GENERAL */
+main {
+  padding: 15px 0 30px;
+}
+/* FORM */
 input[type="radio"] {
   margin-right: 5px;
 }
+/* BUTTONS */
 .button.is-purple {
   background-color: #701262;
   border-color: transparent;
@@ -11,10 +17,9 @@ input[type="radio"] {
   border-color: transparent;
   color: #fff;
 }
+/* LOGIN / SIGNUP */
 .container.auth {
   max-width: 400px !important;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 .auth h2 {
   text-align: center;
@@ -26,6 +31,20 @@ input[type="radio"] {
 .auth .check-user-type {
   margin-bottom: 20px;
 }
+/* FOOTER */
+footer {
+  padding: 20px;
+  background-color: #677388;
+  color: #f9f9f9;
+  margin-bottom: 0;
+}
+footer ul {
+  list-style: none;
+}
+footer .columns .column:last-of-type {
+  text-align: right;
+}
+
 @media screen and (min-width: 769px) {
   html {
     position: relative;
@@ -41,5 +60,15 @@ input[type="radio"] {
     height: 180px;
     width: 100%;
     overflow: hidden;
+  }
+}
+@media screen and (max-width: 768px) {
+  footer .columns .column:first-of-type {
+    padding-bottom: 0;
+    text-align: center;
+  }
+  footer .columns .column:last-of-type {
+    text-align: center;
+    padding-top: 0;
   }
 }

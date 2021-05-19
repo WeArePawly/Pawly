@@ -141,9 +141,9 @@ export default function Search(props) {
   }
 
   return (
-    <div className="container search-page">
+    <div className="container">
       <h2 className="title is-2">Dein perfektes Match wartet auf dich! 🐕</h2>
-      <div className="search-page-wrapper">
+      <div className="search-page">
         <div className="search-bar">
           <form className="search-box" onSubmit={(e) => e.preventDefault()}>
             <div className="field">
