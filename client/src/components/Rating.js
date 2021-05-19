@@ -7,7 +7,7 @@ export default function Rating() {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState('');
-  const [hideButton, setHideButton] = useState(false)
+  const [showButton, setShowButton] = useState(true)
 
   const handleSubmit = (event) => {
 
@@ -19,7 +19,6 @@ export default function Rating() {
     })
       .then(() => {
         setMessage('Ihre Bewertung wurde erfolgreich gespeichert!')
-        setHideButton(true)
       })
       .catch(err => {
         console.log(err)
@@ -47,8 +46,10 @@ export default function Rating() {
             value={comment}
             onChange={e => setComment(e.target.value)}
           />
-          {
-          <button type="submit">Bewertung speichern</button>
+          {showButton ?
+            <button onClick={() => setShowButton(false)} type="submit">Bewertung speichern</button> :
+            <h3>{message}</h3>
+          }
         </form>
       </div>
   )  
