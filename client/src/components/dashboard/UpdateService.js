@@ -13,16 +13,17 @@ export default function UpdateService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState([]);
   const [description, setDescription] = useState('');
-  const [start_date, setStartDate] = useState('');
-  const [end_date, setEndDate] = useState('');
+  const [datesInput, setDatesInput] = useState('');
+  const [final_dates, setFinal_dates] = useState([]);
+  const [time, setTime] = useState('');
   const [group_size, setGroupSize] = useState('');
   const [message, setMessage] = useState('')
 
   useEffect(async() => {
       const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
-      console.log(service.data.dates.start_date)
       setName(service.data.name)
       setPrice(service.data.price)
+      setFormat(service.data.format)
       setStreet(service.data.location.street)
       setHouseNumber(service.data.location.house_number)
       setPostalCode(service.data.location.postal_code)
@@ -30,12 +31,10 @@ export default function UpdateService(props) {
       setOperator(service.data.operator[0].name)
       setDescription(service.data.description)
       setGroupSize(service.data.group_size.total)
-      setStartDate(service.data.dates.start_date)
     }, [])
 
   function handleSubmit(e) {  
     e.preventDefault();
-    console.log(props, props.user)
     axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, {
       name,
       price,
@@ -47,8 +46,8 @@ export default function UpdateService(props) {
       operator_name,
       languages,
       description,
-      start_date,
-      end_date,
+      final_dates,
+      time,
       group_size
     })
     .then(response => {
@@ -75,7 +74,11 @@ export default function UpdateService(props) {
     })
   };
 
-  
+  const addNewDate = () => {
+    // event.persist();
+    setFinal_dates(prevState => [...prevState, datesInput]);
+  };
+
   return (
     <div>
         <h2>Update Service</h2>
@@ -154,24 +157,34 @@ export default function UpdateService(props) {
           <select multiple={true} value={languages} onChange={handleLanguageChange} name="languages" id="languages" >
               <option value="Deutsch">Deutsch</option>
               <option value="Englisch">Englisch</option>
-              
           </select>
-          <label htmlFor="start_date">Anfangsdatum</label>
+
+          <label htmlFor="dates">Datum</label>
           <input
-            id="start_date"
+            id="date"
             type="date"
-            name="start_date"
-            value={start_date}
-            onChange={e => setStartDate(e.target.value)}
+            name="dates"
+            value={datesInput}
+            onChange={e => setDatesInput(e.target.value)}
           />
-          <label htmlFor="end_date">Enddatum</label>
+          <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+
+          <p>Diese Daten hast du schon ausgewählt:</p>
+          <ul>
+            {final_dates.map((date,i) => (
+              <li key={i}>{date}</li>
+            ))}
+          </ul>
+
+          <label htmlFor="time">Zeit</label>
           <input
-            id="end_date"
-            type="date"
-            name="end_date"
-            value={end_date}
-            onChange={e => setEndDate(e.target.value)}
+            id="time"
+            type="time"
+            name="time"
+            value={time}
+            onChange={e => setTime(e.target.value)}
           />
+
           <label htmlFor="group_size">Teilnehmer max.</label>
           <input
             id="group_size"
@@ -180,7 +193,7 @@ export default function UpdateService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
-          <button type="submit">Add</button> 
+          <button type="submit">Update</button> 
         </form>
         <h3>{message}</h3>
     </div>

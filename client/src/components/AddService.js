@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import NewDateInput from './newDateInput';
-import DatePicker from "react-multi-date-picker";
 
 export default function AddService(props) {
 
@@ -16,16 +14,15 @@ export default function AddService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState(['Deutsch']);
   const [description, setDescription] = useState('');
+  const [datesInput, setDatesInput] = useState('');
+  const [final_dates, setFinal_dates] = useState([]);
+  const [time, setTime] = useState('');
   const [group_size, setGroupSize] = useState('');
-  const [addDate, setAddDate] = useState(new Date());
 
   const [fileData, setFileData] = useState('');
-
   const [message, setMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('')
-
   
-
   function handleSubmit(e) {
     e.preventDefault()
 
@@ -42,11 +39,12 @@ export default function AddService(props) {
     formData.append('operator_name', operator_name)
     formData.append('languages', languages)
     formData.append('description', description)
+    formData.append('final_dates', final_dates)
+    formData.append('time', time)
     formData.append('group_size', group_size)
-    formData.append('addDate', addDate)
+
 
     axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
-    
     .then(response => {
       console.log(response)
       setMessage('Ihre Dienstleistung wurde erfolgreich erstellt!')
@@ -71,18 +69,21 @@ export default function AddService(props) {
     })
   };
 
-  // const addNewDate = () => {
-  //   setAddDate(dates => [...dates, <NewDateInput />]);
-  // }
+  const addNewDate = () => {
+    // event.persist();
+    setFinal_dates(prevState => [...prevState, datesInput]);
+  };
 
   const addNewDates = (values) => {
     // console.log(values)
     setAddDate(values)
   }
+  
   const handleFileChange = e => {
     console.log(e.target.files[0])
     setFileData(e.target.files[0])
   }
+
   
   return (
     <div>
@@ -126,6 +127,7 @@ export default function AddService(props) {
             value={house_number}
             onChange={e => setHouseNumber(e.target.value)}
           />
+
           <label htmlFor="postal_code">PLZ* </label>
           <input
             id="postal_code"
@@ -164,33 +166,31 @@ export default function AddService(props) {
               <option value="Englisch">Englisch</option>
           </select>
 
-          <label htmlFor="start_date">Datum*</label>
-          {/* <input
-            id="start_date"
-            type="date"
-            name="start_date"
-            value={start_date}
-            onChange={e => setStartDate(e.target.value)}
-          /> */}
-
-          <DatePicker 
-          multiple
-          value={addDate} 
-          onChange={addNewDates}/>
-
-          {/* <button onClick={addNewDate}>Add another date</button>
-          {addDate.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))} */}
-
-          {/* <label htmlFor="end_date">Enddatum</label>
+          <label htmlFor="dates">Datum*</label>
           <input
-            id="end_date"
+            id="date"
             type="date"
-            name="end_date"
-            value={end_date}
-            onChange={e => setEndDate(e.target.value)}
-          /> */}
+            name="dates"
+            value={datesInput}
+            onChange={e => setDatesInput(e.target.value)}
+          />
+          <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+
+          <p>Diese Daten hast du schon ausgewählt:</p>
+          <ul>
+            {final_dates.map((date,i) => (
+              <li key={i}>{date}</li>
+            ))}
+          </ul>
+
+          <label htmlFor="time">Zeit</label>
+          <input
+            id="time"
+            type="time"
+            name="time"
+            value={time}
+            onChange={e => setTime(e.target.value)}
+          />
 
           <label htmlFor="group_size">Teilnehmer max.* </label>
           <input
@@ -200,12 +200,14 @@ export default function AddService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
+
           <label htmlFor="imageUrl">Image</label>
           <input 
             type='file'
             name='file'  
             onChange={e => handleFileChange(e)} 
           />
+          
           <button type="submit">Add</button>
           
           {message ?
