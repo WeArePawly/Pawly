@@ -6,7 +6,7 @@ import "../../styles/search.css";
 export default function Search(props) {
   const [searchResult, setSearchResult] = useState(null);
   const [specialization, setSpecialization] = useState(null);
-  const [age, setAge] = useState(null);
+  const [city, setCity] = useState(null);
   const [trainingType, setTrainingType] = useState(null);
 
   let list;
@@ -14,7 +14,7 @@ export default function Search(props) {
   useEffect(() => {
     if (props.search) {
       setSpecialization(props.search[0]);
-      setAge(props.search[1]);
+      setCity(props.search[1]);
       setTrainingType(props.search[2]);
     }
     async function fetchData() {
@@ -26,7 +26,7 @@ export default function Search(props) {
 
   const resetFilter = () => {
     setSpecialization(null);
-    setAge(null);
+    setCity(null);
     setTrainingType(null);
   };
 
@@ -48,8 +48,12 @@ export default function Search(props) {
             );
           });
         }
+        const citySearch = city
+          ? vendor.vendor_id.address.city.toLowerCase().trim() ===
+            city.toLowerCase().trim()
+          : true;
 
-        return specializationSearch && trainingTypeSearch;
+        return specializationSearch && trainingTypeSearch && citySearch;
       })
 
       .map((vendor) => {
@@ -137,21 +141,16 @@ export default function Search(props) {
             </div>
           </div>
           <div className="field">
-            <label className="label">Alter</label>
-            <div className="control">
-              <div className="select">
-                <select
-                  id="age"
-                  value={age}
-                  onChange={(e) => setAge(e.target.value)}
-                >
-                  <option>Bitte auswählen</option>
-                  <option>Welpe (0-5 Monate)</option>
-                  <option>Junghund (6-17 Monate)</option>
-                  <option>Erwachsen (18+ Monate)</option>
-                </select>
-              </div>
-            </div>
+            <label className="label">Stadt</label>
+            <input
+              id="city"
+              name="city"
+              className="input is-link"
+              type="text"
+              placeholder="Deine Stadt"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
           </div>
           <div className="field">
             <div className="control">
