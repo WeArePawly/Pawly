@@ -1,3 +1,4 @@
+/* ALL SEARCH RESULTS */
 .search-results {
   width: 60vw;
   padding: 20px 0;
@@ -49,4 +50,46 @@
 .search-results .service-package {
   display: flex;
   justify-content: space-between;
+}
+
+/* SINGLE SEARCH RESULT */
+.single-result .vendor-info {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.single-result .vendor-info .vendor-image {
+  width: 20%;
+  height: 100%;
+}
+.single-result .vendor-info img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+.single-result .vendor-info .vendor-description {
+  width: 80%;
+  padding: 0 20px;
+}
+.single-result .vendor-info .like {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  width: 80px;
+}
+.single-result .vendor-info .icon {
+  background-image: url("https://res.cloudinary.com/cloud-michelle/image/upload/v1621342074/pawly/like-unliked_bvalup.png");
+  background-size: contain;
+}
+.single-result .service-info {
+  margin: 50px 0;
+}
+.single-result .service-info .row {
+  display: flex;
+  margin: 5px 0;
+}
+.single-result .service-info .row .cell {
+  width: 25%;
+  flex-grow: 1;
 }

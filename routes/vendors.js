@@ -8,7 +8,6 @@ router.get('/', (req, res, next) => {
   User
   .find({vendor_id: { $exists: true } })
   .populate('vendor_id')
-  .populate()
   .populate({
     path: 'vendor_id',
     populate: {
@@ -28,8 +27,15 @@ router.get('/:vendorId', (req, res, next) => {
   User
   .find({vendor_id: req.params.vendorId})
   .populate('vendor_id')
-  .then(user => {
-    res.status(200).json(user[0])
+  .populate({
+    path: 'vendor_id',
+    populate: {
+      path: 'services',
+      model: 'Service'
+    }
+  })
+  .then(vendor => {
+    res.status(200).json(vendor[0])
   })
   .catch(err => {
     res.status(404).json({ message: `Error while loading profile: ${err}` })

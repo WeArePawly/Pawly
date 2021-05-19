@@ -72,13 +72,13 @@ const vendorSchema = new Schema({
       }
     },
   ],
-  specialization: {
-    type: String,
-    enum: ["Leinentraining", "Trennungsangst", "Welpenschule", "Agility"]
-  },
   avg_rating: {
     type: Number,
     default: 0,
+  },
+  specialization: {
+    type: String,
+    enum: ["Leinentraining", "Trennungsangst", "Welpenschule", "Agility"]
   },
 },
 { timestamps: true },

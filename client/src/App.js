@@ -11,6 +11,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Search from './components/search/Search';
 import About from './components/About';
 import Footer from './components/Footer'
+import VendorPage from './components/VendorPage'
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
@@ -30,6 +31,10 @@ export default function App(props) {
       <Route
         exact path="/training"
         render={props => <Search user={user} setUser={user => setUser(user)} search={search} setSearch={setSearch} {...props} />}
+      />
+      <Route
+        exact path="/training/:vendorId"
+        render={props => <VendorPage user={user} setUser={user => setUser(user)} {...props} />}
       />
       <Route
         exact path="/login"
