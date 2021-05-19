@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import DatePicker from "react-multi-date-picker";
 
 export default function UpdateService(props) {
 
@@ -13,11 +14,17 @@ export default function UpdateService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState([]);
   const [description, setDescription] = useState('');
+
   const [datesInput, setDatesInput] = useState('');
   const [final_dates, setFinal_dates] = useState([]);
   const [time, setTime] = useState('');
+
   const [group_size, setGroupSize] = useState('');
-  const [message, setMessage] = useState('')
+
+  const [fileData, setFileData] = useState('');
+
+  const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(async() => {
       const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
@@ -31,33 +38,40 @@ export default function UpdateService(props) {
       setOperator(service.data.operator[0].name)
       setDescription(service.data.description)
       setGroupSize(service.data.group_size.total)
-    }, [])
+  }, [])
 
-  function handleSubmit(e) {  
-    e.preventDefault();
-    axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, {
-      name,
-      price,
-      format,
-      street,
-      house_number,
-      postal_code,
-      city,
-      operator_name,
-      languages,
-      description,
-      final_dates,
-      time,
-      group_size
-    })
-    .then(response => {
-      console.log(response.data)
-      setMessage('Ihre Dienstleistung wurde erfolgreich aktualisiert!')
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }
+    function handleSubmit(e) {
+      e.preventDefault()
+  
+      const formData = new FormData();
+  
+      formData.append('imgUrl', fileData)
+      formData.append('name', name)
+      formData.append('price', price)
+      formData.append('format', format)
+      formData.append('street', street)
+      formData.append('house_number', house_number)
+      formData.append('postal_code', postal_code)
+      formData.append('city', city)
+      formData.append('operator_name', operator_name)
+      formData.append('languages', languages)
+      formData.append('description', description)
+      formData.append('group_size', group_size)
+      formData.append('final_dates', final_dates)
+      formData.append('time', time)
+  
+      axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
+      
+      .then(response => {
+        console.log(response)
+        setMessage('Ihre Dienstleistung wurde erfolgreich geändert!')
+      })
+      .catch(() => {
+        setErrorMessage('Bitte füllen Sie alle Pflichtfelder aus')
+      })
+    }
+
+    }, [])
 
   const handleFormatChange = changeEvent => {
     setFormat(changeEvent.target.value)
@@ -74,10 +88,19 @@ export default function UpdateService(props) {
     })
   };
 
+
+  const handleFileChange = e => {
+    console.log(e.target.files[0])
+    setFileData(e.target.files[0])
+  }
+
+  
+
   const addNewDate = () => {
     // event.persist();
     setFinal_dates(prevState => [...prevState, datesInput]);
   };
+
 
   return (
     <div>
@@ -159,6 +182,7 @@ export default function UpdateService(props) {
               <option value="Englisch">Englisch</option>
           </select>
 
+
           <label htmlFor="dates">Datum</label>
           <input
             id="date"
@@ -185,6 +209,7 @@ export default function UpdateService(props) {
             onChange={e => setTime(e.target.value)}
           />
 
+
           <label htmlFor="group_size">Teilnehmer max.</label>
           <input
             id="group_size"
@@ -193,9 +218,22 @@ export default function UpdateService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
-          <button type="submit">Update</button> 
+
+           <label htmlFor="imageUrl">Image</label>
+          <input 
+            type='file'
+            name='file'  
+            onChange={e => handleFileChange(e)} 
+          />
+          <button type="submit">Update</button>
+          
+          {message ?
+            <h3>{message}</h3>
+              :
+            <h3>{errorMessage}</h3>
+          }
+
         </form>
-        <h3>{message}</h3>
     </div>
   )
 }
