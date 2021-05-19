@@ -18,3 +18,9 @@
 .dashboard-wrapper .dashboard-content {
   padding: 20px;
 }
+.setting-tags ul {
+  display: flex;
+}
+.setting-tags ul li {
+  margin: 0 10px;
+}
