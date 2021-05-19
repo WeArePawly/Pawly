@@ -65,7 +65,6 @@ router.put('/:vendorId', (req, res, next) => {
 })
 
 router.post('/:vendorId/addService', (req, res, next) => {
-  console.log('This is the req.body: ', req.body)
   const {
     name,
     price,
@@ -82,21 +81,22 @@ router.post('/:vendorId/addService', (req, res, next) => {
     group_size
   } = req.body;
   Service.create({
-      name: name,
-      price: price,
-      format: format,
-      location: {street,
-        house_number,
-        postal_code,
-        city},
-      operator: {name: operator_name},
-      languages: languages,
-      description: description,
-      Booking: {
-        final_dates,
-        time,
-        group_size : {total: group_size}
-      }
+    vendor_id: req.params.vendorId,
+    name: name,
+    price: price,
+    format: format,
+    location: {street,
+      house_number,
+      postal_code,
+      city},
+    operator: {name: operator_name},
+    languages: languages,
+    description: description,
+    Booking: {
+      final_dates,
+      time,
+      group_size : {total: group_size}
+    }
       // service_avatar: {path: {image: req.file.path}}
     })
     .then(createdService => {
@@ -116,17 +116,15 @@ router.post('/:vendorId/addService', (req, res, next) => {
     .catch(err => res.json(err));
 })
 
+// Find all the services created by the Vendor
 router.get('/:vendorId/services', (req, res, next) => {
-  Vendor.findById(req.params.vendorId)
-  .then(vendor => {
-    console.log(vendor)
-    Service.find()
+  console.log(req.params.vendorId)
+  Service.find({vendor_id: req.params.vendorId})
     .then(vendorServices => {
+      console.log('These are the services created by the Vendor: ', vendorServices)
       res.status(200).json(vendorServices)
     })
     .catch(err => res.json(err));
-  })
-  .catch(err => res.json(err));
 })
 
 router.get('/:vendorId/:serviceId', (req, res, next) => {
@@ -167,8 +165,13 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
       operator: {name: operator_name},
       language: language,
       description: description,
-      dates: {start_date, end_date},
-      group_size: {total: group_size},
+      Booking: {
+        final_dates,
+        time,
+        group_size : {total: group_size}
+      }
+      // dates: {start_date, end_date},
+      // group_size: {total: group_size},
     }, {new: true}
   )
     .then(serviceUpdated => {
