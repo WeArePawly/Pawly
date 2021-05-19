@@ -50,7 +50,7 @@ const vendorSchema = new Schema({
   }],
   description: {
     type: String,
-    minLength: 100,
+    minLength: 10,
     maxLength: 1000
   },
   ratings: [
@@ -61,9 +61,9 @@ const vendorSchema = new Schema({
       },
       rating_value: {
         type: Number,
-        min: 0,
-        max: 5,
-        default: 0,
+        // min: 0,
+        // max: 5,
+        // default: 0,
       },
       rating_description: {
         type: String,

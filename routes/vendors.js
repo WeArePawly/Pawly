@@ -42,6 +42,29 @@ router.get('/:vendorId', (req, res, next) => {
   })
 });
 
+router.patch('/:vendorId', (req, res, next) => {
+  const {
+    rating,
+    comment,
+    userId
+  } = req.body;
+  Vendor.findByIdAndUpdate(req.params.vendorId, 
+    {$push: {ratings: {
+      user: userId,
+      rating_value: rating, 
+      rating_description: comment
+    }}}
+  )
+  .then(response => {
+    console.log(response)
+    res.status(200).json(response)
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(404).json({ message: `Error while editing file` })
+  })
+})
+
 router.put('/:vendorId', (req, res, next) => {
   const {
     email,
@@ -55,8 +78,6 @@ router.put('/:vendorId', (req, res, next) => {
     postal_code,
     city,
     business_type,
-    rating,
-    comment
   } = req.body;
   User
     .findOneAndUpdate(
@@ -81,16 +102,19 @@ router.put('/:vendorId', (req, res, next) => {
             city,
           },
           business_type,
-          $push: {ratings: {
-            rating_value: rating, 
-            rating_description: comment}}
         },
         { new: true }
       )
       .then(editedVendor => {
+        console.log(editedVendor)
         res.status(200).json({editedUser, editedVendor});
       })
-      res.status(404).json({ message: `Error while editing profile.`})
+      .catch(err => {
+        res.status(404).json({ message: `Error while editing file` })
+      })
+    .catch(err => {
+      res.status(404).json({ message: `Error while editing file` })
+    })
   })
 })
 
@@ -137,6 +161,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
           new: true
         })
         .then(() => {
+          console.log(resp)
           res.status(200).json({
             message: 'A service has been successfully created.'
           });
@@ -200,10 +225,10 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
       final_dates
     }, {new: true}
   )
-    .then(serviceUpdated => {
-      res.status(200).json(serviceUpdated);
-    })
-    .catch(err => res.json(err));
+  .then(serviceUpdated => {
+    res.status(200).json(serviceUpdated);
+  })
+  .catch(err => res.json(err));
 });
 
 router.delete('/:vendorId/:serviceId', (req, res) => {
