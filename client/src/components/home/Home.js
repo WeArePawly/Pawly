@@ -89,14 +89,14 @@ export default function Home(props) {
       <section className="join">
         <div className="container">
           <h2 className="title is-3 content has-text-centered">Mach mit bei Pawly!</h2>
-          <div class="columns">
-            <div class="column">
+          <div className="columns">
+            <div className="column">
               <p className="has-text-centered">Suchst du einen Trainer?</p>
-              <button class="button owner-signup">Sign up</button>
+              <button className="button owner-signup">Sign up</button>
             </div>
-            <div class="column">
+            <div className="column">
               <p className="has-text-centered">Möchtest du deine Dienstleistungen anbieten?</p>
-              <button class="button trainer-signup">Sign up</button>
+              <button className="button trainer-signup">Sign up</button>
             </div>
           </div>
         </div>
