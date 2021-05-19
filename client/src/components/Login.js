@@ -27,7 +27,9 @@ export default function Login(props) {
       <form onSubmit={handleSubmit}>
         <div className="field">
           <p className="control">
-            <label htmlFor="email">Email: </label>
+            <label class="label" htmlFor="email">
+              Email:{" "}
+            </label>
             <input
               className="input"
               id="email"
@@ -39,7 +41,9 @@ export default function Login(props) {
             />
           </p>
         </div>
-        <label htmlFor="password">Password: </label>
+        <label class="label" htmlFor="password">
+          Password:{" "}
+        </label>
         <div className="field">
           <p className="control">
             <input

@@ -115,3 +115,19 @@ input[type="radio"] {
   width: 25%;
   flex-grow: 1;
 }
+
+@media screen and (max-width: 768px) {
+  .search-page-wrapper {
+    flex-flow: column;
+    justify-content: center;
+    /* justify-content: space-between; */
+  }
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+  }
+  /* ALL SEARCH RESULTS */
+  .search-results {
+    width: 100%;
+  }
+}

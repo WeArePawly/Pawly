@@ -116,7 +116,7 @@ export default function Search(props) {
                   </div>
                 </div>
               </div>
-              <footer className="card-footer">
+              <div className="card-footer">
                 <Link
                   to={`mailto:${vendor.contact.email}`}
                   onClick={(e) => {
@@ -133,7 +133,7 @@ export default function Search(props) {
                 >
                   Buchen
                 </Link>
-              </footer>
+              </div>
             </div>
           </div>
         );
