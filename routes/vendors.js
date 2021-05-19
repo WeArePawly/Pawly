@@ -55,6 +55,8 @@ router.put('/:vendorId', (req, res, next) => {
     postal_code,
     city,
     business_type,
+    rating,
+    comment
   } = req.body;
   User
     .findOneAndUpdate(
@@ -78,7 +80,10 @@ router.put('/:vendorId', (req, res, next) => {
             postal_code,
             city,
           },
-          business_type
+          business_type,
+          $push: {ratings: {
+            rating_value: rating, 
+            rating_description: comment}}
         },
         { new: true }
       )
@@ -106,6 +111,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
     time,
     final_dates
   } = req.body;
+  console.log("LANGUAGES", languages.split(','))
   Service.create({
       service_avatar: {imgUrl: req.file.path},
       name: name,
@@ -116,11 +122,11 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
         postal_code,
         city},
       operator: {name: operator_name},
-      languages: languages,
+      languages: languages.split(','),
       description: description,
-      group_size: {total: group_size},
-      time,
       final_dates, 
+      time,
+      group_size: {total: group_size},
       vendor_id: req.params.vendorId
     })
     .then(createdService => {
@@ -170,7 +176,7 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
     postal_code,
     city,
     operator_name,
-    language,
+    languages,
     description,
     group_size,
     time,
@@ -187,7 +193,7 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
         postal_code,
         city},
       operator: {name: operator_name},
-      language: language,
+      languages: languages.split(','),
       description: description,
       group_size: {total: group_size},
       time,
