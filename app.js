@@ -14,9 +14,13 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
 
+// this is for the build
+const path = require('path');
+app.use(express.static(path.join(__dirname, "/client/build")));
+
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const DB_URL = 'mongodb://localhost/pawly';
+const DB_URL = process.env.MONGODB_URI || "mongodb://localhost/pawly";
 
 app.use(
   session({
@@ -94,10 +98,6 @@ app.use("/api/vendors", vendors);
 
 const bookings = require("./routes/bookings");
 app.use("/api/bookings", bookings)
-
-// this is for the build
-const path = require('path');
-app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.
