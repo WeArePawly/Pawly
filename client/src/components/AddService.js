@@ -38,9 +38,9 @@ export default function AddService(props) {
       operator_name,
       languages,
       description,
-      final_dates,
-      time,
       group_size,
+      time,
+      final_dates
       // image
     })
     .then(response => {
@@ -69,7 +69,7 @@ export default function AddService(props) {
   const addNewDate = () => {
     // event.persist();
     setFinal_dates(prevState => [...prevState, datesInput]);
-  }
+  };
 
   // const handleFileChange = e => {
   //   setFileData(e.target.files[0])

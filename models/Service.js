@@ -62,9 +62,14 @@ const serviceSchema = new Schema({
     minLength: 50,
     maxLength: 500
   },
-  Booking: [{
-    final_dates: [String],
-    time: String,
+  group_size : {
+    total: Number,
+    available: Number
+  },
+  time: String,
+  final_dates: [String],
+  booking: [{
+    booked_dates: String,
     group_size: {
       total: Number,
       available: Number
@@ -73,7 +78,6 @@ const serviceSchema = new Schema({
     [{
       type: Schema.Types.ObjectId,
       ref: 'User',
-      // required: true
     }],
   }],
   service_avatar: {
