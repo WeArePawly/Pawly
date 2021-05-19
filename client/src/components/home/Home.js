@@ -78,7 +78,7 @@ export default function Home(props) {
             </div>
             <div className="field is-grouped">
               <div className="control">
-                <button className="button is-link" type="submit">
+                <button className="button is-purple" type="submit">
                   Jetzt schnüffeln
                 </button>
               </div>

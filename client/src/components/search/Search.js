@@ -59,6 +59,16 @@ export default function Search(props) {
         return true;
       })
       .map((vendor) => {
+        let serviceMap = vendor.vendor_id.services
+          .slice(0, 3)
+          .map((service) => {
+            return (
+              <div className="service-package">
+                <p>{service.name}</p>
+                <p>{service.price}€</p>
+              </div>
+            );
+          });
         return (
           <div className="card" key={vendor.vendor_id}>
             <div className="card-image">
@@ -79,7 +89,7 @@ export default function Search(props) {
                 </div>
               </header>
               <div className="card-content">
-                <div className="content">
+                <div>
                   <p>
                     {vendor.vendor_id.address.street},{" "}
                     {vendor.vendor_id.address.house_number},{" "}
@@ -91,16 +101,18 @@ export default function Search(props) {
                       ? vendor.vendor_id.description.slice(0, 200) + "[...]"
                       : vendor.vendor_id.description)}
                   <br />
+                  <ul className="specialisation-tags">
+                    {vendor.vendor_id.specialization.map((item) => {
+                      return (
+                        <li>
+                          <span class="tag is-link">{item}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <br />
                   <div className="service-overview">
-                    {vendor.vendor_id.services &&
-                      vendor.vendor_id.services.map((service) => {
-                        return (
-                          <div className="service-package">
-                            <p>{service.name}</p>
-                            <p>{service.price}€</p>
-                          </div>
-                        );
-                      })}
+                    {vendor.vendor_id.services && serviceMap}
                   </div>
                 </div>
               </div>
@@ -115,7 +127,6 @@ export default function Search(props) {
                 >
                   Kontaktieren
                 </Link>
-
                 <Link
                   to={`/training/${vendor.vendor_id._id}`}
                   className="card-footer-item"
