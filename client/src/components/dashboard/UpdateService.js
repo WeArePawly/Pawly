@@ -71,7 +71,7 @@ export default function UpdateService(props) {
       })
     }
 
-    }, [])
+
 
   const handleFormatChange = changeEvent => {
     setFormat(changeEvent.target.value)
