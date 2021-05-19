@@ -3,10 +3,7 @@ const User = require('../models/User');
 const Vendor = require('../models/Vendor');
 const Service = require("../models/Service");
 
-// The available slots for service are updated
-// I need to pass that in from the front end --> Update that as well (in group size)
-
-router.get('/:serviceId', (req,res,next) => {
+router.get('/:serviceId', (req, res) => {
   Service.findById( {_id:req.params.serviceId} )
   .then(foundService => res.status(200).json(foundService))
   .catch(err => res.json(err))
@@ -14,14 +11,22 @@ router.get('/:serviceId', (req,res,next) => {
 
 router.put('/:serviceId', (req, res) => {
   console.log(req.body);
-  const {chooseDate , courseId} = req.body;
+  const {chooseDate , courseId, userId, groupSize} = req.body;
   const {user} = req.session.passport;
+
+  // Service.findById({courseId: courseId})
+  // .then((srv)=>{
+  //   if (weCanBook){
+  //     Query Stuff from below
+  //   } else { res.json(noPlaceLeft)}
+  // })
+
   User.findByIdAndUpdate(user, {$push: {bookings: courseId}}, {new: true})
-    .then(updatedUser => {
-      res.status(200).json(updatedUser);
-        // redirect to somewhere
-      })
+  .then(updatedUser => {
+    Service.findByIdAndUpdate(courseId, {$push: { booking: {booked_dates: chooseDate, booked_by : userId}}}, {new:true})
+    .then(response => console.log(response))
     .catch(err => res.json(err))
+  })
 })
 
 module.exports = router;
