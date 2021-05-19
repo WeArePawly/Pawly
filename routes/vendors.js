@@ -53,8 +53,6 @@ router.put("/:vendorId", (req, res, next) => {
     postal_code,
     city,
     business_type,
-    rating,
-    comment
   } = req.body;
   User.findOneAndUpdate(
     { vendor_id: req.params.vendorId },
@@ -64,81 +62,85 @@ router.put("/:vendorId", (req, res, next) => {
       username,
     },
     { new: true }
-    )
-    .then((editedUser) => {
-    Vendor
-      .findByIdAndUpdate(req.params.vendorId,
-        {
-          business_name,
-          address: {
-            street,
-            house_number,
-            additional_info: additional_address_info,
-            postal_code,
-            city,
-          },
-          business_type,
-          $push: {ratings: {
-            rating_value: rating, 
-            rating_description: comment}}
+  ).then((editedUser) => {
+    Vendor.findByIdAndUpdate(
+      req.params.vendorId,
+      {
+        business_name,
+        address: {
+          street,
+          house_number,
+          additional_info: additional_address_info,
+          postal_code,
+          city,
         },
-        { new: true }
-      )
-      .then((editedVendor) => {
+        business_type,
+      },
+      { new: true }
+    ).then((editedVendor) => {
       res.status(200).json({ editedUser, editedVendor });
     });
     res.status(404).json({ message: `Error while editing profile.` });
   });
 });
 
-
-router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
-  const {
-    name,
-    price,
-    format,
-    street,
-    house_number,
-    postal_code,
-    city,
-    operator_name,
-    languages,
-    description,
-    group_size,
-    time,
-    final_dates
-  } = req.body;
-  Service.create({
-      service_avatar: {imgUrl: req.file.path},
+router.post(
+  "/:vendorId/addService",
+  // uploader.single("imgUrl"),
+  (req, res, next) => {
+    // console.log(req.body);
+    // console.log(req.file);
+    // console.log(req.params.vendorId);
+    const {
+      name,
+      price,
+      format,
+      street,
+      house_number,
+      postal_code,
+      city,
+      operator_name,
+      languages,
+      description,
+      group_size,
+      time,
+      final_dates,
+    } = req.body;
+    Service.create({
       name: name,
       price: price,
       format: format,
-      location: {street,
-        house_number,
-        postal_code,
-        city},
-      operator: {name: operator_name},
-      languages: languages.split(','),
+      location: { street, house_number, postal_code, city },
+      operator: { name: operator_name },
+      languages: languages,
       description: description,
-      final_dates, 
+      group_size: { total: group_size },
       time,
-      group_size: {total: group_size},
-      vendor_id: req.params.vendorId
+      final_dates,
+      vendor_id: req.params.vendorId,
+      // service_avatar: { imgUrl: req.file.path },
     })
-    .then(createdService => {
-      console.log("THIS IS THE CREATED SERVICE", createdService)
-      Vendor.findByIdAndUpdate(req.params.vendorId, {
-          $push: {services: createdService._id}
-        }, {
-          new: true
-        })
-        .then(() => {
-          res.status(200).json({
-            message: 'A service has been successfully created.'
-          });
-        })
-        .catch(err => res.json(err));
-
+      .then((createdService) => {
+        console.log("THIS IS THE CREATED SERVICE", createdService);
+        Vendor.findByIdAndUpdate(
+          req.params.vendorId,
+          {
+            $push: { services: createdService._id },
+          },
+          {
+            new: true,
+          }
+        )
+          .then(() => {
+            res.status(200).json({
+              message: "A service has been successfully created.",
+            });
+          })
+          .catch((err) => res.json(err));
+      })
+      .catch((err) => res.json(err));
+  }
+);
 
 // Find all the services created by the Vendor
 router.get("/:vendorId/services", (req, res, next) => {
@@ -172,7 +174,7 @@ router.put("/:vendorId/:serviceId", (req, res, next) => {
     postal_code,
     city,
     operator_name,
-    languages,
+    language,
     description,
     group_size,
     time,
@@ -184,13 +186,9 @@ router.put("/:vendorId/:serviceId", (req, res, next) => {
       name: name,
       price: price,
       format: format,
-
-      location: {street,
-        house_number,
-        postal_code,
-        city},
-      operator: {name: operator_name},
-      languages: languages.split(','),
+      location: { street, house_number, postal_code, city },
+      operator: { name: operator_name },
+      language: language,
       description: description,
       group_size: { total: group_size },
       time,

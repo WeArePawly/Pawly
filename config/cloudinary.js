@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   
   cloudinary,
-  folder: '/pawly',
+  folder: 'pawly',
   allowedFormats: ['jpg', 'png', 'jpeg'],
   
   filename: function (req, file, cb) {
