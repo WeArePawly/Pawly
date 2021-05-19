@@ -54,7 +54,7 @@ router.put('/:vendorId', (req, res, next) => {
     additional_address_info,
     postal_code,
     city,
-    business_type
+    business_type,
   } = req.body;
   User
     .findOneAndUpdate(
@@ -120,7 +120,8 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
       description: description,
       group_size: {total: group_size},
       time,
-      final_dates
+      final_dates, 
+      vendor_id: req.params.vendorId
     })
     .then(createdService => {
       console.log("THIS IS THE CREATED SERVICE", createdService)
