@@ -26,24 +26,49 @@ export default function Search(props) {
     fetchData();
   }, [props]);
 
+  const resetFilter = () => {
+    setSpecialization(null);
+    setAge(null);
+    setTrainingType(null);
+  }
 
   if(searchResult) {
     list = searchResult
-    .filter(
-      vendor => {
-        if (specialization) {
-          return vendor.vendor_id.specialization === specialization
-        }
-        else {
-          return vendor
-        }
+    .filter(vendor => {
+      if (specialization) {
+        return vendor.vendor_id.specialization === specialization
       }
-    )
+      else {
+        return vendor
+      }
+    })
+    .filter(vendor => {
+      if (trainingType) {
+        return vendor.vendor_id.services.some(service => {
+          return (
+            (trainingType === "training-type-single" && service.group_size.total === 1) ||
+            (trainingType === "training-type-group" && service.group_size.total > 1)
+          )
+          // if (trainingType === "training-type-single" && service.group_size.total === 1) {
+          //   console.log('single selected');
+          //   return vendor
+          // }
+          // else if (trainingType === "training-type-group" && service.group_size.total > 1) {
+          //   console.log('group selected')
+          //   return vendor
+          // }
+        })
+      }
+      else {
+        return vendor
+      }
+    })
+
     .map(vendor => {
       return (
         <div className="card" key={vendor.vendor_id}>
-          <div class="card-image">
-            <figure class="image is-4by3">
+          <div className="card-image">
+            <figure className="image is-4by3">
               <img src="https://images.unsplash.com/photo-1594499468121-f45e83e30df4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1250&q=80" alt="Placeholder image" />
             </figure>
           </div>
@@ -128,13 +153,13 @@ export default function Search(props) {
               </label>
             </div>
           </div>
-          {/* <div className="field is-grouped">
+          <div className="field is-grouped">
             <div className="control">
-              <button className="button is-link" type="submit">Jetzt schnüffeln</button>
             </div>
-          </div> */}
+          </div>
         </form>
       </div>
+      <div className="button is-link" onClick={resetFilter}>Filter zurücksetzen</div>
       <div className="search-results">
         {searchResult ? list : <p>Loading...</p>}
       </div>

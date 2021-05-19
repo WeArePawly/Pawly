@@ -17,7 +17,7 @@ export default function VendorPage(props) {
     (vendor ? (
       <div className="container single-result">
         <div className="vendor-info">
-          <div class="vendor-image">
+          <div className="vendor-image">
             <img src="https://images.unsplash.com/photo-1594499468121-f45e83e30df4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1250&q=80" alt="Placeholder image"/>
           </div>
           <div className="vendor-description">
