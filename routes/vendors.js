@@ -107,6 +107,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
     final_dates
   } = req.body;
   Service.create({
+      vendor_id: req.params.vendorId,
       service_avatar: {imgUrl: req.file.path},
       name: name,
       price: price,
@@ -142,6 +143,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
 
 // Find all the services created by the Vendor
 router.get('/:vendorId/services', (req, res, next) => {
+  console.log(req.params)
   Service.find({vendor_id: req.params.vendorId})
     .then(vendorServices => {
       console.log('These are the services created by the Vendor: ', vendorServices)

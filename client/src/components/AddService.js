@@ -73,14 +73,12 @@ export default function AddService(props) {
     // event.persist();
     setFinal_dates(prevState => [...prevState, datesInput]);
   };
-
   
   const handleFileChange = e => {
     console.log(e.target.files[0])
     setFileData(e.target.files[0])
   }
 
-  
   return (
     <div>
         <h2>Add Service</h2>

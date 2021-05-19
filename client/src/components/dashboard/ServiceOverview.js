@@ -13,6 +13,7 @@ export default function ServiceOverview(props) {
     axios.get(`/api/vendors/${props.user.vendor_id}/services/`)
     .then(response => {
       // Here we set servicesData to our response.data
+      console.log(response)
       setServicesData(response.data)})
   }, [props])
 
