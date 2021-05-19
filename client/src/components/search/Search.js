@@ -33,13 +33,21 @@ export default function Search(props) {
   if (searchResult) {
     list = searchResult
       .filter((vendor) => {
-        const specializationSearch = specialization
-          ? vendor.vendor_id.specialization === specialization
+        return specialization
+          ? vendor.vendor_id.specialization.some(
+              (item) => specialization === item
+            )
           : true;
-        let trainingTypeSearch = true;
-
+      })
+      .filter((vendor) => {
+        return city
+          ? vendor.vendor_id.address.city.toLowerCase().trim() ===
+              city.toLowerCase().trim()
+          : true;
+      })
+      .filter((vendor) => {
         if (trainingType) {
-          trainingTypeSearch = vendor.vendor_id.services.some((service) => {
+          return vendor.vendor_id.services.some((service) => {
             return (
               (trainingType === "training-type-single" &&
                 service.group_size.total === 1) ||
@@ -48,14 +56,8 @@ export default function Search(props) {
             );
           });
         }
-        const citySearch = city
-          ? vendor.vendor_id.address.city.toLowerCase().trim() ===
-            city.toLowerCase().trim()
-          : true;
-
-        return specializationSearch && trainingTypeSearch && citySearch;
+        return true;
       })
-
       .map((vendor) => {
         return (
           <div className="card" key={vendor.vendor_id}>
@@ -120,8 +122,7 @@ export default function Search(props) {
   return (
     <div className="container">
       <div className="search-bar">
-        {/* <form className="search-box" onSubmit={submitSearchForm}> */}
-        <form className="search-box">
+        <form className="search-box" onSubmit={(e) => e.preventDefault()}>
           <div className="field">
             <label className="label">Spezialisierung</label>
             <div className="control">
