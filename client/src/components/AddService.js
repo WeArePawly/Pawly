@@ -6,7 +6,7 @@ import DatePicker from "react-multi-date-picker";
 export default function AddService(props) {
 
   
-  const [name, setName] = useState('street');
+  const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [format, setFormat] = useState('onsite');
   const [street, setStreet] = useState('');

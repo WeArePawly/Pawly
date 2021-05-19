@@ -38,7 +38,8 @@ export default function ServiceOverview(props) {
               <p>Beschreibung: <br/>
                 {service.description}</p>
               <p>{service.languages[0]} {service.languages[1]}</p>
-              <img src={service.service_avatar.imgUrl}/>
+              {/* <img src={service.service_avatar.imgUrl}/> */}
+
               {/* <p>{service.operator}</p>
               {/* <Link to={`/vendors/${props.user.vendor_id}/${service._id}/`}  */}
                 

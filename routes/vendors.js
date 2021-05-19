@@ -136,7 +136,7 @@ router.get('/:vendorId/services', (req, res, next) => {
   Vendor.findById(req.params.vendorId)
   .then(vendor => {
     console.log(vendor)
-    Service.find()
+    Service.find({serviceId: req.params._id})
     .then(vendorServices => {
       res.status(200).json(vendorServices)
     })
