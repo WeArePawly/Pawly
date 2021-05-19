@@ -24,41 +24,25 @@ export default function AddService(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // const formData = new FormData();
+    const formData = new FormData();
 
-    // formData.append("imgUrl", fileData);
-    // formData.append("name", name);
-    // formData.append("price", price);
-    // formData.append("format", format);
-    // formData.append("street", street);
-    // formData.append("house_number", house_number);
-    // formData.append("postal_code", postal_code);
-    // formData.append("city", city);
-    // formData.append("operator_name", operator_name);
-    // formData.append("languages", languages);
-    // formData.append("description", description);
-    // formData.append("final_dates", final_dates);
-    // formData.append("time", time);
-    // formData.append("group_size", group_size);
+    formData.append("imgUrl", fileData);
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("format", format);
+    formData.append("street", street);
+    formData.append("house_number", house_number);
+    formData.append("postal_code", postal_code);
+    formData.append("city", city);
+    formData.append("operator_name", operator_name);
+    formData.append("languages", languages);
+    formData.append("description", description);
+    formData.append("final_dates", final_dates);
+    formData.append("time", time);
+    formData.append("group_size", group_size);
 
-    // axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
-    axios
-      .post(`/api/vendors/${props.user.vendor_id}/addService`, {
-        // imgUrl,
-        name,
-        price,
-        format,
-        street,
-        house_number,
-        postal_code,
-        city,
-        operator_name,
-        languages,
-        description,
-        final_dates,
-        time,
-        group_size,
-      })
+    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
+    
 
       .then((response) => {
         console.log(response);
@@ -89,10 +73,10 @@ export default function AddService(props) {
     setFinal_dates((prevState) => [...prevState, datesInput]);
   };
 
-  // const handleFileChange = (e) => {
-  //   console.log(e.target.files[0]);
-  //   setFileData(e.target.files[0]);
-  // };
+  const handleFileChange = (e) => {
+    console.log(e.target.files[0]);
+    setFileData(e.target.files[0]);
+  };
 
   return (
     <div>
@@ -223,8 +207,8 @@ export default function AddService(props) {
           onChange={(e) => setGroupSize(e.target.value)}
         />
 
-        {/* <label htmlFor="imageUrl">Image</label>
-        <input type="file" name="file" onChange={(e) => handleFileChange(e)} /> */}
+        <label htmlFor="imageUrl">Image</label>
+        <input type="file" name="file" onChange={(e) => handleFileChange(e)} />
 
         <button type="submit">Add</button>
 
