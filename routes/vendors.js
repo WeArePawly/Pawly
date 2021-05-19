@@ -84,7 +84,6 @@ router.put('/:vendorId', (req, res, next) => {
 })
 
 router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
-  console.log("This is cloudinary path", req.file.path)
   const {
     name,
     price,
@@ -96,11 +95,11 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
     operator_name,
     languages,
     description,
-    start_date,
-    end_date,
-    group_size
+    group_size,
+    addDate
   } = req.body; 
   Service.create({
+      service_avatar: {imgUrl: req.file.path},
       name: name,
       price: price,
       format: format,
@@ -111,18 +110,18 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
       operator: {name: operator_name},
       languages: languages,
       description: description,
-      dates: {start_date, end_date},
       group_size: {total: group_size},
-      service_avatar: {imgUrl: req.file.path}
+      dates: {date: addDate}
     })
     .then(createdService => {
-      console.log(createdService)
+      console.log("THIS IS THE CREATED SERVICE", createdService)
       Vendor.findByIdAndUpdate(req.params.vendorId, {
           $push: {services: createdService._id}
         }, {
           new: true
         })
         .then(updatedVendor => {
+          console.log(updatedVendor)
           res.status(200).json({
             message: 'A service has been successfully created.'
           });

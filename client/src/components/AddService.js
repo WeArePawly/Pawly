@@ -5,7 +5,8 @@ import DatePicker from "react-multi-date-picker";
 
 export default function AddService(props) {
 
-  const [name, setName] = useState('');
+  
+  const [name, setName] = useState('street');
   const [price, setPrice] = useState(0);
   const [format, setFormat] = useState('onsite');
   const [street, setStreet] = useState('');
@@ -15,42 +16,43 @@ export default function AddService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState(['Deutsch']);
   const [description, setDescription] = useState('');
-  const [start_date, setStartDate] = useState('');
-  const [end_date, setEndDate] = useState('');
   const [group_size, setGroupSize] = useState('');
   const [addDate, setAddDate] = useState(new Date());
 
   const [fileData, setFileData] = useState('');
+
+  const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('')
+
   
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     const formData = new FormData();
 
     formData.append('imgUrl', fileData)
+    formData.append('name', name)
+    formData.append('price', price)
+    formData.append('format', format)
+    formData.append('street', street)
+    formData.append('house_number', house_number)
+    formData.append('postal_code', postal_code)
+    formData.append('city', city)
+    formData.append('operator_name', operator_name)
+    formData.append('languages', languages)
+    formData.append('description', description)
+    formData.append('group_size', group_size)
+    formData.append('addDate', addDate)
 
-    console.log(props, props.user)
-    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData, {
-      name,
-      price,
-      format,
-      street,
-      house_number,
-      postal_code,
-      city,
-      operator_name,
-      languages,
-      description,
-      start_date,
-      end_date,
-      group_size,
-    })
+    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
+    
     .then(response => {
-      console.log(response.data)
+      console.log(response)
+      setMessage('Ihre Dienstleistung wurde erfolgreich erstellt!')
     })
-    .catch(err => {
-      console.log(err);
+    .catch(() => {
+      setErrorMessage('Bitte füllen Sie alle Pflichtfelder aus')
     })
   }
 
@@ -86,7 +88,7 @@ export default function AddService(props) {
     <div>
         <h2>Add Service</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name">Name* </label>
           <input
             id="name"
             type="text"
@@ -94,7 +96,7 @@ export default function AddService(props) {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          <label htmlFor="price">Preis: </label>
+          <label htmlFor="price">Preis </label>
           <input
             id="price"
             type="number"
@@ -108,7 +110,7 @@ export default function AddService(props) {
               <option value="onsite">Vor Ort</option>
               <option value="mobile">Mobil</option>
           </select>
-          <label htmlFor="street">Adresse</label>
+          <label htmlFor="street">Adresse*</label>
           <input
             id="street"
             type="text"
@@ -116,7 +118,7 @@ export default function AddService(props) {
             value={street}
             onChange={e => setStreet(e.target.value)}
           />
-          <label htmlFor="house_number">Hausnummer</label>
+          <label htmlFor="house_number">Hausnummer*</label>
           <input
             id="house_number"
             type="number"
@@ -124,7 +126,7 @@ export default function AddService(props) {
             value={house_number}
             onChange={e => setHouseNumber(e.target.value)}
           />
-          <label htmlFor="postal_code">PLZ </label>
+          <label htmlFor="postal_code">PLZ* </label>
           <input
             id="postal_code"
             type="number"
@@ -132,7 +134,7 @@ export default function AddService(props) {
             value={postal_code}
             onChange={e => setPostalCode(e.target.value)}
           />
-          <label htmlFor="city">Stadt</label>
+          <label htmlFor="city">Stadt*</label>
           <input
             id="city"
             type="text"
@@ -140,7 +142,7 @@ export default function AddService(props) {
             value={city}
             onChange={e => setCity(e.target.value)}
           />
-          <label htmlFor="operator_name">Mitarbeiter</label>
+          <label htmlFor="operator_name">Mitarbeiter*</label>
           <input
             id="operator_name"
             type="text"
@@ -148,7 +150,7 @@ export default function AddService(props) {
             value={operator_name}
             onChange={e => setOperator(e.target.value)}
           />
-          <label htmlFor="description">Beschreibung</label>
+          <label htmlFor="description">Beschreibung*</label>
           <input
             id="description"
             type="textarea"
@@ -162,7 +164,7 @@ export default function AddService(props) {
               <option value="Englisch">Englisch</option>
           </select>
 
-          <label htmlFor="start_date">Datum:</label>
+          <label htmlFor="start_date">Datum*</label>
           {/* <input
             id="start_date"
             type="date"
@@ -190,7 +192,7 @@ export default function AddService(props) {
             onChange={e => setEndDate(e.target.value)}
           /> */}
 
-          <label htmlFor="group_size">Teilnehmer max.</label>
+          <label htmlFor="group_size">Teilnehmer max.* </label>
           <input
             id="group_size"
             type="number"
@@ -198,15 +200,19 @@ export default function AddService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
-          <label htmlFor="image">Image</label>
+          <label htmlFor="imageUrl">Image</label>
           <input 
-            type='file' 
-            name='file' 
-            accept='image/*' 
+            type='file'
+            name='file'  
             onChange={e => handleFileChange(e)} 
-            alt='name'
-            placeholder='image' />
+          />
           <button type="submit">Add</button>
+          
+          {message ?
+            <h3>{message}</h3>
+              :
+            <h3>{errorMessage}</h3>
+          }
         </form>
     </div>
   )
