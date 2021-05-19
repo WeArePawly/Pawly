@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UpdateService from './UpdateService'
 import axios from 'axios';
+// import Service from '../../../../models/Service';
 
 export default function ServiceOverview(props) {
 
@@ -10,14 +11,14 @@ export default function ServiceOverview(props) {
 
   useEffect(() => {
     axios.get(`/api/vendors/${props.user.vendor_id}/services/`)
-    .then(response => 
-      setServicesData(response.data))
+    .then(response => {
+      // Here we set servicesData to our response.data
+      setServicesData(response.data)})
   }, [props])
 
   function handleEdit(id) {
     setServiceId(id)
     setShowEdit(!showEdit)
-
   }
 
   return (
@@ -25,6 +26,7 @@ export default function ServiceOverview(props) {
       {!showEdit && ( 
         <>
           {servicesData.map(service => {
+
             return (
             <div key={service._id}>
               <h2>{service.name}</h2>
@@ -42,16 +44,12 @@ export default function ServiceOverview(props) {
 
               {/* <p>{service.operator}</p>
               {/* <Link to={`/vendors/${props.user.vendor_id}/${service._id}/`}  */}
-                
-              
+
                 <button onClick={() => handleEdit(service._id)}>EDIT</button>
-              
-              
-            </div>
-          
-          )
-        })}
-      </>
+              </div>
+            )
+          })}
+        </>
       )}
       {showEdit && 
         (<UpdateService serviceId={serviceId} user={props.user}/>)

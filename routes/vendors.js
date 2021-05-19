@@ -8,7 +8,6 @@ router.get('/', (req, res, next) => {
   User
   .find({vendor_id: { $exists: true } })
   .populate('vendor_id')
-  .populate()
   .populate({
     path: 'vendor_id',
     populate: {
@@ -28,8 +27,15 @@ router.get('/:vendorId', (req, res, next) => {
   User
   .find({vendor_id: req.params.vendorId})
   .populate('vendor_id')
-  .then(user => {
-    res.status(200).json(user[0])
+  .populate({
+    path: 'vendor_id',
+    populate: {
+      path: 'services',
+      model: 'Service'
+    }
+  })
+  .then(vendor => {
+    res.status(200).json(vendor[0])
   })
   .catch(err => {
     res.status(404).json({ message: `Error while loading profile: ${err}` })
@@ -83,6 +89,7 @@ router.put('/:vendorId', (req, res, next) => {
   })
 })
 
+
 router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
   const {
     name,
@@ -96,8 +103,9 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
     languages,
     description,
     group_size,
-    addDate
-  } = req.body; 
+    time,
+    final_dates
+  } = req.body;
   Service.create({
       service_avatar: {imgUrl: req.file.path},
       name: name,
@@ -111,7 +119,8 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
       languages: languages,
       description: description,
       group_size: {total: group_size},
-      dates: {date: addDate}
+      time,
+      final_dates
     })
     .then(createdService => {
       console.log("THIS IS THE CREATED SERVICE", createdService)
@@ -120,8 +129,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
         }, {
           new: true
         })
-        .then(updatedVendor => {
-          console.log(updatedVendor)
+        .then(() => {
           res.status(200).json({
             message: 'A service has been successfully created.'
           });
@@ -132,17 +140,14 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
   
 })
 
+// Find all the services created by the Vendor
 router.get('/:vendorId/services', (req, res, next) => {
-  Vendor.findById(req.params.vendorId)
-  .then(vendor => {
-    console.log(vendor)
-    Service.find({serviceId: req.params._id})
+  Service.find({vendor_id: req.params.vendorId})
     .then(vendorServices => {
+      console.log('These are the services created by the Vendor: ', vendorServices)
       res.status(200).json(vendorServices)
     })
     .catch(err => res.json(err));
-  })
-  .catch(err => res.json(err));
 })
 
 router.get('/:vendorId/:serviceId', (req, res, next) => {
@@ -166,9 +171,9 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
     operator_name,
     language,
     description,
-    start_date,
-    end_date,
     group_size,
+    time,
+    final_dates
   } = req.body;
   Service.findByIdAndUpdate(
     req.params.serviceId,
@@ -183,8 +188,9 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
       operator: {name: operator_name},
       language: language,
       description: description,
-      dates: {start_date, end_date},
       group_size: {total: group_size},
+      time,
+      final_dates
     }, {new: true}
   )
     .then(serviceUpdated => {

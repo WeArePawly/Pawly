@@ -18,7 +18,7 @@ export default function Search(props) {
       setTrainingType(props.search[2])
     }
     async function fetchData() {
-      const response = await axios(
+      const response = await axios.get(
           '/api/vendors/',
         );
         setSearchResult(response.data);
@@ -56,7 +56,7 @@ export default function Search(props) {
             </header>
             <div className="card-content">
               <div className="content">
-                <p>{vendor.vendor_id.address.street}, {vendor.vendor_id.address.house_number}, {vendor.vendor_id.address.postal_code}, {vendor.vendor_id.address.city}</p>
+                <p>{vendor.vendor_id.address.street}, {vendor.vendor_id.address.house_number}, {vendor.vendor_id.address.postal_code} {vendor.vendor_id.address.city}</p>
                 { vendor.vendor_id.description && (vendor.vendor_id.description.length > 100 ? vendor.vendor_id.description.slice(0,200) + '[...]' : vendor.vendor_id.description)}
                 <br/>
                 <div className="service-overview">
@@ -76,7 +76,7 @@ export default function Search(props) {
             </div>
             <footer className="card-footer">
               <Link className="card-footer-item">Kontaktieren</Link>
-              <Link to="/" className="card-footer-item">Buchen</Link>
+              <Link to={`/training/${vendor.vendor_id._id}`}className="card-footer-item">Buchen</Link>
             </footer>
           </div>
         </div>

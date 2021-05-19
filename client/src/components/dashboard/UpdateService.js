@@ -14,7 +14,11 @@ export default function UpdateService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState([]);
   const [description, setDescription] = useState('');
-  const [addDate, setAddDate] = useState(new Date());
+
+  const [datesInput, setDatesInput] = useState('');
+  const [final_dates, setFinal_dates] = useState([]);
+  const [time, setTime] = useState('');
+
   const [group_size, setGroupSize] = useState('');
 
   const [fileData, setFileData] = useState('');
@@ -24,9 +28,9 @@ export default function UpdateService(props) {
 
   useEffect(async() => {
       const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
-      console.log(service.data.dates.start_date)
       setName(service.data.name)
       setPrice(service.data.price)
+      setFormat(service.data.format)
       setStreet(service.data.location.street)
       setHouseNumber(service.data.location.house_number)
       setPostalCode(service.data.location.postal_code)
@@ -34,8 +38,7 @@ export default function UpdateService(props) {
       setOperator(service.data.operator[0].name)
       setDescription(service.data.description)
       setGroupSize(service.data.group_size.total)
-      setAddDate(service.data.dates.addDate)
-    }, [])
+  }, [])
 
     function handleSubmit(e) {
       e.preventDefault()
@@ -54,18 +57,21 @@ export default function UpdateService(props) {
       formData.append('languages', languages)
       formData.append('description', description)
       formData.append('group_size', group_size)
-      formData.append('addDate', addDate)
+      formData.append('final_dates', final_dates)
+      formData.append('time', time)
   
       axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
       
       .then(response => {
         console.log(response)
-        setMessage('Ihre Dienstleistung wurde erfolgreich erstellt!')
+        setMessage('Ihre Dienstleistung wurde erfolgreich geändert!')
       })
       .catch(() => {
         setErrorMessage('Bitte füllen Sie alle Pflichtfelder aus')
       })
     }
+
+    }, [])
 
   const handleFormatChange = changeEvent => {
     setFormat(changeEvent.target.value)
@@ -82,16 +88,20 @@ export default function UpdateService(props) {
     })
   };
 
-  const addNewDates = (values) => {
-    // console.log(values)
-    setAddDate(values)
-  }
+
   const handleFileChange = e => {
     console.log(e.target.files[0])
     setFileData(e.target.files[0])
   }
 
   
+
+  const addNewDate = () => {
+    // event.persist();
+    setFinal_dates(prevState => [...prevState, datesInput]);
+  };
+
+
   return (
     <div>
         <h2>Update Service</h2>
@@ -170,13 +180,35 @@ export default function UpdateService(props) {
           <select multiple={true} value={languages} onChange={handleLanguageChange} name="languages" id="languages" >
               <option value="Deutsch">Deutsch</option>
               <option value="Englisch">Englisch</option>
-              
           </select>
 
-          <DatePicker 
-          multiple
-          value={addDate} 
-          onChange={addNewDates}/>
+
+          <label htmlFor="dates">Datum</label>
+          <input
+            id="date"
+            type="date"
+            name="dates"
+            value={datesInput}
+            onChange={e => setDatesInput(e.target.value)}
+          />
+          <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+
+          <p>Diese Daten hast du schon ausgewählt:</p>
+          <ul>
+            {final_dates.map((date,i) => (
+              <li key={i}>{date}</li>
+            ))}
+          </ul>
+
+          <label htmlFor="time">Zeit</label>
+          <input
+            id="time"
+            type="time"
+            name="time"
+            value={time}
+            onChange={e => setTime(e.target.value)}
+          />
+
 
           <label htmlFor="group_size">Teilnehmer max.</label>
           <input
@@ -186,6 +218,7 @@ export default function UpdateService(props) {
             value={group_size}
             onChange={e => setGroupSize(e.target.value)}
           />
+
            <label htmlFor="imageUrl">Image</label>
           <input 
             type='file'
@@ -199,6 +232,7 @@ export default function UpdateService(props) {
               :
             <h3>{errorMessage}</h3>
           }
+
         </form>
     </div>
   )
