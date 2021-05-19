@@ -76,7 +76,7 @@ export default function Search(props) {
             </div>
             <footer className="card-footer">
               <Link className="card-footer-item">Kontaktieren</Link>
-              <Link to={`/training/${vendor.vendor_id._id}`}className="card-footer-item">Buchen</Link>
+              <Link to={`/training/${vendor.vendor_id._id}`} className="card-footer-item">Buchen</Link>
             </footer>
           </div>
         </div>

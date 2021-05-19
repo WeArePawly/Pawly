@@ -71,7 +71,7 @@ export default function AddService(props) {
 
   const addNewDate = () => {
     // event.persist();
-    setFinal_dates(prevState => [...prevState, datesInput]);
+    setFinal_dates(prevState => [...prevState, [datesInput]]);
   };
 
   
@@ -170,7 +170,7 @@ export default function AddService(props) {
             value={datesInput}
             onChange={e => setDatesInput(e.target.value)}
           />
-          <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+          <button type="button" onClick={addNewDate}>Datum hinzufügen</button>
 
           <p>Diese Daten hast du schon ausgewählt:</p>
           <ul>

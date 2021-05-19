@@ -94,7 +94,6 @@ export default function UpdateService(props) {
     setFileData(e.target.files[0])
   }
 
-  
 
   const addNewDate = () => {
     // event.persist();

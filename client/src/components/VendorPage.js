@@ -47,7 +47,7 @@ export default function VendorPage(props) {
                   <div className="cell">{service.name}</div>
                   <div className="cell">{service.price}€</div>
                   <div className="cell">
-                    <Link to={`/training/${vendor.vendor_id._id}`}className="card-footer-item">Buchen</Link></div>
+                    <Link to={`/booking/${service._id}`} className="card-footer-item">Buchen</Link></div>
                 </div>
               )
             })
