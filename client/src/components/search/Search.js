@@ -32,36 +32,23 @@ export default function Search(props) {
     setTrainingType(null);
   }
 
+
   if(searchResult) {
     list = searchResult
     .filter(vendor => {
-      if (specialization) {
-        return vendor.vendor_id.specialization === specialization
-      }
-      else {
-        return vendor
-      }
-    })
-    .filter(vendor => {
+      const specializationSearch = specialization ? vendor.vendor_id.specialization === specialization : true;
+      let trainingTypeSearch = true;
+
       if (trainingType) {
-        return vendor.vendor_id.services.some(service => {
+        trainingTypeSearch = vendor.vendor_id.services.some(service => {
           return (
             (trainingType === "training-type-single" && service.group_size.total === 1) ||
             (trainingType === "training-type-group" && service.group_size.total > 1)
           )
-          // if (trainingType === "training-type-single" && service.group_size.total === 1) {
-          //   console.log('single selected');
-          //   return vendor
-          // }
-          // else if (trainingType === "training-type-group" && service.group_size.total > 1) {
-          //   console.log('group selected')
-          //   return vendor
-          // }
         })
       }
-      else {
-        return vendor
-      }
+
+      return specializationSearch && trainingTypeSearch
     })
 
     .map(vendor => {
