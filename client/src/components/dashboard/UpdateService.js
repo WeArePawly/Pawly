@@ -16,6 +16,7 @@ export default function UpdateService(props) {
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
   const [group_size, setGroupSize] = useState('');
+  const [message, setMessage] = useState('')
 
   useEffect(async() => {
       const service = await axios.get(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
@@ -52,6 +53,7 @@ export default function UpdateService(props) {
     })
     .then(response => {
       console.log(response.data)
+      setMessage('Ihre Dienstleistung wurde erfolgreich aktualisiert!')
     })
     .catch(err => {
       console.log(err);
@@ -180,6 +182,7 @@ export default function UpdateService(props) {
           />
           <button type="submit">Add</button> 
         </form>
+        <h3>{message}</h3>
     </div>
   )
 }

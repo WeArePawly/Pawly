@@ -62,16 +62,16 @@ const serviceSchema = new Schema({
     minLength: 50,
     maxLength: 500
   },
-  dates: {
-    start_date: {
+  dates: [{
+    date: {
       type: Date,
       // required: true
     },
-    end_date: {
-      type: Date,
-      // required: true
-    },
-  },
+    // end_date: {
+    //   type: Date,
+    //   // required: true
+    // },
+  }],
   group_size: {
     total: Number,
     available: Number
