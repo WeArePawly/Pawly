@@ -40,7 +40,6 @@ export default function ServiceOverview(props) {
                 <p>Beschreibung: <br/>
                   {service.description}</p>
                 <p>{service.languages[0]} {service.languages[1]}</p>
-                <p>{service.operator.name}</p>
                 <button onClick={() => handleEdit(service._id)}>EDIT</button>
               </div>
             )

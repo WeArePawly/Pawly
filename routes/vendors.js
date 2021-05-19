@@ -4,12 +4,38 @@ const User = require('../models/User');
 const Vendor = require('../models/Vendor');
 const Service = require("../models/Service");
 
+router.get('/', (req, res, next) => {
+  User
+  .find({vendor_id: { $exists: true } })
+  .populate('vendor_id')
+  .populate({
+    path: 'vendor_id',
+    populate: {
+      path: 'services',
+      model: 'Service'
+    }
+ })
+  .then(vendors => {
+    res.status(200).json(vendors)
+  })
+  .catch(err => {
+    res.status(404).json({ message: `Error while loading profile: ${err}` })
+  })
+});
+
 router.get('/:vendorId', (req, res, next) => {
   User
   .find({vendor_id: req.params.vendorId})
   .populate('vendor_id')
-  .then(user => {
-    res.status(200).json(user[0])
+  .populate({
+    path: 'vendor_id',
+    populate: {
+      path: 'services',
+      model: 'Service'
+    }
+  })
+  .then(vendor => {
+    res.status(200).json(vendor[0])
   })
   .catch(err => {
     res.status(404).json({ message: `Error while loading profile: ${err}` })
@@ -17,7 +43,6 @@ router.get('/:vendorId', (req, res, next) => {
 });
 
 router.put('/:vendorId', (req, res, next) => {
-  console.log(req.body)
   const {
     email,
     username,
@@ -64,7 +89,8 @@ router.put('/:vendorId', (req, res, next) => {
   })
 })
 
-router.post('/:vendorId/addService', (req, res, next) => {
+
+router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
   const {
     name,
     price,
@@ -81,24 +107,23 @@ router.post('/:vendorId/addService', (req, res, next) => {
     final_dates
   } = req.body;
   Service.create({
-    vendor_id: req.params.vendorId,
-    name: name,
-    price: price,
-    format: format,
-    location: {street,
-      house_number,
-      postal_code,
-      city},
-    operator: {name: operator_name},
-    languages: languages,
-    description: description,
-    group_size: {total: group_size},
-    time,
-    final_dates
-      // service_avatar: {path: {image: req.file.path}}
+      service_avatar: {imgUrl: req.file.path},
+      name: name,
+      price: price,
+      format: format,
+      location: {street,
+        house_number,
+        postal_code,
+        city},
+      operator: {name: operator_name},
+      languages: languages,
+      description: description,
+      group_size: {total: group_size},
+      time,
+      final_dates
     })
     .then(createdService => {
-      console.log('This is the service: ', createdService)
+      console.log("THIS IS THE CREATED SERVICE", createdService)
       Vendor.findByIdAndUpdate(req.params.vendorId, {
           $push: {services: createdService._id}
         }, {
@@ -112,6 +137,7 @@ router.post('/:vendorId/addService', (req, res, next) => {
         .catch(err => res.json(err));
     })
     .catch(err => res.json(err));
+  
 })
 
 // Find all the services created by the Vendor

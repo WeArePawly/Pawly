@@ -8,21 +8,33 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Home from './components/home/Home';
 import ProtectedRoute from './components/ProtectedRoute';
-import Search from './components/search/Search'
+import Search from './components/search/Search';
+import About from './components/About';
+import Footer from './components/Footer'
+import VendorPage from './components/VendorPage'
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
+  const [search, setSearch] = useState([]);
 
   return (
     <div className="App">
       <Navbar user={user} setUser={user => setUser(user)} />
       <Route
         exact path="/"
-        render={props => <Home user={user} setUser={user => setUser(user)} {...props} />}
+        render={props => <Home user={user} setUser={user => setUser(user)} search={search} setSearch={setSearch} {...props} />}
       />
       <Route
-        exact path="/search"
-        render={props => <Search user={user} setUser={user => setUser(user)} {...props} />}
+        exact path="/about"
+        render={props => <About user={user} setUser={user => setUser(user)} {...props} />}
+      />
+      <Route
+        exact path="/training"
+        render={props => <Search user={user} setUser={user => setUser(user)} search={search} setSearch={setSearch} {...props} />}
+      />
+      <Route
+        exact path="/training/:vendorId"
+        render={props => <VendorPage user={user} setUser={user => setUser(user)} {...props} />}
       />
       <Route
         exact path="/login"
@@ -38,6 +50,7 @@ export default function App(props) {
         component={Dashboard}
         redirectPath='/login'
       />
+      <Footer/>
     </div>
   )
 }

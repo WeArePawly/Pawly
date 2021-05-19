@@ -18,13 +18,13 @@ export default function Dashboard(props) {
   useEffect(() => {
     async function fetchData() {
       if (props.user.role === "vendor") {
-        const response = await axios(
+        const response = await axios.get(
           `/api/vendors/${props.user.vendor_id}`,
         );
         setProfileData(response.data);
       }
       else if(props.user.role === "dogOwner") {
-        const response = await axios(
+        const response = await axios.get(
           `/api/owners/${props.user._id}`,
         );
         setProfileData(response.data);

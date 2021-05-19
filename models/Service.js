@@ -82,7 +82,7 @@ const serviceSchema = new Schema({
   }],
   service_avatar: {
     original_name: { type: String },
-    path: {
+    imgUrl: {
       type: String,
       // default: <pathToCloudinaryFile>
     },

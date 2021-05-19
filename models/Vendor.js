@@ -76,6 +76,10 @@ const vendorSchema = new Schema({
     type: Number,
     default: 0,
   },
+  specialization: {
+    type: String,
+    enum: ["Leinentraining", "Trennungsangst", "Welpenschule", "Agility"]
+  },
 },
 { timestamps: true },
 );

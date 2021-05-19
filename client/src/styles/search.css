@@ -1,0 +1,95 @@
+/* ALL SEARCH RESULTS */
+.search-results {
+  width: 60vw;
+  padding: 20px 0;
+}
+.search-results .card {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.search-results .card .card-header {
+  display: flex;
+  justify-content: space-between;
+}
+.search-results .card .card-header-title:first-of-type {
+  max-width: 80%;
+}
+.search-results .card .card-header .like {
+  padding: 0.75rem 1rem;
+  width: 60px;
+  height: 100%;
+  text-align: right;
+}
+.search-results .card .card-header .icon {
+  background-image: url("https://res.cloudinary.com/cloud-michelle/image/upload/v1621342074/pawly/like-unliked_bvalup.png");
+  background-size: contain;
+}
+.search-results .card-image {
+  width: 40%;
+}
+.search-results .card-image figure {
+  width: 100%;
+  height: 100%;
+}
+.search-results .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.search-results .card-description {
+  width: 60%;
+}
+.search-results .card-image:first-child img {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.25rem;
+}
+.search-results .service-overview {
+  margin-top: 20px;
+}
+.search-results .service-package {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* SINGLE SEARCH RESULT */
+.single-result .vendor-info {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.single-result .vendor-info .vendor-image {
+  width: 20%;
+  height: 100%;
+}
+.single-result .vendor-info img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+.single-result .vendor-info .vendor-description {
+  width: 80%;
+  padding: 0 20px;
+}
+.single-result .vendor-info .like {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  width: 80px;
+}
+.single-result .vendor-info .icon {
+  background-image: url("https://res.cloudinary.com/cloud-michelle/image/upload/v1621342074/pawly/like-unliked_bvalup.png");
+  background-size: contain;
+}
+.single-result .service-info {
+  margin: 50px 0;
+}
+.single-result .service-info .row {
+  display: flex;
+  margin: 5px 0;
+}
+.single-result .service-info .row .cell {
+  width: 25%;
+  flex-grow: 1;
+}
