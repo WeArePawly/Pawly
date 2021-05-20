@@ -86,6 +86,67 @@ export default function Home(props) {
           </form>
         </div>
       </section>
+      <section className="bold-statement">
+        <div className="container">
+          <h1 className="title is-1">
+            Our mission is to make life with dogs easier, hassle-free and save
+            time, so you can spend it with your furry friend.
+          </h1>
+        </div>
+      </section>
+      <section className="steps">
+        <div className="container">
+          <h2 className="title is-2 has-text-centered">
+            Vier einfache Schritte
+          </h2>
+          <div className="columns">
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/sign_up_icon_t1ywok.png"
+                alt="anmelden"
+              />
+              <h4 className="title is-4 content has-text-centered">Anmelden</h4>
+              <p className="has-text-centered">
+                Geniese den einfacher Zugang zu unserem Trainernetzwerk -
+                überall & jederzeit.
+              </p>
+            </div>
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/search_icon_u7fthw.png"
+                alt="suchen"
+              />
+              <h4 className="title is-4 has-text-centered">Suchen</h4>
+              <p className="has-text-centered">
+                Es war noch nie einfacher: nutze unsere Suche und finde sofort
+                dein perfektes Match!
+              </p>
+            </div>
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/Booking_icon_irbfq1.png"
+                alt="buchen"
+              />
+              <h4 className="title is-4 has-text-centered">Buchen</h4>
+              <p className="has-text-centered">
+                Wir setzen lückenhaften Informationen ein Ende, du bekommst
+                genau das was du willst!
+              </p>
+            </div>
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/enjoy_icon_vqlkwb.png"
+                alt="genießen"
+              />
+              <h4 className="title is-4 has-text-centered">Genießen</h4>
+              <p className="has-text-centered">
+                Wir setzen lückenhaften Informationen ein Ende, du bekommst
+                genau das was du willst!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="service-statement">
         <div className="container">
           <h2 className="title is-2 has-text-centered">
