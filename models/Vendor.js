@@ -11,25 +11,29 @@ const vendorSchema = new Schema(
       // required: true,
       enum: ["Hundeschule", "Salon", "Tierarzt"],
     },
-    services: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Service'
-    }],
-    employees: [
-      { name: String }
+    services: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Service",
+      },
     ],
-    opening_hours: [{
-      day: Date, //mon - sun
-      periods: [{
-        start: Date,
-        end: Date
-      }]
-    }],
+    employees: [{ name: String }],
+    opening_hours: [
+      {
+        day: Date, //mon - sun
+        periods: [
+          {
+            start: Date,
+            end: Date,
+          },
+        ],
+      },
+    ],
     description: {
       type: String,
       minLength: 10,
-      maxLength: 1000
-    },  
+      maxLength: 1000,
+    },
     address: {
       street: {
         type: String,
@@ -55,23 +59,23 @@ const vendorSchema = new Schema(
       additional_info: String,
     },
     ratings: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: ‘User’,
+      {
+        user: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+        },
+        username: {
+          type: String,
+        },
+        rating_value: {
+          type: Number,
+        },
+        rating_description: {
+          type: String,
+          minLength: 20,
+          maxLength: 500,
+        },
       },
-      username: {
-        type: String
-      },
-      rating_value: {
-        type: Number,
-      },
-      rating_description: {
-        type: String,
-        minLength: 20,
-        maxLength: 500
-      }
-     },
     ],
     avg_rating: {
       type: Number,
@@ -83,6 +87,7 @@ const vendorSchema = new Schema(
         enum: ["Leinentraining", "Trennungsangst", "Welpenschule", "Agility"],
       },
     ],
+  },
   { timestamps: true }
 );
 
