@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/search.css";
 import StarRating from "./search/StarRating";
+import DisplayRating from "./DisplayRating";
 
 export default function VendorPage(props) {
   const [vendor, setVendor] = useState(null);
@@ -72,6 +73,7 @@ export default function VendorPage(props) {
         {vendor.vendor_id.services &&
           vendor.vendor_id.services.map((service) => {
             return (
+              <>
               <div className="row">
                 <div className="cell">
                   {service.group_size.total === 1
@@ -86,6 +88,10 @@ export default function VendorPage(props) {
                   </Link>
                 </div>
               </div>
+              <div>
+              <DisplayRating vendorId={props.match.params.vendorId}/>
+              </div>
+              </>
             );
           })}
       </div>
