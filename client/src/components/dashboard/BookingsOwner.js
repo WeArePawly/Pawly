@@ -14,16 +14,10 @@ export default function BookingsOwner(props) {
 
   return (
     <div>
-      {/* {!showEdit && (
-        <>
-        <div>
-          this is the booking page for the owner
-          <button onClick={() => handleShowRating()}></button>
-        </div>
-      </>)}
-      {showRating && */}
+      
+      {showRating && 
         (<Rating user={props.user}/>)
-      {/* } */}
+      }
     </div>
   )
 }

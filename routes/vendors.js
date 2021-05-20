@@ -154,8 +154,9 @@ router.post(
       languages,
       description,
       group_size,
-      time,
-      final_dates,
+      start_time,
+      end_time,
+      final_dates
     } = req.body;
     console.log("LANGUAGES", languages.split(","));
     Service.create({
@@ -167,8 +168,8 @@ router.post(
       operator: { name: operator_name },
       languages: languages.split(","),
       description: description,
-      final_dates,
-      time,
+      final_dates: final_dates.split(","),
+      time: {start: start_time, end: end_time},
       group_size: { total: group_size },
       vendor_id: req.params.vendorId,
     })
@@ -226,7 +227,8 @@ router.put("/:vendorId/:serviceId", (req, res, next) => {
     languages,
     description,
     group_size,
-    time,
+    start_time,
+    end_time,
     final_dates,
   } = req.body;
   Service.findByIdAndUpdate(
@@ -240,8 +242,8 @@ router.put("/:vendorId/:serviceId", (req, res, next) => {
       languages: languages.split(","),
       description: description,
       group_size: { total: group_size },
-      time,
-      final_dates,
+      final_dates: final_dates.split(","),
+      time: {start: start_time, end: end_time},
     },
     { new: true }
   )
