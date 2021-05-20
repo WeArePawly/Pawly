@@ -74,23 +74,24 @@ export default function VendorPage(props) {
           vendor.vendor_id.services.map((service) => {
             return (
               <>
-              <div className="row">
-                <div className="cell">
-                  {service.group_size.total === 1
-                    ? "Gruppentraining"
-                    : "Einzeltraining"}
+                <div className="row">
+                  <div className="cell">
+                    {service.group_size.total === 1
+                      ? "Gruppentraining"
+                      : "Einzeltraining"}
+                  </div>
+                  <div className="cell">{service.name}</div>
+                  <div className="cell">{service.price}€</div>
+                  <div className="cell">
+                    <Link
+                      to={`/booking/${service._id}`}
+                      className="card-footer-item"
+                    >
+                      Buchen
+                    </Link>
+                  </div>
                 </div>
-                <div className="cell">{service.name}</div>
-                <div className="cell">{service.price}€</div>
-                <div className="cell">
-                  <Link to={`/booking/${service._id}`} className="card-footer-item">
-                    Buchen
-                  </Link>
-                </div>
-              </div>
-              <div>
-              <DisplayRating vendorId={props.match.params.vendorId}/>
-              </div>
+                <DisplayRating vendorId={props.match.params.vendorId} />
               </>
             );
           })}
