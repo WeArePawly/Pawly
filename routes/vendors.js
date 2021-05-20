@@ -40,7 +40,6 @@ router.get("/:vendorId", (req, res, next) => {
     });
 });
 
-
 router.patch('/:vendorId', (req, res, next) => {
   const {
     rating,
@@ -57,11 +56,9 @@ router.patch('/:vendorId', (req, res, next) => {
     }}}
   )
   .then(response => {
-    let total = 0;
-    let reduced = response.ratings.map((rating) => (total += rating.rating_value));
-    let avg = Number((total / response.ratings.length).toFixed(1));
-  console.log("THIS IS THE AVG", total)
-  console.log(avg)
+  let total = 0;
+  let reduced = response.ratings.map(rating => total += rating.rating_value)
+  let avg = Number(total / response.ratings.length);
     Vendor.findByIdAndUpdate(response._id, {avg_rating: avg})
     .then(updatedVendor => {
       res.status(200).json(updatedVendor)

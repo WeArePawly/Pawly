@@ -75,18 +75,12 @@ export default function BookingsOwner(props) {
                   Bewertung hinzufügen
                 </button>
               </div>
+              {showRating &&  
+              (<Rating user={props.user} vendorId={service.vendor_id}/>)}
             </div>
           ))}
         </>
-      )}
-      {showRating && <Rating user={props.user} />}
+      )}      
     </div>
   );
-}
-
-{
-  /* {
-                   date.booked_by.some(user => {
-                    user === props.user._id
-                   }) */
 }

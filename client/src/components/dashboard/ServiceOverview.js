@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import UpdateService from "./UpdateService";
+import DeleteService from "./DeleteService";
 import AddService from "../AddService";
 import axios from "axios";
 
 export default function ServiceOverview(props) {
   const [servicesData, setServicesData] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
   const [serviceId, setServiceId] = useState("");
 
   useEffect(() => {
@@ -20,6 +22,11 @@ export default function ServiceOverview(props) {
   function handleEdit(id) {
     setServiceId(id);
     setShowEdit(!showEdit);
+  }
+
+  function handleDelete(id) {
+    setServiceId(id);
+    setShowDelete(!showDelete);
   }
 
   return (
@@ -72,19 +79,30 @@ export default function ServiceOverview(props) {
                 {/* <p>{service.operator}</p>
               {/* <Link to={`/vendors/${props.user.vendor_id}/${service._id}/`}  */}
 
+
                 <div className="align-button-to-right">
                   <button
                     className="button is-yellow"
                     onClick={() => handleEdit(service._id)}
                   >
-                    Ändern
+                    Bearbeiten
                   </button>
+                  <div className="align-button-to-right">
+                  <button
+                    className="button is-yellow"
+                    onClick={() => handleDelete(service._id)}
+                  >
+                    Entfernen
+                  </button>
+                <div>
+                  {showDelete ? <DeleteService serviceId={serviceId} user={props.user}/> : showDelete}
                 </div>
               </div>
             );
           })}
         </>
       )}
+      
       {showEdit && <UpdateService serviceId={serviceId} user={props.user} />}
     </div>
   );
