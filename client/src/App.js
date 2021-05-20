@@ -88,9 +88,10 @@ export default function App(props) {
           component={Dashboard}
           redirectPath="/login"
         />
-        <Route 
-        exact path="/booking/:serviceId" 
+        <ProtectedRoute
+        path="/booking/:serviceId" 
         render={props => <ServiceDetails user={user} setUser={user => setUser(user)} {...props}/>}
+        redirectPath="/login"
         />
       </main>
       <Footer/>
