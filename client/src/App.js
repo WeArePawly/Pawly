@@ -89,8 +89,10 @@ export default function App(props) {
           redirectPath="/login"
         />
         <Route
-        exact path="/booking/:serviceId" 
-        render={props => <ServiceDetails user={user} setUser={(user) => setUser(user)} {...props}/>}
+         exact path="/booking/:serviceId" 
+          render={(props) => (
+            <ServiceDetails user={user} setUser={(user) => setUser(user)} {...props}/>
+        )}
         />
       </main>
       <Footer/>
