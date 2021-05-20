@@ -1,6 +1,11 @@
 /* GENERAL */
-main {
-  /* padding: 15px 0 30px; */
+main > div:last-of-type,
+main > section:last-of-type:not(.join) {
+  padding-bottom: 30px;
+}
+main > div:first-of-type,
+main > section:first-of-type:not(.hero) {
+  padding-top: 15px;
 }
 body {
   color: #000;
