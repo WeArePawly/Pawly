@@ -9,6 +9,13 @@ router.get('/:serviceId', (req, res) => {
   .catch(err => res.json(err))
 })
 
+router.get('/owner/:serviceId', (req,res) => {
+  // find the id from req.params
+  Service.findById({})
+  .then(bookedServices => res.status(200).json(bookedService))
+  .catch(err => res.json(err))
+})
+
 router.put('/:serviceId', (req, res) => {
   console.log(req.body);
   const {chooseDate , courseId, userId, groupSize} = req.body;

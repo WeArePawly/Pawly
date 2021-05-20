@@ -95,8 +95,13 @@ const userSchema = new Schema({
     ref: 'Vendor'
   },
   bookings: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Service'
+    course: {
+      course_id: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Service'
+      }],
+      date: String
+    }
   }]
   // message: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
 },
