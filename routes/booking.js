@@ -7,7 +7,7 @@ router.get('/:serviceId', (req, res) => {
   Service.findById( {_id:req.params.serviceId} )
   .then(foundService => res.status(200).json(foundService))
   .catch(err => res.json(err))
-})
+});
 
 // get services that owners have booked
 router.get('/:ownerId/services', (req,res) => {
@@ -15,11 +15,13 @@ router.get('/:ownerId/services', (req,res) => {
   .then(bookedServices => res.status(200).json(bookedServices))
 })
 
+// get services for vendors to see who has booked
+router.get('/services/:vendorId', (req,res) => {
+  Service.find({vendor_id: req.params.vendorId})
+  .then(bookedServices => res.status(200).json(bookedServices))
+});
 
-router.get('/:vendorId/booking', (req,res) => {
-  Vendor.find()
-})
-
+// booking process
 router.put('/:serviceId', (req, res) => {
   console.log(req.body);
   const {chooseDate, courseId, userId} = req.body;

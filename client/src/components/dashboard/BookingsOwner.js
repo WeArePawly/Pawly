@@ -5,13 +5,11 @@ import Rating from "../Rating";
 export default function BookingsOwner(props) {
   const [bookings, setBookings] = useState('');
   const [showRating, setShowRating] = useState(false);
-  const [bookedDates, setBookedDates] = useState('');
   
   useEffect(() => {
     axios.get(`/api/booking/${props.user._id}/services`)
       .then(bookedServices => {
         setBookings(bookedServices.data)
-        setBookedDates(bookedServices.data)
       })
   }, [])
   
