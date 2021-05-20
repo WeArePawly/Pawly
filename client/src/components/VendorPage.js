@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/search.css";
+import StarRating from "./search/StarRating";
 
 export default function VendorPage(props) {
   const [vendor, setVendor] = useState(null);
@@ -37,7 +38,10 @@ export default function VendorPage(props) {
             {vendor.vendor_id.address.postal_code}{" "}
             {vendor.vendor_id.address.city}
           </p>
-          <p>Rating: {vendor.vendor_id.avg_rating}</p>
+          <p className="star-wrapper">
+            <StarRating avg={vendor.vendor_id.avg_rating} />
+            <span className="rating-num">{vendor.vendor_id.avg_rating}</span>
+          </p>
           <Link
             to={`mailto:${vendor.contact.email}`}
             onClick={(e) => {
@@ -47,15 +51,17 @@ export default function VendorPage(props) {
           >
             Kontaktieren
           </Link>
-          <ul className="specialisation-tags">
-            {vendor.vendor_id.specialization.map((item) => {
-              return (
-                <li>
-                  <span class="tag is-link">{item}</span>
-                </li>
-              );
-            })}
-          </ul>
+          {vendor.vendor_id.specialization && (
+            <ul className="specialisation-tags">
+              {vendor.vendor_id.specialization.map((item) => {
+                return (
+                  <li>
+                    <span class="tag is-link">{item}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       </div>
       <div className="intro-text">
@@ -71,17 +77,11 @@ export default function VendorPage(props) {
                   {service.group_size.total === 1
                     ? "Gruppentraining"
                     : "Einzeltraining"}
-                  <Link to="" className="card-footer-item">
-                    Buchen
-                  </Link>
                 </div>
                 <div className="cell">{service.name}</div>
                 <div className="cell">{service.price}€</div>
                 <div className="cell">
-                  <Link
-                    to={`/booking/${service._id}`}
-                    className="card-footer-item"
-                  >
+                  <Link to={`/booking/${service._id}`} className="card-footer-item">
                     Buchen
                   </Link>
                 </div>

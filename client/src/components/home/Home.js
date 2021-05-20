@@ -86,7 +86,115 @@ export default function Home(props) {
           </form>
         </div>
       </section>
-      <section className="service-statement">
+      <section className="bold-statement">
+        <div className="container">
+          <h1 className="title is-1">
+            Our mission is to make life with dogs easier, hassle-free and save
+            time, so you can spend it with your furry friend.
+          </h1>
+        </div>
+      </section>
+      <section className="steps">
+        <div className="container">
+          <h2 className="title is-2 has-text-centered">
+            Vier einfache Schritte
+          </h2>
+          <div className="columns">
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/sign_up_icon_t1ywok.png"
+                alt="anmelden"
+              />
+              <h4 className="title is-4 content has-text-centered">Anmelden</h4>
+              <p className="has-text-centered">
+                Geniese den einfacher Zugang zu unserem Trainernetzwerk -
+                überall & jederzeit.
+              </p>
+            </div>
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/search_icon_u7fthw.png"
+                alt="suchen"
+              />
+              <h4 className="title is-4 has-text-centered">Suchen</h4>
+              <p className="has-text-centered">
+                Es war noch nie einfacher: nutze unsere Suche und finde sofort
+                dein perfektes Match!
+              </p>
+            </div>
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/Booking_icon_irbfq1.png"
+                alt="buchen"
+              />
+              <h4 className="title is-4 has-text-centered">Buchen</h4>
+              <p className="has-text-centered">
+                Wir setzen lückenhaften Informationen ein Ende, du bekommst
+                genau das was du willst!
+              </p>
+            </div>
+            <div className="column">
+              <img
+                src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621519711/pawly/enjoy_icon_vqlkwb.png"
+                alt="genießen"
+              />
+              <h4 className="title is-4 has-text-centered">Genießen</h4>
+              <p className="has-text-centered">
+                Wir setzen lückenhaften Informationen ein Ende, du bekommst
+                genau das was du willst!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="reason">
+        <div className="container">
+          <h2 className="title is-2">
+            Warum
+            <img
+              src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621510947/pawly/pawly-logo-small_clxuey.png"
+              alt=""
+            />
+            ?
+          </h2>
+          <div className="reason-item-container">
+            <div className="reason-item">
+              <div className="reason-wrap">
+                <img
+                  src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621520334/pawly/One_platform_foqga5.png"
+                  alt="one platform"
+                />
+                <h3 className="title is-3">1. One platform for all</h3>
+                <p>Search, book, and pay - all on a single platform</p>
+              </div>
+            </div>
+            <div className="reason-item">
+              <div className="reason-wrap">
+                <img
+                  src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621520334/pawly/Full_transparency_yixf60.png"
+                  alt="transparency"
+                />
+                <h3 className="title is-3">2. Full transparency</h3>
+                <p>
+                  Have confidence and full knowledge before booking any dog
+                  services.
+                </p>
+              </div>
+            </div>
+            <div className="reason-item">
+              <div className="reason-wrap">
+                <img
+                  src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621520334/pawly/Quick_matching_wwl0ko.png"
+                  alt="matching"
+                />
+                <h3 className="title is-3">3. Quick matching</h3>
+                <p>Intuitive, filter-based search in your neighborhood</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <section className="service-statement">
         <div className="container">
           <h2 className="title is-2 has-text-centered">
             So funktioniert Pawly
@@ -117,22 +225,24 @@ export default function Home(props) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="join">
         <div className="container">
           <h2 className="title is-3 content has-text-centered">
-            Mach mit bei Pawly!
+            Mach mit bei
+            <img
+              src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621523655/pawly/Pawly-Logo-yellow_k3rqgu.png"
+              alt="gelbes logo"
+            />
           </h2>
           <div className="columns">
-            <div className="column">
-              <p className="has-text-centered">Suchst du einen Trainer?</p>
-              <button className="button owner-signup">Sign up</button>
+            <div className="column owner-signup">
+              <p>Suchst du einen Trainer?</p>
+              <button className="button is-yellow">Sign up</button>
             </div>
-            <div className="column">
-              <p className="has-text-centered">
-                Möchtest du deine Dienstleistungen anbieten?
-              </p>
-              <button className="button trainer-signup">Sign up</button>
+            <div className="column trainer-signup">
+              <p>Möchtest du deine Dienstleistungen anbieten?</p>
+              <button className="button is-yellow">Sign up</button>
             </div>
           </div>
         </div>

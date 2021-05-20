@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../styles/search.css";
+import StarRating from "./StarRating";
 
 export default function Search(props) {
   const [searchResult, setSearchResult] = useState(null);
@@ -71,14 +72,17 @@ export default function Search(props) {
           });
         return (
           <div className="card" key={vendor.vendor_id}>
-            <div className="card-image">
-              <figure className="image is-4by3">
-                <img
-                  src="https://images.unsplash.com/photo-1594499468121-f45e83e30df4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1250&q=80"
-                  alt="Placeholder image"
-                />
-              </figure>
-            </div>
+            <div
+              className="card-image"
+              style={
+                vendor.avatar
+                  ? { backgroundImage: `url(${vendor.avatar.path})` }
+                  : {
+                      backgroundImage:
+                        "url('https://res.cloudinary.com/cloud-michelle/image/upload/v1621528360/pawly/placeholder-vendor_lhavwl.png')",
+                    }
+              }
+            ></div>
             <div className="card-description">
               <header className="card-header">
                 <p className="card-header-title">
@@ -101,15 +105,24 @@ export default function Search(props) {
                       ? vendor.vendor_id.description.slice(0, 200) + "[...]"
                       : vendor.vendor_id.description)}
                   <br />
-                  <ul className="specialisation-tags">
-                    {vendor.vendor_id.specialization.map((item) => {
-                      return (
-                        <li>
-                          <span class="tag is-link">{item}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <p className="star-wrapper">
+                    <StarRating avg={vendor.vendor_id.avg_rating} />
+                    <span className="rating-num">
+                      {vendor.vendor_id.avg_rating}
+                    </span>
+                  </p>
+                  <br />
+                  {vendor.vendor_id.specialization && (
+                    <ul className="specialisation-tags">
+                      {vendor.vendor_id.specialization.map((item) => {
+                        return (
+                          <li>
+                            <span class="tag is-link">{item}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                   <br />
                   <div className="service-overview">
                     {vendor.vendor_id.services && serviceMap}
@@ -206,7 +219,7 @@ export default function Search(props) {
               <div className="control"></div>
             </div>
           </form>
-          <div className="button is-link" onClick={resetFilter}>
+          <div className="button is-purple" onClick={resetFilter}>
             Filter zurücksetzen
           </div>
         </div>

@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import DatePicker from "react-multi-date-picker";
 
 export default function UpdateService(props) {
-
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [format, setFormat] = useState('');
@@ -14,15 +12,13 @@ export default function UpdateService(props) {
   const [operator_name, setOperator] = useState('');
   const [languages, setLanguages] = useState([]);
   const [description, setDescription] = useState('');
-
   const [datesInput, setDatesInput] = useState('');
   const [final_dates, setFinal_dates] = useState([]);
-  const [time, setTime] = useState('');
-
+  const [start_time, setStart_time] = useState("");
+  const [end_time, setEnd_time] = useState("");
   const [group_size, setGroupSize] = useState('');
 
   const [fileData, setFileData] = useState('');
-
   const [message, setMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -58,9 +54,12 @@ export default function UpdateService(props) {
       formData.append('description', description)
       formData.append('group_size', group_size)
       formData.append('final_dates', final_dates)
-      formData.append('time', time)
+      formData.append("start_time", start_time);
+      formData.append("end_time",end_time);
   
+
       axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, formData)
+
       
       .then(response => {
         console.log(response)
@@ -96,7 +95,6 @@ export default function UpdateService(props) {
 
 
   const addNewDate = () => {
-    // event.persist();
     setFinal_dates(prevState => [...prevState, datesInput]);
   };
 
@@ -107,6 +105,7 @@ export default function UpdateService(props) {
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name: </label>
           <input
+            required
             id="name"
             type="text"
             name="name"
@@ -115,6 +114,7 @@ export default function UpdateService(props) {
           />
           <label htmlFor="price">Price: </label>
           <input
+            required
             id="price"
             type="number"
             name="price"
@@ -127,8 +127,9 @@ export default function UpdateService(props) {
               <option value="onsite">Vor Ort</option>
               <option value="mobile">Mobil</option>
           </select>
-          <label htmlFor="street">Adresse</label>
+          <label htmlFor="street">Adresse *</label>
           <input
+            required
             id="street"
             type="text"
             name="street"
@@ -153,6 +154,7 @@ export default function UpdateService(props) {
           />
           <label htmlFor="city">Stadt</label>
           <input
+            required
             id="city"
             type="text"
             name="city"
@@ -169,6 +171,8 @@ export default function UpdateService(props) {
           />
           <label htmlFor="description">Beschreibung</label>
           <input
+            required
+            minlength="50"
             id="description"
             type="textarea"
             name="description"
@@ -176,21 +180,29 @@ export default function UpdateService(props) {
             onChange={e => setDescription(e.target.value)}
           />
           <label htmlFor="languages">Wählen Sie die Sprache</label>
-          <select multiple={true} value={languages} onChange={handleLanguageChange} name="languages" id="languages" >
-              <option value="Deutsch">Deutsch</option>
-              <option value="Englisch">Englisch</option>
+          <select 
+            required
+            multiple={true} 
+            value={languages} 
+            onChange={handleLanguageChange} 
+            name="languages" 
+            id="languages" 
+          >
+            <option value="Deutsch">Deutsch</option>
+            <option value="Englisch">Englisch</option>
           </select>
 
 
-          <label htmlFor="dates">Datum</label>
+          <label htmlFor="dates">Datum: </label>
           <input
+            required
             id="date"
             type="date"
             name="dates"
             value={datesInput}
             onChange={e => setDatesInput(e.target.value)}
           />
-          <button type="button" onClick={addNewDate}>Weiteres Datum hinzufügen</button>
+          <button type="button" onClick={addNewDate}>Datum hinzufügen</button>
 
           <p>Diese Daten hast du schon ausgewählt:</p>
           <ul>
@@ -199,18 +211,28 @@ export default function UpdateService(props) {
             ))}
           </ul>
 
-          <label htmlFor="time">Zeit</label>
+          <label htmlFor="start_time">Beginn: </label>
           <input
-            id="time"
+            required
+            id="start_time"
             type="time"
-            name="time"
-            value={time}
-            onChange={e => setTime(e.target.value)}
+            name="start_time"
+            value={start_time}
+            onChange={(e) => setStart_time(e.target.value)}
           />
 
+          <label htmlFor="end_time">Ende: </label>
+          <input
+            id="end_time"
+            type="time"
+            name="end_time"
+            value={end_time}
+            onChange={(e) => setEnd_time(e.target.value)}
+          />
 
           <label htmlFor="group_size">Teilnehmer max.</label>
           <input
+            required
             id="group_size"
             type="number"
             name="group_size"
@@ -218,13 +240,13 @@ export default function UpdateService(props) {
             onChange={e => setGroupSize(e.target.value)}
           />
 
-           <label htmlFor="imageUrl">Image</label>
+           <label htmlFor="imageUrl">Bild hochladen:</label>
           <input 
             type='file'
             name='file'  
             onChange={e => handleFileChange(e)} 
           />
-          <button type="submit">Update</button>
+          <button type="submit">Kurs aktualisieren</button>
           
           {message ?
             <h3>{message}</h3>
