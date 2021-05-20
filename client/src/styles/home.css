@@ -61,10 +61,14 @@
 .steps .column {
   max-width: 250px;
   text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .steps img {
   max-width: 100%;
-  max-height: 170px;
+  max-height: 150px;
   object-fit: contain;
   margin-bottom: 30px;
 }
@@ -151,11 +155,6 @@
 .join .column.trainer-signup {
   background-image: url("https://res.cloudinary.com/cloud-michelle/image/upload/v1621523885/pawly/Group_22_h7orwo.png");
   background-position: right;
-}
-.join .button {
-  background-color: #ffba33;
-  color: #fff;
-  border: transparent;
 }
 
 @media screen and (max-width: 768px) {

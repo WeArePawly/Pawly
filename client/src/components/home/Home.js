@@ -238,11 +238,11 @@ export default function Home(props) {
           <div className="columns">
             <div className="column owner-signup">
               <p>Suchst du einen Trainer?</p>
-              <button className="button">Sign up</button>
+              <button className="button is-yellow">Sign up</button>
             </div>
             <div className="column trainer-signup">
               <p>Möchtest du deine Dienstleistungen anbieten?</p>
-              <button className="button">Sign up</button>
+              <button className="button is-yellow">Sign up</button>
             </div>
           </div>
         </div>

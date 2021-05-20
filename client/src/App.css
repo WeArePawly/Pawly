@@ -28,6 +28,21 @@ a.navbar-item,
   border-color: transparent;
   color: #fff;
 }
+.button.is-yellow {
+  background-color: #ffba33;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-yellow:hover {
+  background-color: #fdb017;
+  border-color: transparent;
+  color: #fff;
+}
+
+.button {
+  border-radius: 13px;
+  padding: 7px 25px;
+}
 /* LOGIN / SIGNUP */
 .container.auth {
   max-width: 400px !important;
