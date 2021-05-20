@@ -19,7 +19,7 @@ export default function Rating(props) {
     const userId = props.user._id
     const username = props.user.username
     
-    axios.patch(`/api/vendors/60a550521cc90a61f40d8b30`, {
+    axios.patch(`/api/vendors/60a62e18d367895c2999c785`, {
       rating,
       comment,
       userId,
@@ -28,6 +28,7 @@ export default function Rating(props) {
       .then((response) => {
         setMessage('Ihre Bewertung wurde erfolgreich gespeichert!')
         setShowButton(false)
+        setComment('')
       })
       .catch(err => {
         console.log(err)

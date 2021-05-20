@@ -48,7 +48,7 @@ const userSchema = new Schema({
     original_name: { type: String },
     path: {
       type: String,
-      // default: <pathToCloudinaryFile>
+      default: "https://res.cloudinary.com/dswmfvjpe/image/upload/v1621530405/placeholder_kl4seo.png"
     },
     cloudinaryId: { type: String },
   },
