@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import Confirmation from './Confirmation'
+import Confirmation from './Confirmation';
+import  { Redirect } from 'react-router-dom'
 
 export default function ServiceDetails(props) {
   // Course details
@@ -55,6 +55,7 @@ export default function ServiceDetails(props) {
 
   return (
     <div>
+      {!props.user && <Redirect to='/login' />}
       {!details? <h1>Gleich ist es soweit...</h1> : (
         <>
         <h1>{details.name}</h1>
