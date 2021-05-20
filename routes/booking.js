@@ -9,16 +9,19 @@ router.get('/:serviceId', (req, res) => {
   .catch(err => res.json(err))
 })
 
-router.get('/owner/:serviceId', (req,res) => {
-  // find the id from req.params
-  Service.findById({})
-  .then(bookedServices => res.status(200).json(bookedService))
-  .catch(err => res.json(err))
+// get services that owners have booked
+router.get('/:ownerId/services', (req,res) => {
+  // find the services where owner Id is in bookings
+  Service.find()
+  // .then(response => {
+  //   User.findById({booking: {booked_by: req.params.ownerId}})
+  //   .then(response => res.status(200).json(response))
+  //   .catch(err => res.json(err))
 })
 
 router.put('/:serviceId', (req, res) => {
   console.log(req.body);
-  const {chooseDate , courseId, userId, groupSize} = req.body;
+  const {chooseDate, courseId, userId, groupSize} = req.body;
   const {user} = req.session.passport;
 
   // Service.findById({courseId: courseId})

@@ -95,14 +95,9 @@ const userSchema = new Schema({
     ref: 'Vendor'
   },
   bookings: [{
-    course: {
-      course_id: [{
         type: Schema.Types.ObjectId,
         ref: 'Service'
       }],
-      date: String
-    }
-  }]
   // message: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
 },
 { timestamps: true },

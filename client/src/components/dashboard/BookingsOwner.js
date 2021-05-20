@@ -1,9 +1,11 @@
+import axios from 'axios'
 import React from 'react'
 
 export default function BookingsOwner(props) {
-  // Props are already passed on through my data 
   // get the service data from the backend
 
+
+  axios.get(`/api/booking/${props.user._id}/services`)
 
 
   return (
