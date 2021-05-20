@@ -12,7 +12,16 @@ router.get('/:serviceId', (req, res) => {
 // get services that owners have booked
 router.get('/:ownerId/services', (req,res) => {
   // find the services where owner Id is in bookings
+  
   Service.find()
+    //services[1].booking[0].booked_by
+  .then(allServices => allServices.booking[0].filter(service => {
+     return res.json(service.booking.booked_by)
+   }))
+   
+
+  // : req.params.ownerId
+
   // .then(response => {
   //   User.findById({booking: {booked_by: req.params.ownerId}})
   //   .then(response => res.status(200).json(response))

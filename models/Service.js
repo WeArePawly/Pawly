@@ -77,8 +77,7 @@ const serviceSchema = new Schema(
       end: String,
     },
     final_dates: [String],
-    booking: [
-      {
+    booking: {
         booked_dates: String,
         group_size: {
           total: Number,
@@ -89,9 +88,8 @@ const serviceSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "User",
           },
-        ],
+        ]
       },
-    ],
     service_avatar: {
       original_name: { type: String },
       imgUrl: {

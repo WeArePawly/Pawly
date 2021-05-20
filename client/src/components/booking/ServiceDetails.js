@@ -60,7 +60,7 @@ export default function ServiceDetails(props) {
         <h1>{details.name}</h1>
         <p>{details.location.street} {details.location.house_number}</p>
         <p>{details.postal_code} {details.location.city}</p>
-        <p>Beginn: {details.time}</p>
+        <p>Beginn: {details.time.start} - {details.time.end}</p>
         <p>Trainer: {details.operator[0].name}</p>
         <p>{details.price}€</p>
         <p>{details.format}</p>
