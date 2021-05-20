@@ -66,7 +66,10 @@ const serviceSchema = new Schema({
     total: Number,
     available: Number
   },
-  time: String,
+  time: {
+    start: String,
+    end: String,
+  },
   final_dates: [String],
   booking: [{
     booked_dates: String,

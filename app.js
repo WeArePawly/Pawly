@@ -96,8 +96,8 @@ app.use("/api/owners", owners);
 const vendors = require("./routes/vendors");
 app.use("/api/vendors", vendors);
 
-const bookings = require("./routes/bookings");
-app.use("/api/bookings", bookings)
+const booking = require("./routes/booking");
+app.use("/api/booking", booking)
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.

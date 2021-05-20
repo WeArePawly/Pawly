@@ -70,7 +70,7 @@ export default function AddService(props) {
 
   const addNewDate = () => {
     // event.persist();
-    setFinal_dates((prevState) => [...prevState, datesInput]);
+    setFinal_dates(prevState => [...prevState, [datesInput]]);
   };
 
   const handleFileChange = (e) => {
@@ -179,7 +179,7 @@ export default function AddService(props) {
           onChange={(e) => setDatesInput(e.target.value)}
         />
         <button type="button" onClick={addNewDate}>
-          Weiteres Datum hinzufügen
+          Dieses Datum hinzufügen
         </button>
 
         <p>Diese Daten hast du schon ausgewählt:</p>

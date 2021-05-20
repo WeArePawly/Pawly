@@ -10,8 +10,10 @@ import Home from './components/home/Home';
 import ProtectedRoute from './components/ProtectedRoute';
 import Search from './components/search/Search';
 import About from './components/About';
-import Footer from './components/Footer'
-import VendorPage from './components/VendorPage'
+import Footer from './components/Footer';
+import VendorPage from './components/VendorPage';
+import ServiceDetails from './components/booking/ServiceDetails';
+import BookingsOwner from './components/dashboard/BookingsOwner';
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
@@ -50,6 +52,11 @@ export default function App(props) {
         component={Dashboard}
         redirectPath='/login'
       />
+      <Route 
+      exact path="/booking/:serviceId" 
+      render={props => <ServiceDetails user={user} setUser={user => setUser(user)} {...props}/>}
+      />
+
       <Footer/>
     </div>
   )

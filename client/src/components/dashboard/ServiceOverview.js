@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UpdateService from './UpdateService'
 import axios from 'axios';
-// import Service from '../../../../models/Service';
 
 export default function ServiceOverview(props) {
 
