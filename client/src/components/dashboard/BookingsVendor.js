@@ -18,11 +18,19 @@ export default function BookingsVendor(props) {
         <h1>Folgende HundeliebhaberInnen haben bei Dir gebucht:</h1>
           {bookedServices.map((service, i) => (
               <div key={i}>
-                  <h2>{service.name} wurde von 
+                  <h2>{service.name} wurde für den  
                   {participants = service.booking.map((person, i) => {
                     return (
                       <> 
-                      {person.booked_by} am {person.booked_dates}
+                      <p>{person.booked_dates}</p> 
+                      von 
+                      {person.booked_by.map(username =>{
+                        return(
+                          <>
+                            {username.username}
+                          </>
+                        )
+                      })} gebucht.
                       </>
                     )
                   })

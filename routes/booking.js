@@ -18,6 +18,13 @@ router.get('/:ownerId/services', (req,res) => {
 // get services for vendors to see who has booked
 router.get('/services/:vendorId', (req,res) => {
   Service.find({vendor_id: req.params.vendorId})
+    .populate({
+      path: "booking",
+      populate: {
+        path: "booked_by",
+        model: "User"
+      }
+    })
   .then(bookedServices => res.status(200).json(bookedServices))
 });
 
