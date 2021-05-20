@@ -39,6 +39,8 @@ export default function SettingsVendor(props) {
   const [specialization, setSpecialization] = useState([]);
 
   const [fileData, setFileData] = useState("");
+  const [pictureMessage, setPictureMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('')
 
   const editInfo = () => {
     setPasswordChange(false);
@@ -94,8 +96,10 @@ export default function SettingsVendor(props) {
 
       .then((response) => {
         console.log(response);
+        setPictureMessage('Ihr Profilbild wurde erfolgreich hochgeladen!')
       })
       .catch((err) => err);
+      setErrorMessage('Ihr Profilbild konnte nicht hochgeladen werden. Bitte versuchen Sie erneut.')
   }
 
   const handleFileChange = (e) => {
@@ -195,6 +199,13 @@ export default function SettingsVendor(props) {
                 <button className="button is-salmon" type="submit">
                   Update
                 </button>
+                <div>
+                  {pictureMessage ?
+                    <h3>{pictureMessage}</h3>
+                      :
+                    <h3>{errorMessage}</h3>
+                    }
+                </div>
               </div>
             </div>
           </form>
