@@ -57,7 +57,9 @@ export default function UpdateService(props) {
       formData.append("start_time", start_time);
       formData.append("end_time",end_time);
   
-      axios.put(`/api/vendors/${props.user.vendor_id}/addService`, formData)
+
+      axios.put(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`, formData)
+
       
       .then(response => {
         console.log(response)

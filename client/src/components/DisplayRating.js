@@ -6,12 +6,15 @@ import StarRatingComponent from 'react-star-rating-component';
 export default function DisplayRating(props) {
 
   const [ratingData, setRatingData] = useState([]);
+  const [avgRating, setAvgRating] = useState()
   
   useEffect(() => {
-    axios.get(`/api/vendors/60a550521cc90a61f40d8b30/`)
+    axios.get(`/api/vendors/60a62e18d367895c2999c785/`)
     .then(response => {
-      console.log(response.data)
-      // setRatingData(response.data.vendor_id.ratings)
+
+      setRatingData(response.data.vendor_id.ratings)
+      setAvgRating(response.data.vendor_id.avg_rating)
+
     })
   }, [props])
   
@@ -20,11 +23,19 @@ export default function DisplayRating(props) {
    <>
 
     <div>
+    <StarRatingComponent 
+            value={avgRating}
+            editing={false}
+            name="rate"
+        />
+
+
+        
     {ratingData.map(data => {
       const allRating = data.rating_value;
     return (
       <div key={data._id}>
-        <h3></h3>
+        
         <StarRatingComponent 
             value={allRating}
             editing={false}
@@ -39,8 +50,5 @@ export default function DisplayRating(props) {
   })}
   </div>
   </>
-  ) 
+  )
 }
-
-
- 
