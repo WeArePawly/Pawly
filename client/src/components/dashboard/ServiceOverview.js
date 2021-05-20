@@ -79,20 +79,16 @@ export default function ServiceOverview(props) {
                 {/* <p>{service.operator}</p>
               {/* <Link to={`/vendors/${props.user.vendor_id}/${service._id}/`}  */}
 
-                <div className="align-button-to-right">
+                <div className="align-button-between">
                   <button
                     className="button is-yellow"
                     onClick={() => handleEdit(service._id)}
-                  >
-                    Bearbeiten
+                  > Bearbeiten
                   </button>
-                </div>
-                <div className="align-button-to-right">
                   <button
-                    className="button is-yellow"
+                    className="button is-salmon"
                     onClick={() => handleDelete(service._id)}
-                  >
-                    Entfernen
+                  > Entfernen
                   </button>
                 </div>
                 {showDelete ? (
