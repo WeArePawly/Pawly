@@ -272,7 +272,7 @@ export default function SettingsVendor(props) {
               </div>
             </fieldset>
             <fieldset className="address">
-              <legend class="label">Adresse</legend>
+              <legend className="label">Adresse</legend>
               <div className="field">
                 <p className="control">
                   <input
@@ -360,7 +360,7 @@ export default function SettingsVendor(props) {
                 <label className="label" htmlFor="business_type">
                   Geschäftstyp:
                 </label>
-                <div class="select">
+                <div className="select">
                   <select
                     name="business_type"
                     id="business_type"

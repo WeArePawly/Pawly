@@ -9,6 +9,11 @@
   display: flex;
   justify-content: flex-end;
 }
+.dashboard-wrapper .align-button-between {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 .dashboard-wrapper .menu {
   margin-bottom: 0;
 }
