@@ -1,24 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import DisplayRating from '../components/DisplayRating'
 import axios from 'axios';
 
-export default function Rating() {
+export default function Rating(props) {
 
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState('');
   const [showButton, setShowButton] = useState(true)
+  
+
+  
 
   const handleSubmit = (event) => {
-
     event.preventDefault()
-
-    axios.put(`/api/vendors/`, {
+    
+    const userId = props.user._id
+    const username = props.user.username
+    
+    axios.patch(`/api/vendors/60a550521cc90a61f40d8b30`, {
       rating,
-      comment
+      comment,
+      userId,
+      username
     })
-      .then(() => {
+      .then((response) => {
         setMessage('Ihre Bewertung wurde erfolgreich gespeichert!')
+        setShowButton(false)
       })
       .catch(err => {
         console.log(err)
@@ -46,11 +55,15 @@ export default function Rating() {
             value={comment}
             onChange={e => setComment(e.target.value)}
           />
+          {/* <button type="submit">Bewertung speichern</button> */}
           {showButton ?
-            <button onClick={() => setShowButton(false)} type="submit">Bewertung speichern</button> :
-            <h3>{message}</h3>
+            <button type="submit">Bewertung speichern</button> :
+            <h3>{!showButton}</h3>
           }
+          <h3>{message}</h3>
         </form>
+        
+         <DisplayRating user={props.user}/> 
       </div>
   )  
 }

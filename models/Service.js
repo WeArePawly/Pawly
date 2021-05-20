@@ -63,16 +63,19 @@ const serviceSchema = new Schema(
     description: {
       type: String,
       minLength: 50,
-      maxLength: 500,
+      maxLength: 500
     },
-    group_size: {
+    group_size : {
       total: {
-        type: Number,
-        default: 1,
-      },
-      available: Number,
+          type: Number,
+          default: 1,
+       },
+      available: Number
     },
-    time: String,
+    time: {
+      start: String,
+      end: String,
+    },
     final_dates: [String],
     booking: [
       {

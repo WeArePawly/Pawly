@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import UpdateService from "./UpdateService";
-import axios from "axios";
-// import Service from '../../../../models/Service';
+import React, { useState, useEffect } from 'react';
+import UpdateService from './UpdateService'
+import axios from 'axios';
 
 export default function ServiceOverview(props) {
   const [servicesData, setServicesData] = useState([]);

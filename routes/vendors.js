@@ -40,7 +40,44 @@ router.get("/:vendorId", (req, res, next) => {
     });
 });
 
-router.put("/:vendorId", (req, res, next) => {
+
+router.patch('/:vendorId', (req, res, next) => {
+  const {
+    rating,
+    comment,
+    userId,
+    username
+  } = req.body;
+  Vendor.findByIdAndUpdate(req.params.vendorId, 
+    {$push: {ratings: {
+      user: userId,
+      username: username,
+      rating_value: rating, 
+      rating_description: comment
+    }}}
+  )
+  .then(response => {
+  let total = 0;
+  let reduced = response.ratings.map(rating => total += rating.rating_value)
+  let avg = Number(total / response.ratings.length);
+  console.log("THIS IS THE AVG", total)
+  console.log(avg)
+    Vendor.findByIdAndUpdate(response._id, {avg_rating: avg})
+    .then(updatedVendor => {
+      res.status(200).json(updatedVendor)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(404).json({ message: `Error while editing file` })
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(404).json({ message: `Error while editing file` })
+  })
+})
+
+router.put('/:vendorId', (req, res, next) => {
   const {
     email,
     username,
@@ -54,8 +91,6 @@ router.put("/:vendorId", (req, res, next) => {
     city,
     business_type,
     specialization,
-    rating,
-    comment,
   } = req.body;
   User.findOneAndUpdate(
     { vendor_id: req.params.vendorId },
@@ -79,12 +114,6 @@ router.put("/:vendorId", (req, res, next) => {
             city,
           },
           business_type,
-          $push: {
-            ratings: {
-              rating_value: rating,
-              rating_description: comment,
-            },
-          },
           specialization: specialization,
         },
         { new: true }
@@ -143,27 +172,24 @@ router.post(
       group_size: { total: group_size },
       vendor_id: req.params.vendorId,
     })
-      .then((createdService) => {
-        console.log("THIS IS THE CREATED SERVICE", createdService);
-        Vendor.findByIdAndUpdate(
-          req.params.vendorId,
-          {
-            $push: { services: createdService._id },
-          },
-          {
-            new: true,
-          }
-        )
-          .then(() => {
-            res.status(200).json({
-              message: "A service has been successfully created.",
-            });
-          })
-          .catch((err) => res.json(err));
-      })
-      .catch((err) => res.json(err));
-  }
-);
+    .then(createdService => {
+      console.log("THIS IS THE CREATED SERVICE", createdService)
+      Vendor.findByIdAndUpdate(req.params.vendorId, {
+          $push: {services: createdService._id}
+        }, {
+          new: true
+        })
+        .then(() => {
+          console.log(resp)
+          res.status(200).json({
+            message: 'A service has been successfully created.'
+          });
+        })
+        .catch(err => res.json(err));
+    })
+    .catch(err => res.json(err));
+  
+})
 
 // Find all the services created by the Vendor
 router.get("/:vendorId/services", (req, res, next) => {
@@ -219,10 +245,10 @@ router.put("/:vendorId/:serviceId", (req, res, next) => {
     },
     { new: true }
   )
-    .then((serviceUpdated) => {
-      res.status(200).json(serviceUpdated);
-    })
-    .catch((err) => res.json(err));
+  .then(serviceUpdated => {
+    res.status(200).json(serviceUpdated);
+  })
+  .catch(err => res.json(err));
 });
 
 router.delete("/:vendorId/:serviceId", (req, res) => {
