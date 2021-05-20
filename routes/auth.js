@@ -61,7 +61,6 @@ router.post("/signup", (req, res, next) => {
         // we create the hashed password
         const salt = bcrypt.genSaltSync();
         const hash = bcrypt.hashSync(password, salt);
-        console.log(hash);
         // create the user in the database
         User.create({
           username: username,
@@ -111,6 +110,15 @@ router.post("/signup", (req, res, next) => {
                 });
               });
             }
+            req.login(createdUser, (err) => {
+              if (err) {
+                return res
+                  .status(500)
+                  .json({ message: "Error while attempting to login" });
+              } else {
+                return res.status(200).json(createdUser);
+              }
+            });
           })
           .catch((err) => {
             res.json(err);
