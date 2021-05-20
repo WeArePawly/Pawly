@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import UpdateService from './UpdateService'
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import UpdateService from "./UpdateService";
+import AddService from "../AddService";
+import axios from "axios";
 
 export default function ServiceOverview(props) {
   const [servicesData, setServicesData] = useState([]);
@@ -22,7 +23,8 @@ export default function ServiceOverview(props) {
   }
 
   return (
-    <div>
+    <div className="dashboard-content">
+      <AddService user={props.user} />
       {!showEdit && (
         <>
           {servicesData.map((service) => {

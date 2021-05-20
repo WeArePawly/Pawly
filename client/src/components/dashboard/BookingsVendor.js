@@ -12,7 +12,7 @@ export default function BookingsVendor(props) {
   let participants;
 
   return (
-    <div>
+    <div className="dashboard-content">
       {!bookedServices && <h1>Es hat anscheinend noch keiner von unseren Nutzern etwas gebucht. </h1>}
       {bookedServices && (<>
         <h1>Folgende HundeliebhaberInnen haben bei Dir gebucht:</h1>
@@ -42,7 +42,7 @@ export default function BookingsVendor(props) {
           )}
       </>)}
     </div>
-  )
+  );
 }
 
 

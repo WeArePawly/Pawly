@@ -17,6 +17,7 @@ export default function VendorSignup(props) {
             id="business_name"
             type="text"
             name="business_name"
+            placeholder="Pawly"
             value={props.vendorProps.business_name}
             onChange={(e) => props.vendorProps.setBusinessName(e.target.value)}
           />
@@ -102,7 +103,7 @@ export default function VendorSignup(props) {
       <label className="label" htmlFor="business_type">
         Wählen Sie Ihren Geschäftstyp:
       </label>
-      <div class="select">
+      <div className="select">
         <select
           value={props.vendorProps.business_type}
           onChange={handleBusinessTypeChange}

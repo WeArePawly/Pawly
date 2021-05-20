@@ -106,7 +106,7 @@ export default function SettingsVendor(props) {
 
 
   return (
-    <div>
+    <div className="dashboard-content settings">
       {props.profileData && !changeSettings && (
         <>
           {/* <div>
@@ -124,9 +124,16 @@ export default function SettingsVendor(props) {
             </div>
           </div>
           <div className="row">
+            <div className="cell-title">Email:</div>
+            <div className="cell-desc">{props.profileData.contact.email}</div>
+          </div>
+          <div className="row">
             <div className="cell-title">Passwort:</div>
             <div className="cell-desc">
-              <button onClick={() => setPasswordChange(!showPasswordChange)}>
+              <button
+                className="button is-yellow"
+                onClick={() => setPasswordChange(!showPasswordChange)}
+              >
                 Password ändern
               </button>
             </div>
@@ -163,15 +170,19 @@ export default function SettingsVendor(props) {
                 {props.profileData.vendor_id.specialization.map((item) => {
                   return (
                     <li>
-                      <span class="tag is-success">{item}</span>
+                      <span class="tag is-purple">{item}</span>
                     </li>
                   );
                 })}
               </ul>
             </div>
           </div>
-
-          <button onClick={editInfo}>Benutzerdaten ändern</button>
+          <button
+            className="button is-yellow change-settings"
+            onClick={editInfo}
+          >
+            Benutzerdaten ändern
+          </button>
 
           <form onSubmit={submitPicture} encType="multipart/form-data">
             <label htmlFor="path">Image</label>
@@ -186,123 +197,194 @@ export default function SettingsVendor(props) {
       )}
       {props.profileData && changeSettings && (
         <>
-          <h2>Benutzerdaten ändern</h2>
+          <h3 className="title is-3">Benutzerdaten ändern</h3>
           <form onSubmit={submitChange}>
-            <label htmlFor="email">Email: </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="username">Username: </label>
-            <input
-              id="username"
-              type="text"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <fieldset>
-              <legend>Name</legend>
-              <input
-                id="first_name"
-                type="text"
-                name="first_name"
-                value={first_name}
-                onChange={(e) => setFirstName(e.target.value)}
-                placeholder="Hanna"
-              />
-              <input
-                id="last_name"
-                type="text"
-                name="last_name"
-                value={last_name}
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Schmidt"
-              />
+            <div className="field">
+              <p className="control">
+                <label class="label" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="input"
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </p>
+            </div>
+            <label class="label" htmlFor="username">
+              Username
+            </label>
+            <div className="field">
+              <p className="control">
+                <input
+                  className="input"
+                  id="username"
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </p>
+            </div>
+            <fieldset className="name">
+              <legend class="label">Name</legend>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="first_name"
+                    type="text"
+                    name="first_name"
+                    placeholder="Hanna"
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="last_name"
+                    type="text"
+                    name="last_name"
+                    placeholder="Schmidt"
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </p>
+              </div>
             </fieldset>
-            <fieldset>
-              <legend>Adresse</legend>
-              <input
-                id="street"
-                type="text"
-                name="street"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-                placeholder="Hundestraße"
-              />
-              <input
-                id="house_number"
-                type="number"
-                name="house_number"
-                value={house_number}
-                onChange={(e) => setHouseNumber(e.target.value)}
-                placeholder="1"
-              />
-              <input
-                id="address.additional_info"
-                type="text"
-                name="address.additional_info"
-                value={additional_address_info}
-                onChange={(e) => setAdditionalAddressInfo(e.target.value)}
-                placeholder="c/o Kaiser"
-              />
-              <input
-                id="postal_code"
-                type="number"
-                name="postal_code"
-                value={postal_code}
-                onChange={(e) => setPostalCode(e.target.value)}
-                placeholder="12345"
-              />
-              <input
-                id="city"
-                type="text"
-                name="city"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="Hundestadt"
-              />
+            <fieldset className="address">
+              <legend class="label">Adresse</legend>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="street"
+                    type="text"
+                    name="street"
+                    value={street}
+                    onChange={(e) => setStreet(e.target.value)}
+                    placeholder="Hundestraße"
+                  />
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="house_number"
+                    type="number"
+                    name="house_number"
+                    value={house_number}
+                    onChange={(e) => setHouseNumber(e.target.value)}
+                    placeholder="1"
+                  />
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="address.additional_info"
+                    type="text"
+                    name="address.additional_info"
+                    value={additional_address_info}
+                    onChange={(e) => setAdditionalAddressInfo(e.target.value)}
+                    placeholder="c/o Kaiser"
+                  />
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="postal_code"
+                    type="number"
+                    name="postal_code"
+                    value={postal_code}
+                    onChange={(e) => setPostalCode(e.target.value)}
+                    placeholder="12345"
+                  />
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="city"
+                    type="text"
+                    name="city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="Hundestadt"
+                  />
+                </p>
+              </div>
             </fieldset>
-            <label htmlFor="business_name">Firmenname: </label>
-            <input
-              id="business_name"
-              type="text"
-              name="business_name"
-              value={business_name}
-              onChange={(e) => setBusinessName(e.target.value)}
-            />
-            <label htmlFor="business_type">Geschäftstyp: </label>
-            <select
-              name="business_type"
-              id="business_type"
-              value={business_type}
-              onChange={(e) => setBusinessType(e.target.value)}
-            >
-              <option value="Hundeschule">Hundeschule</option>
-              <option value="Salon">Salon</option>
-              <option value="Tierarzt">Tierarzt</option>
-            </select>
-            <label htmlFor="specialization">Spezialisierung: </label>
-            <select
-              name="specialization"
-              id="specialization"
-              value={specialization}
-              onChange={(e) => specializationChange(e)}
-              multiple
-            >
-              <option value="Leinentraining">Leinentraining</option>
-              <option value="Trennungsangst">Trennungsangst</option>
-              <option value="Welpenschule">Welpenschule</option>
-              <option value="Agility">Agility</option>
-            </select>
-            <button type="submit">Benutzerdaten ändern</button>
+            <label className="label" htmlFor="business_name">
+              Firmenname
+            </label>
+            <div className="field">
+              <p className="control">
+                <input
+                  className="input"
+                  id="business_name"
+                  type="text"
+                  name="business_name"
+                  placeholder="Pawly"
+                  value={business_name}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                />
+              </p>
+            </div>
+            <div className="dropdowns-setting">
+              <div>
+                <label className="label" htmlFor="business_type">
+                  Geschäftstyp:
+                </label>
+                <div class="select">
+                  <select
+                    name="business_type"
+                    id="business_type"
+                    value={business_type}
+                    onChange={(e) => setBusinessType(e.target.value)}
+                  >
+                    <option value="Hundeschule">Hundeschule</option>
+                    <option value="Salon">Salon</option>
+                    <option value="Tierarzt">Tierarzt</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="label" htmlFor="specialization">
+                  Spezialisierung:{" "}
+                </label>
+                <div className="select select-specialization is-multiple">
+                  <select
+                    name="specialization"
+                    id="specialization"
+                    value={specialization}
+                    onChange={(e) => specializationChange(e)}
+                    multiple
+                  >
+                    <option value="Leinentraining">Leinentraining</option>
+                    <option value="Trennungsangst">Trennungsangst</option>
+                    <option value="Welpenschule">Welpenschule</option>
+                    <option value="Agility">Agility</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="submit" className="button is-yellow change-settings">
+              Benutzerdaten ändern
+            </button>
           </form>
-
-          
-          {message && <p>{message}</p>}
+          {message && <p className="change-setting-message">{message}</p>}
         </>
       )}
     </div>
