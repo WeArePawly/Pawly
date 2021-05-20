@@ -59,11 +59,11 @@ const vendorSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
       },
+      username: {
+        type: String
+      },
       rating_value: {
         type: Number,
-        // min: 0,
-        // max: 5,
-        // default: 0,
       },
       rating_description: {
         type: String,
@@ -74,7 +74,7 @@ const vendorSchema = new Schema({
   ],
   avg_rating: {
     type: Number,
-    default: 0,
+    // default: 0,
   },
   specialization: {
     type: String,

@@ -46,18 +46,31 @@ router.patch('/:vendorId', (req, res, next) => {
   const {
     rating,
     comment,
-    userId
+    userId,
+    username
   } = req.body;
   Vendor.findByIdAndUpdate(req.params.vendorId, 
     {$push: {ratings: {
       user: userId,
+      username: username,
       rating_value: rating, 
       rating_description: comment
     }}}
   )
   .then(response => {
-    console.log(response)
-    res.status(200).json(response)
+  let total = 0;
+  let reduced = response.ratings.map(rating => total += rating.rating_value)
+  let avg = Number(total / response.ratings.length);
+  console.log("THIS IS THE AVG", total)
+  console.log(avg)
+    Vendor.findByIdAndUpdate(response._id, {avg_rating: avg})
+    .then(updatedVendor => {
+      res.status(200).json(updatedVendor)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(404).json({ message: `Error while editing file` })
+    })
   })
   .catch(err => {
     console.log(err)

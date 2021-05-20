@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function Rating(props) {
 
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState('');
   const [showButton, setShowButton] = useState(true)
@@ -17,11 +17,13 @@ export default function Rating(props) {
     event.preventDefault()
     
     const userId = props.user._id
+    const username = props.user.username
     
-    axios.patch(`/api/vendors/60a534a54d2c4edc083e9336`, {
+    axios.patch(`/api/vendors/60a550521cc90a61f40d8b30`, {
       rating,
       comment,
-      userId
+      userId,
+      username
     })
       .then((response) => {
         setMessage('Ihre Bewertung wurde erfolgreich gespeichert!')
