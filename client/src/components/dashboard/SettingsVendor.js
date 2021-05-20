@@ -80,7 +80,7 @@ export default function SettingsVendor(props) {
       });
   };
   return (
-    <div>
+    <div className="dashboard-content">
       {props.profileData && !changeSettings && (
         <>
           <div className="row">

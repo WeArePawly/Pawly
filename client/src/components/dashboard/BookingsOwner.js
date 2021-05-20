@@ -13,7 +13,7 @@ export default function BookingsOwner(props) {
   }
 
   return (
-    <div>
+    <div className="dashboard-content">
       {/* {!showEdit && (
         <>
         <div>

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function BookingsVendor() {
   return (
-    <div>
+    <div className="dashboard-content">
       <h1>These people have booked your services</h1>
     </div>
-  )
+  );
 }
