@@ -1,6 +1,14 @@
 /* GENERAL */
-main {
-  padding: 15px 0 30px;
+main > div:last-of-type,
+main > section:last-of-type:not(.join) {
+  padding-bottom: 30px;
+}
+main > div:first-of-type,
+main > section:first-of-type:not(.hero) {
+  padding-top: 15px;
+}
+body {
+  color: #000;
 }
 /* FORM */
 input[type="radio"] {
@@ -24,6 +32,21 @@ a.navbar-item,
   background-color: #851873;
   border-color: transparent;
   color: #fff;
+}
+.button.is-yellow {
+  background-color: #ffba33;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-yellow:hover {
+  background-color: #fdb017;
+  border-color: transparent;
+  color: #fff;
+}
+
+.button {
+  border-radius: 13px;
+  padding: 7px 25px;
 }
 /* LOGIN / SIGNUP */
 .container.auth {
@@ -51,6 +74,21 @@ footer ul {
 }
 footer .columns .column:last-of-type {
   text-align: right;
+}
+footer .footer-logo {
+  position: relative;
+  top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-logo img {
+  max-width: 100px;
+}
+footer .footer-logo span {
+  position: relative;
+  bottom: -17px;
+  padding-left: 10px;
 }
 
 @media screen and (min-width: 769px) {

@@ -1,4 +1,3 @@
-
 import "./styles/normalize.css";
 import "./styles/bulma.css";
 import "./App.css";
@@ -14,7 +13,7 @@ import Search from "./components/search/Search";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import VendorPage from "./components/VendorPage";
-import ServiceDetails from './components/booking/ServiceDetails';
+import ServiceDetails from "./components/booking/ServiceDetails";
 
 export default function App(props) {
   const [user, setUser] = useState(props.user);
@@ -88,12 +87,19 @@ export default function App(props) {
           component={Dashboard}
           redirectPath="/login"
         />
-        <Route 
-        exact path="/booking/:serviceId" 
-        render={props => <ServiceDetails user={user} setUser={user => setUser(user)} {...props}/>}
+        <Route
+          exact
+          path="/booking/:serviceId"
+          render={(props) => (
+            <ServiceDetails
+              user={user}
+              setUser={(user) => setUser(user)}
+              {...props}
+            />
+          )}
         />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

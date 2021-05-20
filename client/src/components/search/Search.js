@@ -72,14 +72,17 @@ export default function Search(props) {
           });
         return (
           <div className="card" key={vendor.vendor_id}>
-            <div className="card-image">
-              <figure className="image is-4by3">
-                <img
-                  src="https://images.unsplash.com/photo-1594499468121-f45e83e30df4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1250&q=80"
-                  alt="Placeholder image"
-                />
-              </figure>
-            </div>
+            <div
+              className="card-image"
+              style={
+                vendor.avatar
+                  ? { backgroundImage: `url(${vendor.avatar.path})` }
+                  : {
+                      backgroundImage:
+                        "url('https://res.cloudinary.com/cloud-michelle/image/upload/v1621528360/pawly/placeholder-vendor_lhavwl.png')",
+                    }
+              }
+            ></div>
             <div className="card-description">
               <header className="card-header">
                 <p className="card-header-title">
@@ -216,7 +219,7 @@ export default function Search(props) {
               <div className="control"></div>
             </div>
           </form>
-          <div className="button is-link" onClick={resetFilter}>
+          <div className="button is-purple" onClick={resetFilter}>
             Filter zurücksetzen
           </div>
         </div>
