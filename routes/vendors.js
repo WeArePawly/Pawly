@@ -42,6 +42,42 @@ router.get('/:vendorId', (req, res, next) => {
   })
 });
 
+router.patch('/:vendorId', (req, res, next) => {
+  const {
+    rating,
+    comment,
+    userId,
+    username
+  } = req.body;
+  Vendor.findByIdAndUpdate(req.params.vendorId, 
+    {$push: {ratings: {
+      user: userId,
+      username: username,
+      rating_value: rating, 
+      rating_description: comment
+    }}}
+  )
+  .then(response => {
+  let total = 0;
+  let reduced = response.ratings.map(rating => total += rating.rating_value)
+  let avg = Number(total / response.ratings.length);
+  console.log("THIS IS THE AVG", total)
+  console.log(avg)
+    Vendor.findByIdAndUpdate(response._id, {avg_rating: avg})
+    .then(updatedVendor => {
+      res.status(200).json(updatedVendor)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(404).json({ message: `Error while editing file` })
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(404).json({ message: `Error while editing file` })
+  })
+})
+
 router.put('/:vendorId', (req, res, next) => {
   const {
     email,
@@ -54,7 +90,7 @@ router.put('/:vendorId', (req, res, next) => {
     additional_address_info,
     postal_code,
     city,
-    business_type
+    business_type,
   } = req.body;
   User
     .findOneAndUpdate(
@@ -78,14 +114,20 @@ router.put('/:vendorId', (req, res, next) => {
             postal_code,
             city,
           },
-          business_type
+          business_type,
         },
         { new: true }
       )
       .then(editedVendor => {
+        console.log(editedVendor)
         res.status(200).json({editedUser, editedVendor});
       })
-      res.status(404).json({ message: `Error while editing profile.`})
+      .catch(err => {
+        res.status(404).json({ message: `Error while editing file` })
+      })
+    .catch(err => {
+      res.status(404).json({ message: `Error while editing file` })
+    })
   })
 })
 
@@ -106,6 +148,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
     time,
     final_dates
   } = req.body;
+  console.log("LANGUAGES", languages.split(','))
   Service.create({
       service_avatar: {imgUrl: req.file.path},
       name: name,
@@ -116,11 +159,12 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
         postal_code,
         city},
       operator: {name: operator_name},
-      languages: languages,
+      languages: languages.split(','),
       description: description,
-      group_size: {total: group_size},
+      final_dates, 
       time,
-      final_dates
+      group_size: {total: group_size},
+      vendor_id: req.params.vendorId
     })
     .then(createdService => {
       console.log("THIS IS THE CREATED SERVICE", createdService)
@@ -130,6 +174,7 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
           new: true
         })
         .then(() => {
+          console.log(resp)
           res.status(200).json({
             message: 'A service has been successfully created.'
           });
@@ -169,7 +214,7 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
     postal_code,
     city,
     operator_name,
-    language,
+    languages,
     description,
     group_size,
     time,
@@ -186,17 +231,17 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
         postal_code,
         city},
       operator: {name: operator_name},
-      language: language,
+      languages: languages.split(','),
       description: description,
       group_size: {total: group_size},
       time,
       final_dates
     }, {new: true}
   )
-    .then(serviceUpdated => {
-      res.status(200).json(serviceUpdated);
-    })
-    .catch(err => res.json(err));
+  .then(serviceUpdated => {
+    res.status(200).json(serviceUpdated);
+  })
+  .catch(err => res.json(err));
 });
 
 router.delete('/:vendorId/:serviceId', (req, res) => {

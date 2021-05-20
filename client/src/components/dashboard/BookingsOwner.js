@@ -1,16 +1,29 @@
 import axios from 'axios'
-import React from 'react'
+import React, {useState} from 'react'
+import Rating from '../Rating'
 
 export default function BookingsOwner(props) {
-  // get the service data from the backend
-
-
+  const [showRating, setShowRating] = useState(false)
+  
+   // get the service data from the backend
   axios.get(`/api/booking/${props.user._id}/services`)
-
+  
+  function handleShowRating(id) {
+    setShowRating(!showRating)
+  }
 
   return (
     <div>
-      this is the booking page for the owner
+      {/* {!showEdit && (
+        <>
+        <div>
+          this is the booking page for the owner
+          <button onClick={() => handleShowRating()}></button>
+        </div>
+      </>)}
+      {showRating && */}
+        (<Rating user={props.user}/>)
+      {/* } */}
     </div>
   )
 }
