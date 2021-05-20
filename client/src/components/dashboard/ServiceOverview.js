@@ -79,7 +79,6 @@ export default function ServiceOverview(props) {
                 {/* <p>{service.operator}</p>
               {/* <Link to={`/vendors/${props.user.vendor_id}/${service._id}/`}  */}
 
-
                 <div className="align-button-to-right">
                   <button
                     className="button is-yellow"
@@ -87,22 +86,26 @@ export default function ServiceOverview(props) {
                   >
                     Bearbeiten
                   </button>
-                  <div className="align-button-to-right">
+                </div>
+                <div className="align-button-to-right">
                   <button
                     className="button is-yellow"
                     onClick={() => handleDelete(service._id)}
                   >
                     Entfernen
                   </button>
-                <div>
-                  {showDelete ? <DeleteService serviceId={serviceId} user={props.user}/> : showDelete}
                 </div>
+                {showDelete ? (
+                  <DeleteService serviceId={serviceId} user={props.user} />
+                ) : (
+                  showDelete
+                )}
               </div>
             );
           })}
         </>
       )}
-      
+
       {showEdit && <UpdateService serviceId={serviceId} user={props.user} />}
     </div>
   );
