@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/search.css";
+import StarRating from "./StarRating";
 
 export default function VendorPage(props) {
   const [vendor, setVendor] = useState(null);
@@ -37,7 +38,10 @@ export default function VendorPage(props) {
             {vendor.vendor_id.address.postal_code}{" "}
             {vendor.vendor_id.address.city}
           </p>
-          <p>Rating: {vendor.vendor_id.avg_rating}</p>
+          <p className="star-wrapper">
+            <StarRating avg={vendor.vendor_id.avg_rating} />
+            <span className="rating-num">{vendor.vendor_id.avg_rating}</span>
+          </p>
           <Link
             to={`mailto:${vendor.contact.email}`}
             onClick={(e) => {
