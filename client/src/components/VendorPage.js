@@ -77,17 +77,11 @@ export default function VendorPage(props) {
                   {service.group_size.total === 1
                     ? "Gruppentraining"
                     : "Einzeltraining"}
-                  <Link to="" className="card-footer-item">
-                    Buchen
-                  </Link>
                 </div>
                 <div className="cell">{service.name}</div>
                 <div className="cell">{service.price}€</div>
                 <div className="cell">
-                  <Link
-                    to={`/booking/${service._id}`}
-                    className="card-footer-item"
-                  >
+                  <Link to={`/booking/${service._id}`} className="card-footer-item">
                     Buchen
                   </Link>
                 </div>

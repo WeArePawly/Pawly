@@ -7,29 +7,32 @@ router.get('/:serviceId', (req, res) => {
   Service.findById( {_id:req.params.serviceId} )
   .then(foundService => res.status(200).json(foundService))
   .catch(err => res.json(err))
-})
+});
 
 // get services that owners have booked
 router.get('/:ownerId/services', (req,res) => {
-  // find the services where owner Id is in bookings
-  Service.find()
-  // .then(response => {
-  //   User.findById({booking: {booked_by: req.params.ownerId}})
-  //   .then(response => res.status(200).json(response))
-  //   .catch(err => res.json(err))
+  Service.find({"booking.booked_by" : req.params.ownerId })
+  .then(bookedServices => res.status(200).json(bookedServices))
 })
 
+// get services for vendors to see who has booked
+router.get('/services/:vendorId', (req,res) => {
+  Service.find({vendor_id: req.params.vendorId})
+    .populate({
+      path: "booking",
+      populate: {
+        path: "booked_by",
+        model: "User"
+      }
+    })
+  .then(bookedServices => res.status(200).json(bookedServices))
+});
+
+// booking process
 router.put('/:serviceId', (req, res) => {
   console.log(req.body);
-  const {chooseDate, courseId, userId, groupSize} = req.body;
+  const {chooseDate, courseId, userId} = req.body;
   const {user} = req.session.passport;
-
-  // Service.findById({courseId: courseId})
-  // .then((srv)=>{
-  //   if (weCanBook){
-  //     Query Stuff from below
-  //   } else { res.json(noPlaceLeft)}
-  // })
 
   User.findByIdAndUpdate(user, {$push: {bookings: courseId}}, {new: true})
   .then(updatedUser => {

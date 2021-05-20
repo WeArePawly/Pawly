@@ -14,7 +14,8 @@ export default function AddService(props) {
   const [description, setDescription] = useState("");
   const [datesInput, setDatesInput] = useState("");
   const [final_dates, setFinal_dates] = useState([]);
-  const [time, setTime] = useState("");
+  const [start_time, setStart_time] = useState("");
+  const [end_time, setEnd_time] = useState("");
   const [group_size, setGroupSize] = useState("");
 
   const [fileData, setFileData] = useState("");
@@ -23,27 +24,24 @@ export default function AddService(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const formData = new FormData();
-
-    formData.append("imgUrl", fileData);
-    formData.append("name", name);
-    formData.append("price", price);
-    formData.append("format", format);
-    formData.append("street", street);
-    formData.append("house_number", house_number);
-    formData.append("postal_code", postal_code);
-    formData.append("city", city);
-    formData.append("operator_name", operator_name);
-    formData.append("languages", languages);
-    formData.append("description", description);
-    formData.append("final_dates", final_dates);
-    formData.append("time", time);
-    formData.append("group_size", group_size);
+      formData.append("imgUrl", fileData);
+      formData.append("name", name);
+      formData.append("price", price);
+      formData.append("format", format);
+      formData.append("street", street);
+      formData.append("house_number", house_number);
+      formData.append("postal_code", postal_code);
+      formData.append("city", city);
+      formData.append("operator_name", operator_name);
+      formData.append("languages", languages);
+      formData.append("description", description);
+      formData.append("final_dates", final_dates);
+      formData.append("start_time", start_time);
+      formData.append("end_time",end_time);
+      formData.append("group_size", group_size);
 
     axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
-    
-
       .then((response) => {
         console.log(response);
         setMessage("Ihre Dienstleistung wurde erfolgreich erstellt!");
@@ -69,8 +67,7 @@ export default function AddService(props) {
   };
 
   const addNewDate = () => {
-    // event.persist();
-    setFinal_dates(prevState => [...prevState, [datesInput]]);
+    setFinal_dates(prevState => [...prevState, datesInput]);
   };
 
   const handleFileChange = (e) => {
@@ -84,6 +81,7 @@ export default function AddService(props) {
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="name">Name* </label>
         <input
+          required
           id="name"
           type="text"
           name="name"
@@ -92,6 +90,7 @@ export default function AddService(props) {
         />
         <label htmlFor="price">Preis </label>
         <input
+          required
           id="price"
           type="number"
           name="price"
@@ -109,15 +108,16 @@ export default function AddService(props) {
           <option value="onsite">Vor Ort</option>
           <option value="mobile">Mobil</option>
         </select>
-        <label htmlFor="street">Adresse*</label>
+        <label htmlFor="street">Adresse *</label>
         <input
+          required
           id="street"
           type="text"
           name="street"
           value={street}
           onChange={(e) => setStreet(e.target.value)}
         />
-        <label htmlFor="house_number">Hausnummer*</label>
+        <label htmlFor="house_number">Hausnummer *</label>
         <input
           id="house_number"
           type="number"
@@ -136,6 +136,7 @@ export default function AddService(props) {
         />
         <label htmlFor="city">Stadt*</label>
         <input
+          required
           id="city"
           type="text"
           name="city"
@@ -152,6 +153,9 @@ export default function AddService(props) {
         />
         <label htmlFor="description">Beschreibung*</label>
         <input
+          required
+          minlength="50"
+          placeholder="mind. 50 Zeichen"
           id="description"
           type="textarea"
           name="description"
@@ -172,6 +176,7 @@ export default function AddService(props) {
 
         <label htmlFor="dates">Datum*</label>
         <input
+          required
           id="date"
           type="date"
           name="dates"
@@ -189,17 +194,28 @@ export default function AddService(props) {
           ))}
         </ul>
 
-        <label htmlFor="time">Zeit</label>
+        <label htmlFor="start_time">Beginn: </label>
         <input
-          id="time"
+          required
+          id="start_time"
           type="time"
-          name="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
+          name="start_time"
+          value={start_time}
+          onChange={(e) => setStart_time(e.target.value)}
+        />
+
+        <label htmlFor="end_time">Ende: </label>
+        <input
+          id="end_time"
+          type="time"
+          name="end_time"
+          value={end_time}
+          onChange={(e) => setEnd_time(e.target.value)}
         />
 
         <label htmlFor="group_size">Teilnehmer max.* </label>
         <input
+          required
           id="group_size"
           type="number"
           name="group_size"
@@ -207,10 +223,15 @@ export default function AddService(props) {
           onChange={(e) => setGroupSize(e.target.value)}
         />
 
-        <label htmlFor="imageUrl">Image</label>
-        <input type="file" name="file" onChange={(e) => handleFileChange(e)} />
+        <label htmlFor="imageUrl">Bild hochladen: </label>
+        <input 
+        required
+        type="file" 
+        name="file" 
+        onChange={(e) => handleFileChange(e)} 
+        />
 
-        <button type="submit">Add</button>
+        <button type="submit">neuen Kurs hinzufügen</button>
 
         {message ? <h3>{message}</h3> : <h3>{errorMessage}</h3>}
       </form>

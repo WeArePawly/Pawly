@@ -10,8 +10,9 @@ export default function DisplayRating(props) {
   useEffect(() => {
     axios.get(`/api/vendors/60a550521cc90a61f40d8b30/`)
     .then(response => {
-      console.log(response.data.vendor_id.ratings)
-      setRatingData(response.data.vendor_id.ratings)})
+      console.log(response.data)
+      // setRatingData(response.data.vendor_id.ratings)
+    })
   }, [props])
   
  
