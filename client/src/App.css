@@ -2,6 +2,9 @@
 main {
   /* padding: 15px 0 30px; */
 }
+body {
+  color: #000;
+}
 /* FORM */
 input[type="radio"] {
   margin-right: 5px;
@@ -51,6 +54,21 @@ footer ul {
 }
 footer .columns .column:last-of-type {
   text-align: right;
+}
+footer .footer-logo {
+  position: relative;
+  top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-logo img {
+  max-width: 100px;
+}
+footer .footer-logo span {
+  position: relative;
+  bottom: -17px;
+  padding-left: 10px;
 }
 
 @media screen and (min-width: 769px) {
