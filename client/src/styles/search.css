@@ -94,6 +94,8 @@ input[type="radio"] {
 }
 .single-result .service-info .row {
   display: flex;
+}
+.single-result .row.rating-item {
   margin: 20px 0;
   max-width: 600px;
 }

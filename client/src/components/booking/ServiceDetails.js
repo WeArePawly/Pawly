@@ -67,6 +67,11 @@ export default function ServiceDetails(props) {
       ) : (
         <div className="booking-container">
           <h2 className="title is-3">{details.name}</h2>
+          {details.service_avatar && (
+            <div className="row service-img">
+              <img src={details.service_avatar.imgUrl} alt="" />
+            </div>
+          )}
           <div className="row">
             <div className="col">Adresse:</div>
             <div className="col">
@@ -98,7 +103,7 @@ export default function ServiceDetails(props) {
           </div>
           <div className="row">
             <div className="col">Mögliche Termine: </div>
-            <div className="col">
+            <div className="col buttons">
               {details.final_dates.map((date, i) => (
                 <button
                   className="button is-yellow"
