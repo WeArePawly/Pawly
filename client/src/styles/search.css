@@ -94,11 +94,30 @@ input[type="radio"] {
 }
 .single-result .service-info .row {
   display: flex;
-  margin: 5px 0;
+  margin: 20px 0;
+  max-width: 600px;
 }
 .single-result .service-info .row .cell {
   width: 25%;
   flex-grow: 1;
+}
+.single-result .rating-item {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  padding: 20px 25px;
+  margin-bottom: 30px;
+}
+.single-result .rating-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+}
+.single-result .rating-item li span {
+  color: #701262;
 }
 .star-wrapper {
   display: flex;

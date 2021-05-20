@@ -155,7 +155,7 @@ export default function AddService(props) {
         <label htmlFor="description">Beschreibung*</label>
         <input
           required
-          minlength="50"
+          minLength="50"
           placeholder="mind. 50 Zeichen"
           id="description"
           type="textarea"

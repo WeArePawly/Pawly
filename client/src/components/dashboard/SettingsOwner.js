@@ -152,7 +152,7 @@ export default function SettingsOwner(props) {
           <form onSubmit={submitChange}>
             <div className="field">
               <p className="control">
-                <label class="label" htmlFor="email">
+                <label className="label" htmlFor="email">
                   Email
                 </label>
                 <input
@@ -167,7 +167,7 @@ export default function SettingsOwner(props) {
             </div>
             <div className="field">
               <p className="control">
-                <label class="label" htmlFor="username">
+                <label className="label" htmlFor="username">
                   Username:{" "}
                 </label>
                 <input
@@ -181,7 +181,7 @@ export default function SettingsOwner(props) {
               </p>
             </div>
             <fieldset className="name">
-              <legend class="label">Name</legend>
+              <legend className="label">Name</legend>
               <div className="field">
                 <p className="control">
                   <input
