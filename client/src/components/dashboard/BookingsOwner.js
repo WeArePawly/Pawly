@@ -41,20 +41,15 @@ export default function BookingsOwner(props) {
               <p>{service.location.postal_code} {service.location.city}</p>
               <p>Der Kurs beginnt um {service.time.start} und endet um {service.time.end}.</p>
               <button onClick={handleShowRating}>Bewertung hinzufügen</button>
+              {showRating &&  
+              (<Rating user={props.user} vendorId={service.vendor_id}/>)
+              }
             </div>
           )
           )}
         </>
       )}
-      {showRating &&  
-        (<Rating user={props.user}/>)
-      }
+      
     </div>
   );
 }
-
-
- {/* {
-                   date.booked_by.some(user => {
-                    user === props.user._id
-                   }) */}

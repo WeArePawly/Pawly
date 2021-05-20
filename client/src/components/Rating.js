@@ -4,14 +4,10 @@ import DisplayRating from '../components/DisplayRating'
 import axios from 'axios';
 
 export default function Rating(props) {
-
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [message, setMessage] = useState('');
   const [showButton, setShowButton] = useState(true)
-  
-
-  
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -19,14 +15,15 @@ export default function Rating(props) {
     const userId = props.user._id
     const username = props.user.username
     
-    axios.patch(`/api/vendors/60a550521cc90a61f40d8b30`, {
+    axios.patch(`/api/vendors/${props.vendorId}`, {
       rating,
       comment,
       userId,
       username
     })
       .then((response) => {
-        setMessage('Ihre Bewertung wurde erfolgreich gespeichert!')
+        console.log(response)
+        setMessage('Deine Bewertung wurde erfolgreich gespeichert!')
         setShowButton(false)
       })
       .catch(err => {
@@ -34,20 +31,16 @@ export default function Rating(props) {
       })
   }
   
-
   return (
-    
       <div>
         <form onSubmit={handleSubmit}>
-          <h2>Rating: {rating}</h2>
-          
           <StarRatingComponent 
             starCount={5}
             onStarClick={(nextValue, prevValue) => setRating(nextValue, prevValue)}
             value={rating}
             name="rate"
           />
-          <label htmlFor="comment">Bewertung</label>
+          <label htmlFor="comment">Kommentar</label>
           <input
             id="comment"
             type="textarea"
@@ -55,15 +48,12 @@ export default function Rating(props) {
             value={comment}
             onChange={e => setComment(e.target.value)}
           />
-          {/* <button type="submit">Bewertung speichern</button> */}
           {showButton ?
-            <button type="submit">Bewertung speichern</button> :
+            <button type="submit">Bewertung abschicken</button> :
             <h3>{!showButton}</h3>
           }
           <h3>{message}</h3>
         </form>
-        
-         <DisplayRating user={props.user}/> 
       </div>
   )  
 }

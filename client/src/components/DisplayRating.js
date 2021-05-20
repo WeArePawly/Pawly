@@ -1,44 +1,44 @@
 
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import "../styles/search.css";
 import StarRatingComponent from 'react-star-rating-component';
 
 export default function DisplayRating(props) {
-
-  const [ratingData, setRatingData] = useState([]);
+  
+  const [ratingData, setRatingData] = useState('');
   
   useEffect(() => {
-    axios.get(`/api/vendors/60a550521cc90a61f40d8b30/`)
+    axios.get(`/api/vendors/${props.vendorId}`)
     .then(response => {
-      console.log(response.data)
-      // setRatingData(response.data.vendor_id.ratings)
+      setRatingData(response.data.vendor_id.ratings)
     })
   }, [props])
-  
  
   return (
-   <>
-
-    <div>
-    {ratingData.map(data => {
-      const allRating = data.rating_value;
-    return (
-      <div key={data._id}>
-        <h3></h3>
-        <StarRatingComponent 
-            value={allRating}
-            editing={false}
-            name="rate"
-        />
-        <h4>{data.username}</h4>
-
-        <p>{data.rating_description}</p>
+      <div>
+        {ratingData && (
+          <>
+            {ratingData.map((data,i) => {
+              const allRating = data.rating_value;
+              return (
+                <div key={i} className="row">
+                  <ul key={data._id}>
+                    <li>{data.username}</li>
+                    <li><StarRatingComponent 
+                        value={allRating}
+                        editing={false}
+                        name="rate"
+                      />
+                      </li>
+                    <li>{data.rating_description}</li>
+                  </ul>
+                </div>
+              )
+            })}
+          </>
+        )}
       </div>
-    )
-  
-  })}
-  </div>
-  </>
   ) 
 }
 
