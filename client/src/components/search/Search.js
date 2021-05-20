@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../styles/search.css";
+import StarRating from "./StarRating";
 
 export default function Search(props) {
   const [searchResult, setSearchResult] = useState(null);
@@ -101,15 +102,24 @@ export default function Search(props) {
                       ? vendor.vendor_id.description.slice(0, 200) + "[...]"
                       : vendor.vendor_id.description)}
                   <br />
-                  <ul className="specialisation-tags">
-                    {vendor.vendor_id.specialization.map((item) => {
-                      return (
-                        <li>
-                          <span class="tag is-link">{item}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <p className="star-wrapper">
+                    <StarRating avg={vendor.vendor_id.avg_rating} />
+                    <span className="rating-num">
+                      {vendor.vendor_id.avg_rating}
+                    </span>
+                  </p>
+                  <br />
+                  {vendor.vendor_id.specialization && (
+                    <ul className="specialisation-tags">
+                      {vendor.vendor_id.specialization.map((item) => {
+                        return (
+                          <li>
+                            <span class="tag is-link">{item}</span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                   <br />
                   <div className="service-overview">
                     {vendor.vendor_id.services && serviceMap}

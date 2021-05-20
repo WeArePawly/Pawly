@@ -77,19 +77,17 @@ const serviceSchema = new Schema(
       end: String,
     },
     final_dates: [String],
-    booking: {
-        booked_dates: String,
-        group_size: {
-          total: Number,
-          available: Number,
-        },
-        booked_by: [
-          {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-          },
-        ]
+    booking: [{
+      booked_dates: String,
+      group_size: {
+        total: Number,
+        available: Number,
       },
+      booked_by: [{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      }],
+    }],
     service_avatar: {
       original_name: { type: String },
       imgUrl: {
