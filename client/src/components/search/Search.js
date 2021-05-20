@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../styles/search.css";
-import StarRating from "../StarRating";
+import StarRating from "./StarRating";
 
 export default function Search(props) {
   const [searchResult, setSearchResult] = useState(null);

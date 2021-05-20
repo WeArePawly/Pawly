@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/search.css";
-import StarRating from "./StarRating";
+import StarRating from "./search/StarRating";
 
 export default function VendorPage(props) {
   const [vendor, setVendor] = useState(null);
@@ -51,15 +51,17 @@ export default function VendorPage(props) {
           >
             Kontaktieren
           </Link>
-          <ul className="specialisation-tags">
-            {vendor.vendor_id.specialization.map((item) => {
-              return (
-                <li>
-                  <span class="tag is-link">{item}</span>
-                </li>
-              );
-            })}
-          </ul>
+          {vendor.vendor_id.specialization && (
+            <ul className="specialisation-tags">
+              {vendor.vendor_id.specialization.map((item) => {
+                return (
+                  <li>
+                    <span class="tag is-link">{item}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       </div>
       <div className="intro-text">
