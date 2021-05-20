@@ -1,46 +1,45 @@
 const router = require("express").Router();
 const uploader = require("../config/cloudinary");
-const User = require('../models/User');
-const Vendor = require('../models/Vendor');
+const User = require("../models/User");
+const Vendor = require("../models/Vendor");
 const Service = require("../models/Service");
 
-router.get('/', (req, res, next) => {
-  User
-  .find({vendor_id: { $exists: true } })
-  .populate('vendor_id')
-  .populate({
-    path: 'vendor_id',
-    populate: {
-      path: 'services',
-      model: 'Service'
-    }
- })
-  .then(vendors => {
-    res.status(200).json(vendors)
-  })
-  .catch(err => {
-    res.status(404).json({ message: `Error while loading profile: ${err}` })
-  })
+router.get("/", (req, res, next) => {
+  User.find({ vendor_id: { $exists: true } })
+    .populate("vendor_id")
+    .populate({
+      path: "vendor_id",
+      populate: {
+        path: "services",
+        model: "Service",
+      },
+    })
+    .then((vendors) => {
+      res.status(200).json(vendors);
+    })
+    .catch((err) => {
+      res.status(404).json({ message: `Error while loading profile: ${err}` });
+    });
 });
 
-router.get('/:vendorId', (req, res, next) => {
-  User
-  .find({vendor_id: req.params.vendorId})
-  .populate('vendor_id')
-  .populate({
-    path: 'vendor_id',
-    populate: {
-      path: 'services',
-      model: 'Service'
-    }
-  })
-  .then(vendor => {
-    res.status(200).json(vendor[0])
-  })
-  .catch(err => {
-    res.status(404).json({ message: `Error while loading profile: ${err}` })
-  })
+router.get("/:vendorId", (req, res, next) => {
+  User.find({ vendor_id: req.params.vendorId })
+    .populate("vendor_id")
+    .populate({
+      path: "vendor_id",
+      populate: {
+        path: "services",
+        model: "Service",
+      },
+    })
+    .then((vendor) => {
+      res.status(200).json(vendor[0]);
+    })
+    .catch((err) => {
+      res.status(404).json({ message: `Error while loading profile: ${err}` });
+    });
 });
+
 
 router.patch('/:vendorId', (req, res, next) => {
   const {
@@ -91,20 +90,20 @@ router.put('/:vendorId', (req, res, next) => {
     postal_code,
     city,
     business_type,
+    specialization,
   } = req.body;
-  User
-    .findOneAndUpdate(
-      {vendor_id: req.params.vendorId},
-      {
-        full_name: {first_name, last_name},
-        contact: {email},
-        username,
-       },
-      { new: true }
-    )
-    .then(editedUser => {
-      Vendor
-      .findByIdAndUpdate(req.params.vendorId,
+  User.findOneAndUpdate(
+    { vendor_id: req.params.vendorId },
+    {
+      full_name: { first_name, last_name },
+      contact: { email },
+      username,
+    },
+    { new: true }
+  )
+    .then((editedUser) => {
+      Vendor.findByIdAndUpdate(
+        req.params.vendorId,
         {
           business_name,
           address: {
@@ -115,56 +114,63 @@ router.put('/:vendorId', (req, res, next) => {
             city,
           },
           business_type,
+          specialization: specialization,
         },
         { new: true }
       )
-      .then(editedVendor => {
-        console.log(editedVendor)
-        res.status(200).json({editedUser, editedVendor});
-      })
-      .catch(err => {
-        res.status(404).json({ message: `Error while editing file` })
-      })
-    .catch(err => {
-      res.status(404).json({ message: `Error while editing file` })
+        .then((editedVendor) => {
+          res
+            .status(200)
+            .json({
+              message: "Die Änderungen wurden erfolgreich gespeichert.",
+            });
+        })
+        .catch((err) => {
+          res.status(404).json({
+            message: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+          });
+        });
     })
-  })
-})
+    .catch((err) => {
+      res.status(404).json({
+        message: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+      });
+    });
+});
 
-
-router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next) => {
-  const {
-    name,
-    price,
-    format,
-    street,
-    house_number,
-    postal_code,
-    city,
-    operator_name,
-    languages,
-    description,
-    group_size,
-    time,
-    final_dates
-  } = req.body;
-  console.log("LANGUAGES", languages.split(','))
-  Service.create({
-      service_avatar: {imgUrl: req.file.path},
+router.post(
+  "/:vendorId/addService",
+  uploader.single("imgUrl"),
+  (req, res, next) => {
+    const {
+      name,
+      price,
+      format,
+      street,
+      house_number,
+      postal_code,
+      city,
+      operator_name,
+      languages,
+      description,
+      group_size,
+      time,
+      final_dates,
+    } = req.body;
+    console.log("LANGUAGES", languages.split(","));
+    Service.create({
+      service_avatar: { imgUrl: req.file.path },
       name: name,
       price: price,
       format: format,
-      location: {street,
-        house_number,
-        postal_code,
-        city},
-      operator: {name: operator_name},
-      languages: languages.split(','),
+      location: { street, house_number, postal_code, city },
+      operator: { name: operator_name },
+      languages: languages.split(","),
       description: description,
-      final_dates, 
+      final_dates,
       time,
-      group_size: {total: group_size},
-      vendor_id: req.params.vendorId
+      group_size: { total: group_size },
+      vendor_id: req.params.vendorId,
     })
     .then(createdService => {
       console.log("THIS IS THE CREATED SERVICE", createdService)
@@ -186,25 +192,28 @@ router.post('/:vendorId/addService', uploader.single('imgUrl'), (req, res, next)
 })
 
 // Find all the services created by the Vendor
-router.get('/:vendorId/services', (req, res, next) => {
-  Service.find({vendor_id: req.params.vendorId})
-    .then(vendorServices => {
-      console.log('These are the services created by the Vendor: ', vendorServices)
-      res.status(200).json(vendorServices)
+router.get("/:vendorId/services", (req, res, next) => {
+  Service.find({ vendor_id: req.params.vendorId })
+    .then((vendorServices) => {
+      console.log(
+        "These are the services created by the Vendor: ",
+        vendorServices
+      );
+      res.status(200).json(vendorServices);
     })
-    .catch(err => res.json(err));
-})
+    .catch((err) => res.json(err));
+});
 
-router.get('/:vendorId/:serviceId', (req, res, next) => {
-    Service.findById(req.params.serviceId)
-    .then(serviceFromDB => {
-      console.log(serviceFromDB)
-      res.status(200).json(serviceFromDB)
+router.get("/:vendorId/:serviceId", (req, res, next) => {
+  Service.findById(req.params.serviceId)
+    .then((serviceFromDB) => {
+      console.log(serviceFromDB);
+      res.status(200).json(serviceFromDB);
     })
-    .catch(err => res.json(err)); 
-})
+    .catch((err) => res.json(err));
+});
 
-router.put('/:vendorId/:serviceId', (req, res, next) => {
+router.put("/:vendorId/:serviceId", (req, res, next) => {
   const {
     name,
     price,
@@ -218,7 +227,7 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
     description,
     group_size,
     time,
-    final_dates
+    final_dates,
   } = req.body;
   Service.findByIdAndUpdate(
     req.params.serviceId,
@@ -226,17 +235,15 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
       name: name,
       price: price,
       format: format,
-      location: {street,
-        house_number,
-        postal_code,
-        city},
-      operator: {name: operator_name},
-      languages: languages.split(','),
+      location: { street, house_number, postal_code, city },
+      operator: { name: operator_name },
+      languages: languages.split(","),
       description: description,
-      group_size: {total: group_size},
+      group_size: { total: group_size },
       time,
-      final_dates
-    }, {new: true}
+      final_dates,
+    },
+    { new: true }
   )
   .then(serviceUpdated => {
     res.status(200).json(serviceUpdated);
@@ -244,11 +251,10 @@ router.put('/:vendorId/:serviceId', (req, res, next) => {
   .catch(err => res.json(err));
 });
 
-router.delete('/:vendorId/:serviceId', (req, res) => {
-  Service.findByIdAndDelete(req.params.serviceId)
-    .then(() => {
-      res.status(200).json({ message: 'This service has been deleted' });
-    })
-})
+router.delete("/:vendorId/:serviceId", (req, res) => {
+  Service.findByIdAndDelete(req.params.serviceId).then(() => {
+    res.status(200).json({ message: "This service has been deleted" });
+  });
+});
 
 module.exports = router;

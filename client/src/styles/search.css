@@ -1,6 +1,24 @@
+.specialisation-tags {
+  list-style: none;
+  display: flex;
+}
+.specialisation-tags li {
+  margin-right: 10px;
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+.search-page {
+  display: flex;
+  justify-content: space-between;
+}
+.search-bar {
+  width: 30%;
+  max-width: 300px;
+}
 /* ALL SEARCH RESULTS */
 .search-results {
-  width: 60vw;
+  width: 70%;
   padding: 20px 0;
 }
 .search-results .card {
@@ -92,4 +110,20 @@
 .single-result .service-info .row .cell {
   width: 25%;
   flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .search-page {
+    flex-flow: column;
+    justify-content: center;
+    /* justify-content: space-between; */
+  }
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+  }
+  /* ALL SEARCH RESULTS */
+  .search-results {
+    width: 100%;
+  }
 }

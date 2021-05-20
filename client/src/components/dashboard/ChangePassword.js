@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function ChangePassword(props) {
-  const [message, setMessage] = useState('');
-  const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  
+  const [message, setMessage] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post('/api/auth/password', { oldPassword, newPassword })
-      .then(response => {
-        if (response.message) {
-          setMessage(response.message)
-          setOldPassword('')
-          setNewPassword('')
+    axios
+      .post("/api/auth/password", { oldPassword, newPassword })
+      .then((response) => {
+        if (response.status === 400) {
+          setMessage(response.data.message);
+          setOldPassword("");
+          setNewPassword("");
         } else {
-          console.log(response);
-          props.history.push('/dashboard');
+          setMessage(response.data.message);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         return err;
-      })
+      });
   }
 
   return (
@@ -34,7 +34,7 @@ export default function ChangePassword(props) {
           type="password"
           name="oldPassword"
           value={oldPassword}
-          onChange={e => setOldPassword(e.target.value)}
+          onChange={(e) => setOldPassword(e.target.value)}
         />
         <label htmlFor="username">Neues Passwort: </label>
         <input
@@ -42,13 +42,11 @@ export default function ChangePassword(props) {
           type="password"
           name="newPassword"
           value={newPassword}
-          onChange={e => setNewPassword(e.target.value)}
+          onChange={(e) => setNewPassword(e.target.value)}
         />
         <button type="submit">Passwort ändern</button>
-        {message && (
-          <h3>{message}</h3>
-        )}
+        {message && <h3>{message}</h3>}
       </form>
     </div>
-  )
+  );
 }
