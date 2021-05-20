@@ -57,9 +57,9 @@ router.patch('/:vendorId', (req, res, next) => {
     }}}
   )
   .then(response => {
-  let total = 0;
-  let reduced = response.ratings.map(rating => total += rating.rating_value)
-  let avg = Number(total / response.ratings.length);
+    let total = 0;
+    let reduced = response.ratings.map((rating) => (total += rating.rating_value));
+    let avg = Number((total / response.ratings.length).toFixed(1));
   console.log("THIS IS THE AVG", total)
   console.log(avg)
     Vendor.findByIdAndUpdate(response._id, {avg_rating: avg})
@@ -154,8 +154,9 @@ router.post(
       languages,
       description,
       group_size,
-      time,
-      final_dates,
+      start_time,
+      end_time,
+      final_dates
     } = req.body;
     console.log("LANGUAGES", languages.split(","));
     Service.create({
@@ -167,8 +168,8 @@ router.post(
       operator: { name: operator_name },
       languages: languages.split(","),
       description: description,
-      final_dates,
-      time,
+      final_dates: final_dates.split(","),
+      time: {start: start_time, end: end_time},
       group_size: { total: group_size },
       vendor_id: req.params.vendorId,
     })
@@ -213,7 +214,8 @@ router.get("/:vendorId/:serviceId", (req, res, next) => {
     .catch((err) => res.json(err));
 });
 
-router.put("/:vendorId/:serviceId", (req, res, next) => {
+router.put("/:vendorId/:serviceId", uploader.single("imgUrl"), (req, res, next) => {
+  // console.log(req.body, req.file, "THIS IS BODY")
   const {
     name,
     price,
@@ -226,26 +228,29 @@ router.put("/:vendorId/:serviceId", (req, res, next) => {
     languages,
     description,
     group_size,
-    time,
+    start_time,
+    end_time,
     final_dates,
   } = req.body;
   Service.findByIdAndUpdate(
     req.params.serviceId,
     {
+      service_avatar: { imgUrl: req.file.path },
       name: name,
       price: price,
       format: format,
       location: { street, house_number, postal_code, city },
       operator: { name: operator_name },
-      languages: languages.split(","),
+      languages: languages.split(','),
       description: description,
       group_size: { total: group_size },
-      time,
-      final_dates,
+      final_dates: final_dates.split(","),
+      time: {start: start_time, end: end_time},
     },
     { new: true }
   )
   .then(serviceUpdated => {
+    console.log(serviceUpdated, "THIS IS SERVICE UPDATED")
     res.status(200).json(serviceUpdated);
   })
   .catch(err => res.json(err));

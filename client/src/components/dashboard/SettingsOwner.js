@@ -17,6 +17,8 @@ export default function SettingsOwner(props) {
     props.profileData.full_name.last_name
   );
 
+  const [fileData, setFileData] = useState('');
+
   const editInfo = () => {
     setPasswordChange(false);
     setChangeSettings(true);
@@ -43,12 +45,36 @@ export default function SettingsOwner(props) {
       })
       .catch((err) => {
         return err;
-      });
-  };
+      })
+  }
+
+  function submitPicture(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+      
+    formData.append('path', fileData)
+
+    axios.patch(`/api/pictures/${props.user._id}/`, formData)
+      
+    .then(response => {
+      console.log(response)
+      
+    })
+    .catch((err) => err)
+  }
+
+  const handleFileChange = e => {
+    console.log(e.target.files[0])
+    setFileData(e.target.files[0])
+  }
   return (
     <div className="dashboard-content settings">
       {props.profileData && !changeSettings && (
         <>
+          <div>
+            <img src={props.profileData.avatar.path} alt="profile picture"/>
+          </div>
           <div className="row">
             <div className="cell-title">Username:</div>
             <div className="cell-desc">{props.profileData.username}</div>
@@ -82,6 +108,15 @@ export default function SettingsOwner(props) {
           >
             Benutzerdaten ändern
           </button>
+          <form onSubmit={submitPicture} encType="multipart/form-data">
+            <label htmlFor="path">Image</label>
+            <input 
+              type='file'
+              name='file'  
+              onChange={e => handleFileChange(e)} 
+            />
+            <button type="submit">Update</button>
+          </form>
         </>
       )}
       {props.profileData && changeSettings && (

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import Confirmation from './Confirmation'
+import Confirmation from './Confirmation';
+import  { Redirect } from 'react-router-dom'
 
 export default function ServiceDetails(props) {
   // Course details
@@ -41,26 +41,26 @@ export default function ServiceDetails(props) {
     // sets it to false, so other dates can also be booked
     setBook(false)
     // also need to get "date" to push into user booking array
-
-    // Still need the axios post request to save the booking in the database
-    axios.put(`/api/booking/${props.match.params.serviceId}`, {
-      chooseDate,
-      courseId,
-      userId,
-      groupSize
-    }).
-    then(response => console.log(response))
-  }
-
+    
+  // Still need the axios post request to save the booking in the database
+  axios.put(`/api/booking/${props.match.params.serviceId}`, {
+    chooseDate,
+    courseId,
+    userId,
+    groupSize
+  })
+  .then(response => console.log(response))
+  } 
 
   return (
     <div>
+      {!props.user && <Redirect to='/login' />}
       {!details? <h1>Gleich ist es soweit...</h1> : (
         <>
         <h1>{details.name}</h1>
         <p>{details.location.street} {details.location.house_number}</p>
         <p>{details.postal_code} {details.location.city}</p>
-        <p>Beginn: {details.time}</p>
+        <p>Beginn: {details.time.start} - {details.time.end}</p>
         <p>Trainer: {details.operator[0].name}</p>
         <p>{details.price}€</p>
         <p>{details.format}</p>
@@ -72,11 +72,18 @@ export default function ServiceDetails(props) {
         </>
       )}
       {book && 
-      <button type="submit" onClick={handleBooking}>Diesen Termin verbindlich buchen</button>
+        <button type="submit" onClick={handleBooking}>
+          Diesen Termin verbindlich buchen
+        </button>
       }
-      {confirmation &&
-        <Confirmation user={props.user}/>
-      }
+      {confirmation && (
+        <>
+        <div className="confirmation-popup">
+        <h2>Danke für deine Buchung {props.user.username}!</h2>
+        <button onClick={() => setConfirmation(false)}>Weiter schnüffeln</button>
+        </div>
+        </>
+      )}
    </div>
   )
 }
