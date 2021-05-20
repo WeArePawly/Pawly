@@ -91,10 +91,12 @@ export default function VendorPage(props) {
                     </Link>
                   </div>
                 </div>
-                <DisplayRating vendorId={props.match.params.vendorId} />
               </>
             );
           })}
+      </div>
+      <div className="ratings">
+        <DisplayRating vendorId={props.match.params.vendorId} />
       </div>
     </div>
   ) : (

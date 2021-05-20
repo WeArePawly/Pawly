@@ -1,0 +1,38 @@
+.about .columns.team .column img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.about .title.is-2 {
+  color: #701262;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about .title.is-2 img {
+  max-height: 130px;
+  margin: 0 20px;
+}
+.about .columns.team {
+  justify-content: space-around;
+}
+.about .columns.team .column {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+}
+.about .column {
+  text-align: center;
+}
+.about .column p {
+  margin: 20px 0;
+  text-align: center;
+}
+.tired-programmers {
+  max-width: 600px;
+  margin: 0 auto;
+}
