@@ -70,17 +70,23 @@ export default function BookingsOwner(props) {
                   {service.time.end}.
                 </div>
               </div>
-              <div className="align-button-to-right">
-                <button className="button is-yellow" onClick={handleShowRating}>
-                  Bewertung hinzufügen
-                </button>
-              </div>
-              {showRating &&  
-              (<Rating user={props.user} vendorId={service.vendor_id}/>)}
+              {!showRating && (
+                <div className="align-button-to-right">
+                  <button
+                    className="button is-yellow"
+                    onClick={handleShowRating}
+                  >
+                    Bewertung hinzufügen
+                  </button>
+                </div>
+              )}
+              {showRating && (
+                <Rating user={props.user} vendorId={service.vendor_id} />
+              )}
             </div>
           ))}
         </>
-      )}      
+      )}
     </div>
   );
 }

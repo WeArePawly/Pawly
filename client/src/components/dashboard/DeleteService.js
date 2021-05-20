@@ -5,6 +5,7 @@ export default function DeleteService(props) {
 
   
   const [toggleRefuse, setToggleRefuse] = useState(false)
+  const [message, setMessage] = useState('')
 
   const confirmDelete = () => {
     
@@ -12,24 +13,21 @@ export default function DeleteService(props) {
   axios.delete(`/api/vendors/${props.user.vendor_id}/${props.serviceId}`)
     
     .then(response => {
-      console.log(response)
-      
+      console.log(response);
+      setMessage("Dein Profil wurde erfolgreich bearbeitet.");
+      props.history.push("/dashboard");
     })
-    .catch(err => {
-      console.log(err)
-    })
-  }
-  
-  function refuseDelete() {
-    setToggleRefuse(!toggleRefuse)
-  }
+      .catch((err) => {
+        return err;
+      });
+    
+  };
   
   return (
     
     <div>
       <button onClick={confirmDelete}>Bestätigen</button>
     </div> 
-    
-  
+
   )
 }

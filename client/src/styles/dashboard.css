@@ -227,3 +227,14 @@
 .pw-change .col:nth-of-type(2) {
   width: 50%;
 }
+.rate-booking form {
+  margin-top: 30px;
+  text-align: center;
+}
+.rate-booking form input {
+  margin: 10px 0 20px;
+  text-align: center;
+}
+.rate-booking form label i {
+  font-size: 1.8rem;
+}
