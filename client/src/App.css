@@ -43,6 +43,16 @@ a.navbar-item,
   border-color: transparent;
   color: #fff;
 }
+.button.is-salmon {
+  background-color: #ee846d;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-salmon:hover {
+  background-color: #e96345;
+  border-color: transparent;
+  color: #fff;
+}
 
 .button {
   border-radius: 13px;
@@ -89,6 +99,10 @@ footer .footer-logo span {
   position: relative;
   bottom: -17px;
   padding-left: 10px;
+}
+.tag:not(body).is-link {
+  background-color: #ee846d;
+  color: #fff;
 }
 
 @media screen and (min-width: 769px) {

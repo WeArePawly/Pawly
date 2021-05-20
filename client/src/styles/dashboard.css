@@ -5,6 +5,10 @@
   margin: 0 auto;
   padding-bottom: 60px !important;
 }
+.dashboard-wrapper .align-button-to-right {
+  display: flex;
+  justify-content: flex-end;
+}
 .dashboard-wrapper .menu {
   margin-bottom: 0;
 }
@@ -53,6 +57,9 @@
 }
 .general img {
   border: 3px solid #701262;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .general h3 {
   padding-bottom: 60px;
@@ -68,10 +75,9 @@
   font-weight: bold;
 }
 .settings .row .cell-desc {
-  width: 30%;
+  width: 70%;
 }
 .settings button.change-settings {
-  float: right;
   margin-top: 20px;
 }
 .settings .title.is-3 {
@@ -134,4 +140,85 @@
 }
 .favorites .title {
   color: #701262;
+}
+.bookings-vendor .title {
+  color: #701262;
+}
+.bookings-vendor .booking-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.bookings-vendor .booking-item-title {
+  width: 40%;
+}
+.bookings-vendor .booking-item-customer {
+  width: 40%;
+}
+.services-vendor .title {
+  color: #701262;
+  margin-bottom: 0.5rem;
+}
+.services-vendor .service-item {
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+}
+.services-vendor .service-item .row {
+  display: flex;
+}
+.services-vendor .service-item .col:nth-of-type(1) {
+  width: 30%;
+  min-width: 200px;
+  color: #701262;
+  font-weight: bold;
+}
+.services-vendor .service-item .col:nth-of-type(2) {
+  width: 70%;
+}
+.services-vendor .service-item button {
+  margin-right: 0;
+  margin-left: auto;
+}
+.bookings-owner .title {
+  color: #701262;
+  margin-bottom: 0.5rem;
+}
+
+.bookings-owner .booking-item {
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+}
+.bookings-owner .booking-item .row {
+  display: flex;
+}
+.bookings-owner .booking-item .col:nth-of-type(1) {
+  width: 30%;
+  min-width: 200px;
+  color: #701262;
+  font-weight: bold;
+}
+.bookings-owner .booking-item .col:nth-of-type(2) {
+  width: 70%;
+}
+.bookings-owner .booking-item .col.dates span:last-of-type {
+  display: none;
+}
+.pw-change {
+  width: 100%;
+}
+.pw-change .row {
+  display: flex;
+  justify-content: flex-end;
+}
+.pw-change .col:nth-of-type(1) {
+  width: 30%;
+  min-width: 200px;
+  color: #701262;
+  font-weight: bold;
+}
+.pw-change .col:nth-of-type(2) {
+  width: 50%;
 }

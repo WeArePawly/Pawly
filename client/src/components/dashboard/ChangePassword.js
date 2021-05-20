@@ -17,6 +17,9 @@ export default function ChangePassword(props) {
           setNewPassword("");
         } else {
           setMessage(response.data.message);
+          setTimeout(function () {
+            props.setPasswordChange(false);
+          }, 5000);
         }
       })
       .catch((err) => {
@@ -25,26 +28,47 @@ export default function ChangePassword(props) {
   }
 
   return (
-    <div>
-      <h1>Passwort ändern</h1>
+    <div className="pw-change">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Aktuelles Passwort: </label>
-        <input
-          id="oldPassword"
-          type="password"
-          name="oldPassword"
-          value={oldPassword}
-          onChange={(e) => setOldPassword(e.target.value)}
-        />
-        <label htmlFor="username">Neues Passwort: </label>
-        <input
-          id="newPassword"
-          type="password"
-          name="newPassword"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-        <button type="submit">Passwort ändern</button>
+        <div className="row">
+          <div className="col">
+            <label class="label" htmlFor="username">
+              Aktuelles Passwort:
+            </label>
+          </div>
+          <div className="col">
+            <input
+              className="input"
+              id="oldPassword"
+              type="password"
+              name="oldPassword"
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <label class="label" htmlFor="username">
+              Neues Passwort:
+            </label>
+          </div>
+          <div className="col">
+            <input
+              className="input"
+              id="newPassword"
+              type="password"
+              name="newPassword"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="align-button-to-right">
+          <button className="button is-yellow" type="submit">
+            Passwort ändern
+          </button>
+        </div>
         {message && <h3>{message}</h3>}
       </form>
     </div>

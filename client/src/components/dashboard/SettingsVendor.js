@@ -38,7 +38,7 @@ export default function SettingsVendor(props) {
   );
   const [specialization, setSpecialization] = useState([]);
 
-  const [fileData, setFileData] = useState('');
+  const [fileData, setFileData] = useState("");
 
   const editInfo = () => {
     setPasswordChange(false);
@@ -86,24 +86,22 @@ export default function SettingsVendor(props) {
     e.preventDefault();
 
     const formData = new FormData();
-      
-    formData.append('path', fileData)
-    
 
-    axios.patch(`/api/pictures/${props.user._id}/`, formData)
-      
-    .then(response => {
-      console.log(response)
-      
-    })
-    .catch((err) => err)
+    formData.append("path", fileData);
+
+    axios
+      .patch(`/api/pictures/${props.user._id}/`, formData)
+
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => err);
   }
 
-  const handleFileChange = e => {
-    console.log(e.target.files[0])
-    setFileData(e.target.files[0])
-  }
-
+  const handleFileChange = (e) => {
+    console.log(e.target.files[0]);
+    setFileData(e.target.files[0]);
+  };
 
   return (
     <div className="dashboard-content settings">
@@ -130,14 +128,20 @@ export default function SettingsVendor(props) {
           <div className="row">
             <div className="cell-title">Passwort:</div>
             <div className="cell-desc">
-              <button
-                className="button is-yellow"
-                onClick={() => setPasswordChange(!showPasswordChange)}
-              >
-                Password ändern
-              </button>
+              {!showPasswordChange && (
+                <button
+                  className="button is-yellow"
+                  onClick={() => setPasswordChange(!showPasswordChange)}
+                >
+                  Password ändern
+                </button>
+              )}
             </div>
-            {showPasswordChange === true && <ChangePassword />}
+          </div>
+          <div className="row">
+            {showPasswordChange === true && (
+              <ChangePassword setPasswordChange={setPasswordChange} />
+            )}
           </div>
           <div className="row">
             <div className="cell-title">Addresse:</div>
@@ -177,22 +181,31 @@ export default function SettingsVendor(props) {
               </ul>
             </div>
           </div>
-          <button
-            className="button is-yellow change-settings"
-            onClick={editInfo}
-          >
-            Benutzerdaten ändern
-          </button>
-
           <form onSubmit={submitPicture} encType="multipart/form-data">
-            <label htmlFor="path">Image</label>
-            <input 
-              type='file'
-              name='file'  
-              onChange={e => handleFileChange(e)} 
-            />
-            <button type="submit">Update</button>
+            <div className="row">
+              <div className="cell-title">
+                <label htmlFor="path">Neues Profilbild:</label>
+              </div>
+              <div className="cell-desc">
+                <input
+                  type="file"
+                  name="file"
+                  onChange={(e) => handleFileChange(e)}
+                />
+                <button className="button is-salmon" type="submit">
+                  Update
+                </button>
+              </div>
+            </div>
           </form>
+          <div className="align-button-to-right">
+            <button
+              className="button is-yellow change-settings"
+              onClick={editInfo}
+            >
+              Benutzerdaten ändern
+            </button>
+          </div>
         </>
       )}
       {props.profileData && changeSettings && (
@@ -380,9 +393,14 @@ export default function SettingsVendor(props) {
                 </div>
               </div>
             </div>
-            <button type="submit" className="button is-yellow change-settings">
-              Benutzerdaten ändern
-            </button>
+            <div className="align-button-to-right">
+              <button
+                type="submit"
+                className="button is-yellow change-settings"
+              >
+                Benutzerdaten ändern
+              </button>
+            </div>
           </form>
           {message && <p className="change-setting-message">{message}</p>}
         </>
