@@ -20,7 +20,7 @@ export default function BookingsOwner(props) {
   let result;
 
   return (
-    <div>
+    <div className="dashboard-content">
       {!bookings && <h1>Anscheinend hast du noch nichts gebucht.</h1>}
       {bookings && (<>
         <h1>Deine Buchungen</h1>

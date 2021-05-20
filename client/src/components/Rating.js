@@ -25,6 +25,7 @@ export default function Rating(props) {
         console.log(response)
         setMessage('Deine Bewertung wurde erfolgreich gespeichert!')
         setShowButton(false)
+        setComment('')
       })
       .catch(err => {
         console.log(err)

@@ -96,6 +96,9 @@ app.use("/api/owners", owners);
 const vendors = require("./routes/vendors");
 app.use("/api/vendors", vendors);
 
+const pictures = require("./routes/pictures");
+app.use("/api/pictures", pictures);
+
 const booking = require("./routes/booking");
 app.use("/api/booking", booking)
 
