@@ -160,7 +160,7 @@ export default function Signup(props) {
               className="input"
               id="last_name"
               type="text"
-              name="first_name"
+              name="last_name"
               value={last_name}
               onChange={(e) => setLastName(e.target.value)}
             />

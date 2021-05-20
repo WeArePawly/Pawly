@@ -1,8 +1,9 @@
 .dashboard-wrapper {
   display: flex;
   flex-flow: column;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding-bottom: 60px !important;
 }
 .dashboard-wrapper .menu {
   margin-bottom: 0;
@@ -30,6 +31,7 @@
   color: #701262;
 }
 .dashboard-wrapper .dashboard-content {
+  min-height: 300px;
   background-color: rgba(233, 233, 233, 0.2);
   padding: 20px;
   box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.08);
@@ -41,5 +43,95 @@
   display: flex;
 }
 .setting-tags ul li {
-  margin: 0 10px;
+  margin-right: 10px;
+}
+.general {
+  text-align: center;
+}
+.general figure {
+  margin: 30px auto;
+}
+.general img {
+  border: 3px solid #701262;
+}
+.general h3 {
+  padding-bottom: 60px;
+}
+.settings .row {
+  display: flex;
+  padding: 5px;
+}
+.settings .row .cell-title {
+  width: 30%;
+  min-width: 200px;
+  color: #701262;
+  font-weight: bold;
+}
+.settings .row .cell-desc {
+  width: 30%;
+}
+.settings button.change-settings {
+  float: right;
+  margin-top: 20px;
+}
+.settings .title.is-3 {
+  color: #701262;
+}
+.settings fieldset.name {
+  display: flex;
+}
+.settings fieldset.name .field {
+  width: 50%;
+}
+.settings fieldset.name .field:first-of-type {
+  margin-right: 10px;
+}
+.settings fieldset.address {
+  display: flex;
+  flex-wrap: wrap;
+}
+.settings fieldset.address .field:nth-of-type(1) {
+  width: calc(80% - 10px);
+  margin-right: 10px;
+}
+.settings fieldset.address .field:nth-of-type(2) {
+  width: 20%;
+}
+.settings fieldset.address .field:nth-of-type(3) {
+  width: calc(30% - 10px);
+  margin-right: 10px;
+}
+.settings fieldset.address .field:nth-of-type(4) {
+  width: calc(30% - 10px);
+  margin-right: 10px;
+}
+.settings fieldset.address .field:nth-of-type(5) {
+  width: 40%;
+}
+.settings .select select.specialization {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: #701262;
+}
+.dropdowns-setting {
+  display: flex;
+}
+.dropdowns-setting > div:first-of-type {
+  margin-right: 20px;
+}
+.change-setting-message {
+  font-style: italic;
+  margin-top: 20px;
+}
+.tag.is-purple {
+  background-color: #701262;
+  color: #fff;
+}
+.favorites {
+  text-align: center;
+}
+.favorites .title {
+  color: #701262;
 }

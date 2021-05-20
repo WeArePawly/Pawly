@@ -46,7 +46,7 @@ export default function SettingsOwner(props) {
       });
   };
   return (
-    <div className="dashboard-content">
+    <div className="dashboard-content settings">
       {props.profileData && !changeSettings && (
         <>
           <div className="row">
@@ -60,68 +60,98 @@ export default function SettingsOwner(props) {
               {props.profileData.full_name.last_name}
             </div>
           </div>
-          <label htmlFor="email">Email: </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <div className="row">
+            <div className="cell-title">Email:</div>
+            <div className="cell-desc">{props.profileData.contact.email}</div>
+          </div>
           <div className="row">
             <div className="cell-title">Passwort:</div>
             <div className="cell-desc">
-              <button onClick={() => setPasswordChange(!showPasswordChange)}>
+              <button
+                className="button is-yellow"
+                onClick={() => setPasswordChange(!showPasswordChange)}
+              >
                 Password ändern
               </button>
             </div>
             {showPasswordChange === true && <ChangePassword />}
           </div>
-          <button onClick={editInfo}>Benutzerdaten ändern</button>
+          <button
+            className="button is-yellow change-settings"
+            onClick={editInfo}
+          >
+            Benutzerdaten ändern
+          </button>
         </>
       )}
       {props.profileData && changeSettings && (
         <>
-          <h2>Benutzerdaten ändern</h2>
-          {message && <p>{message}</p>}
+          <h3 className="title is-3">Benutzerdaten ändern</h3>
           <form onSubmit={submitChange}>
-            <label htmlFor="username">Username: </label>
-            <input
-              id="username"
-              type="text"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <fieldset>
-              <legend>Name</legend>
-              <input
-                id="first_name"
-                type="text"
-                name="first_name"
-                value={first_name}
-                onChange={(e) => setFirstName(e.target.value)}
-                placeholder="Hanna"
-              />
-              <input
-                id="last_name"
-                type="text"
-                name="last_name"
-                value={last_name}
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Schmidt"
-              />
+            <div className="field">
+              <p className="control">
+                <label class="label" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="input"
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </p>
+            </div>
+            <div className="field">
+              <p className="control">
+                <label class="label" htmlFor="username">
+                  Username:{" "}
+                </label>
+                <input
+                  className="input"
+                  id="username"
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </p>
+            </div>
+            <fieldset className="name">
+              <legend class="label">Name</legend>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="first_name"
+                    type="text"
+                    name="first_name"
+                    placeholder="Hanna"
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  <input
+                    className="input"
+                    id="last_name"
+                    type="text"
+                    name="last_name"
+                    placeholder="Schmidt"
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </p>
+              </div>
             </fieldset>
-            <label htmlFor="email">Email: </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button type="submit">Benutzerdaten ändern</button>
+            <button type="submit" className="button is-yellow change-settings">
+              Benutzerdaten ändern
+            </button>
           </form>
+          {message && <p className="change-setting-message">{message}</p>}
         </>
       )}
     </div>
