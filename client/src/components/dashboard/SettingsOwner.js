@@ -17,7 +17,7 @@ export default function SettingsOwner(props) {
     props.profileData.full_name.last_name
   );
 
-  const [fileData, setFileData] = useState('');
+  const [fileData, setFileData] = useState("");
 
   const editInfo = () => {
     setPasswordChange(false);
@@ -45,36 +45,36 @@ export default function SettingsOwner(props) {
       })
       .catch((err) => {
         return err;
-      })
-  }
+      });
+  };
 
   function submitPicture(e) {
     e.preventDefault();
 
     const formData = new FormData();
-      
-    formData.append('path', fileData)
 
-    axios.patch(`/api/pictures/${props.user._id}/`, formData)
-      
-    .then(response => {
-      console.log(response)
-      
-    })
-    .catch((err) => err)
+    formData.append("path", fileData);
+
+    axios
+      .patch(`/api/pictures/${props.user._id}/`, formData)
+
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => err);
   }
 
-  const handleFileChange = e => {
-    console.log(e.target.files[0])
-    setFileData(e.target.files[0])
-  }
+  const handleFileChange = (e) => {
+    console.log(e.target.files[0]);
+    setFileData(e.target.files[0]);
+  };
   return (
     <div className="dashboard-content settings">
       {props.profileData && !changeSettings && (
         <>
-          <div>
-            <img src={props.profileData.avatar.path} alt="profile picture"/>
-          </div>
+          {/* <div>
+            <img src={props.profileData.avatar.path} alt="profile picture" />
+          </div> */}
           <div className="row">
             <div className="cell-title">Username:</div>
             <div className="cell-desc">{props.profileData.username}</div>
@@ -93,30 +93,46 @@ export default function SettingsOwner(props) {
           <div className="row">
             <div className="cell-title">Passwort:</div>
             <div className="cell-desc">
-              <button
-                className="button is-yellow"
-                onClick={() => setPasswordChange(!showPasswordChange)}
-              >
-                Password ändern
-              </button>
+              {!showPasswordChange && (
+                <button
+                  className="button is-yellow"
+                  onClick={() => setPasswordChange(!showPasswordChange)}
+                >
+                  Password ändern
+                </button>
+              )}
             </div>
-            {showPasswordChange === true && <ChangePassword />}
           </div>
-          <button
-            className="button is-yellow change-settings"
-            onClick={editInfo}
-          >
-            Benutzerdaten ändern
-          </button>
+          <div className="row">
+            {showPasswordChange === true && (
+              <ChangePassword setPasswordChange={setPasswordChange} />
+            )}
+          </div>
           <form onSubmit={submitPicture} encType="multipart/form-data">
-            <label htmlFor="path">Image</label>
-            <input 
-              type='file'
-              name='file'  
-              onChange={e => handleFileChange(e)} 
-            />
-            <button type="submit">Update</button>
+            <div className="row">
+              <div className="cell-title">
+                <label htmlFor="path">Neues Profilbild:</label>
+              </div>
+              <div className="cell-desc">
+                <input
+                  type="file"
+                  name="file"
+                  onChange={(e) => handleFileChange(e)}
+                />
+                <button className="button is-salmon" type="submit">
+                  Update
+                </button>
+              </div>
+            </div>
           </form>
+          <div className="align-button-to-right">
+            <button
+              className="button is-yellow change-settings"
+              onClick={editInfo}
+            >
+              Benutzerdaten ändern
+            </button>
+          </div>
         </>
       )}
       {props.profileData && changeSettings && (
@@ -182,9 +198,14 @@ export default function SettingsOwner(props) {
                 </p>
               </div>
             </fieldset>
-            <button type="submit" className="button is-yellow change-settings">
-              Benutzerdaten ändern
-            </button>
+            <div className="align-button-to-right">
+              <button
+                type="submit"
+                className="button is-yellow change-settings"
+              >
+                Benutzerdaten ändern
+              </button>
+            </div>
           </form>
           {message && <p className="change-setting-message">{message}</p>}
         </>

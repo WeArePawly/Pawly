@@ -25,23 +25,24 @@ export default function AddService(props) {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-      formData.append("imgUrl", fileData);
-      formData.append("name", name);
-      formData.append("price", price);
-      formData.append("format", format);
-      formData.append("street", street);
-      formData.append("house_number", house_number);
-      formData.append("postal_code", postal_code);
-      formData.append("city", city);
-      formData.append("operator_name", operator_name);
-      formData.append("languages", languages);
-      formData.append("description", description);
-      formData.append("final_dates", final_dates);
-      formData.append("start_time", start_time);
-      formData.append("end_time",end_time);
-      formData.append("group_size", group_size);
+    formData.append("imgUrl", fileData);
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("format", format);
+    formData.append("street", street);
+    formData.append("house_number", house_number);
+    formData.append("postal_code", postal_code);
+    formData.append("city", city);
+    formData.append("operator_name", operator_name);
+    formData.append("languages", languages);
+    formData.append("description", description);
+    formData.append("final_dates", final_dates);
+    formData.append("start_time", start_time);
+    formData.append("end_time", end_time);
+    formData.append("group_size", group_size);
 
-    axios.post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
+    axios
+      .post(`/api/vendors/${props.user.vendor_id}/addService`, formData)
       .then((response) => {
         console.log(response);
         setMessage("Ihre Dienstleistung wurde erfolgreich erstellt!");
@@ -67,7 +68,7 @@ export default function AddService(props) {
   };
 
   const addNewDate = () => {
-    setFinal_dates(prevState => [...prevState, datesInput]);
+    setFinal_dates((prevState) => [...prevState, datesInput]);
   };
 
   const handleFileChange = (e) => {
@@ -77,7 +78,7 @@ export default function AddService(props) {
 
   return (
     <div>
-      <h2>Add Service</h2>
+      <h3 className="title is-3">Add Service</h3>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="name">Name* </label>
         <input
@@ -224,11 +225,11 @@ export default function AddService(props) {
         />
 
         <label htmlFor="imageUrl">Bild hochladen: </label>
-        <input 
-        required
-        type="file" 
-        name="file" 
-        onChange={(e) => handleFileChange(e)} 
+        <input
+          required
+          type="file"
+          name="file"
+          onChange={(e) => handleFileChange(e)}
         />
 
         <button type="submit">neuen Kurs hinzufügen</button>
