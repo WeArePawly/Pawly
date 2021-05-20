@@ -15,9 +15,9 @@ export default function Dashboard(props) {
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
           <img
-            src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621463057/pawly/logo_xqkxlw.jpg"
+            src="https://res.cloudinary.com/cloud-michelle/image/upload/v1621510947/pawly/pawly-logo-small_clxuey.png"
             width="auto"
-            height="28"
+            height="40"
           />
         </a>
         <a

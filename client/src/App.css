@@ -6,6 +6,14 @@ main {
 input[type="radio"] {
   margin-right: 5px;
 }
+.navbar-item img {
+  max-height: 3.5rem;
+}
+a.navbar-item,
+.navbar-link {
+  cursor: pointer;
+  color: #701262;
+}
 /* BUTTONS */
 .button.is-purple {
   background-color: #701262;
